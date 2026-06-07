@@ -171,3 +171,62 @@ Fixes:
 Next Step:
 
 - Run a real baseline with YOLOv8n, `epochs=50`, `imgsz=640`, and a reasonable batch size.
+
+## 2026-06-07 Baseline Training
+
+Goal:
+
+- Train the first full YOLOv8n baseline for 50 epochs at image size 640.
+
+Command:
+
+```bash
+yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=yolov8n.pt epochs=50 imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=baseline-yolov8n-640-e50-b8-v2 workers=4
+```
+
+Run Output:
+
+- Run folder: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2`
+- Best weights: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2\weights\best.pt`
+- Last weights: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2\weights\last.pt`
+- Model: YOLOv8n
+- Epochs: 50
+- Image size: 640
+- Batch: 8
+- Device: CUDA GPU
+
+Validation Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=D:/science-data/runs/fruits-yolov8-baseline/baseline-yolov8n-640-e50-b8-v2/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=baseline-yolov8n-640-e50-b8-v2-val-best workers=4
+```
+
+Results:
+
+- Precision: 0.638
+- Recall: 0.441
+- mAP50: 0.478
+- mAP50-95: 0.320
+
+Per-class mAP50:
+
+- Apple: 0.500
+- Banana: 0.484
+- Grape: 0.382
+- Orange: 0.405
+- Pineapple: 0.513
+- Watermelon: 0.586
+
+Problems:
+
+- The first baseline attempt failed after epoch 1 when `polars==1.41.2` raised `RuntimeError: unknown feature flag: 'sse3'` while Ultralytics was saving/reading `results.csv`.
+
+Fixes:
+
+- Reinstalled `polars==1.33.1`.
+- Reran the baseline with a new run name, `baseline-yolov8n-640-e50-b8-v2`.
+
+Next Step:
+
+- Inspect predictions visually.
+- Try a stronger baseline such as YOLOv8s or tune data augmentation.
