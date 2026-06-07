@@ -3,6 +3,7 @@
 | ID | Name | Type | Dataset | Code Source | Status | Best Result |
 |---|---|---|---|---|---|---|
 | 000 | Template | template | - | - | template | - |
+| 001 | Fruits YOLOv8 Baseline | baseline | lightly-ai/dataset_fruits_detection | Ultralytics YOLOv8 | setup | - |
 
 ## Status Values
 

@@ -33,6 +33,19 @@ Do not commit:
 - API keys
 - large archives
 
+## Local Data Storage
+
+Large files are stored outside this repository:
+
+```text
+D:\science-data\
+├─ datasets\
+├─ runs\
+└─ weights\
+```
+
+Use this repository for code, configs, notes, and concise result summaries.
+
 ## Standard Experiment Folder
 
 Each experiment under `papers/` should follow this structure:

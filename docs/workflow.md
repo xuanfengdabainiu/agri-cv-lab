@@ -33,3 +33,22 @@ Every meaningful run should record:
 - problems
 - fixes
 - next step
+
+## Local Storage Rule
+
+Keep the Git repository small. Large experiment assets should live on `D:\science-data`.
+
+```text
+D:\science-data\
+├─ datasets\     # downloaded datasets
+├─ runs\         # training outputs
+└─ weights\      # model weights
+```
+
+Default paths:
+
+- datasets: `D:\science-data\datasets\<dataset-name>`
+- training runs: `D:\science-data\runs\<experiment-name>`
+- weights: `D:\science-data\weights`
+
+GitHub stores code, configs, notes, logs, and small result figures only.

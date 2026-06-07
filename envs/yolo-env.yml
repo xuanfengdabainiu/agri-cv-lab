@@ -1,0 +1,16 @@
+name: agri-yolo
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - ultralytics
+      - opencv-python
+      - matplotlib
+      - pandas
+      - seaborn
+      - jupyter
