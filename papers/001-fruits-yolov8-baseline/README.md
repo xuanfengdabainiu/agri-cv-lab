@@ -28,6 +28,7 @@ yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model
 | Run | Model | Dataset | Precision | Recall | mAP50 | mAP50-95 | Notes |
 |---|---|---|---:|---:|---:|---:|---|
 | baseline-001 | YOLOv8n | Fruits Detection | - | - | - | - | planned |
+| smoke-yolov8n-320 | YOLOv8n | Fruits Detection | 0.29064 | 0.28016 | 0.18047 | 0.10253 | 1 epoch smoke test |
 
 ## Dataset
 

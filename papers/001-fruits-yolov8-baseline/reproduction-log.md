@@ -128,3 +128,46 @@ Fixes:
 Next Step:
 
 - Run a small YOLOv8 smoke test on the fruit dataset.
+
+## 2026-06-07 Smoke Test
+
+Goal:
+
+- Verify that YOLOv8 can read the dataset, use the GPU, train for one epoch, and write outputs to the D drive run folder.
+
+Command:
+
+```bash
+yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=yolov8n.pt epochs=1 imgsz=320 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=smoke-yolov8n-320 exist_ok=True workers=4
+```
+
+Run Output:
+
+- Run folder: `D:\science-data\runs\fruits-yolov8-baseline\smoke-yolov8n-320`
+- Time: 63.78 seconds
+- Model: YOLOv8n
+- Epochs: 1
+- Image size: 320
+- Batch: 8
+- Device: CUDA GPU
+
+Results:
+
+- Precision: 0.29064
+- Recall: 0.28016
+- mAP50: 0.18047
+- mAP50-95: 0.10253
+
+Problems:
+
+- Running through `conda run` caused a Windows GBK encoding error after training output was produced.
+- The training itself completed and generated validation plots/results.
+- The `weights` folder was created but no weight file was present after this smoke run.
+
+Fixes:
+
+- For future runs, call `D:\conda_envs\agri-yolo\Scripts\yolo.exe` directly instead of using `conda run`.
+
+Next Step:
+
+- Run a real baseline with YOLOv8n, `epochs=50`, `imgsz=640`, and a reasonable batch size.
