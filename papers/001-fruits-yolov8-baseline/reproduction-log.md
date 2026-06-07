@@ -54,3 +54,35 @@ Next Step:
 - Download dataset outside Git.
 - Create `configs/data.yaml`.
 - Install YOLO environment.
+
+## 2026-06-07 Dataset Download
+
+Goal:
+
+- Download the public fruit detection dataset and verify the YOLO directory structure.
+
+Dataset:
+
+- Source: https://github.com/lightly-ai/dataset_fruits_detection
+- Local path: `D:\science-data\datasets\fruits-detection`
+- Images: 8479 `.jpg`
+- Labels: 8479 `.txt`
+- Classes: Apple, Banana, Grape, Orange, Pineapple, Watermelon
+
+Command:
+
+```bash
+git clone https://github.com/lightly-ai/dataset_fruits_detection.git D:\science-data\datasets\fruits-detection
+```
+
+Config Changes:
+
+- Added `configs/data.yaml` pointing to the D drive dataset path.
+
+Problems:
+
+- None so far.
+
+Next Step:
+
+- Create and test the `agri-yolo` conda environment.

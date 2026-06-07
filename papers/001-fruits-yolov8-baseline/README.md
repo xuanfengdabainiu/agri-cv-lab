@@ -29,6 +29,25 @@ yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model
 |---|---|---|---:|---:|---:|---:|---|
 | baseline-001 | YOLOv8n | Fruits Detection | - | - | - | - | planned |
 
+## Dataset
+
+Source: https://github.com/lightly-ai/dataset_fruits_detection
+
+Local path:
+
+```text
+D:\science-data\datasets\fruits-detection
+```
+
+Classes:
+
+- Apple
+- Banana
+- Grape
+- Orange
+- Pineapple
+- Watermelon
+
 ## Notes
 
 - Data is stored outside Git.

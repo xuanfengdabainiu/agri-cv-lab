@@ -1,0 +1,12 @@
+path: D:/science-data/datasets/fruits-detection
+train: train/images
+val: valid/images
+test: test/images
+
+names:
+  0: Apple
+  1: Banana
+  2: Grape
+  3: Orange
+  4: Pineapple
+  5: Watermelon
