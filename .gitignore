@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+*.conda
+
+# Data and model artifacts
+datasets/
+data/raw/
+data/interim/
+data/processed/
+models/
+weights/
+checkpoints/
+runs/
+wandb/
+mlruns/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+*.safetensors
+
+# Archives and large generated files
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+*.key
+secrets.*
