@@ -86,3 +86,45 @@ Problems:
 Next Step:
 
 - Create and test the `agri-yolo` conda environment.
+
+## 2026-06-07 Environment Setup
+
+Goal:
+
+- Create the `agri-yolo` conda environment and verify YOLOv8 with GPU acceleration.
+
+Environment:
+
+- Conda env: `agri-yolo`
+- Location: `D:\conda_envs\agri-yolo`
+- Python: 3.10.20
+- Ultralytics: 8.4.61
+- PyTorch: 2.11.0+cu128
+- CUDA: 12.8
+- GPU: NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB
+
+Commands:
+
+```bash
+conda env create -f envs/yolo-env.yml
+conda run -n agri-yolo python -m pip install --upgrade --force-reinstall torch torchvision --index-url https://download.pytorch.org/whl/cu128
+conda run -n agri-yolo yolo checks
+```
+
+Results:
+
+- `torch.cuda.is_available()` returned `True`.
+- `yolo checks` detected CUDA GPU successfully.
+
+Problems:
+
+- Initial environment installed CPU-only PyTorch.
+
+Fixes:
+
+- Reinstalled `torch` and `torchvision` from the PyTorch CUDA 12.8 wheel index.
+- Updated `envs/yolo-env.yml` to include the CUDA wheel index.
+
+Next Step:
+
+- Run a small YOLOv8 smoke test on the fruit dataset.

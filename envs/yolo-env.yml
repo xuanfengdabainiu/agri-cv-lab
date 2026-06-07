@@ -8,6 +8,9 @@ dependencies:
   - python=3.10
   - pip
   - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch
+      - torchvision
       - ultralytics
       - opencv-python
       - matplotlib
