@@ -230,3 +230,46 @@ Next Step:
 
 - Inspect predictions visually.
 - Try a stronger baseline such as YOLOv8s or tune data augmentation.
+
+## 2026-06-21 Test Prediction and Error Analysis
+
+Goal:
+
+- Use `best.pt` to predict the test split and write the first visual error analysis.
+
+Prediction Command:
+
+```bash
+yolo detect predict model=D:/science-data/runs/fruits-yolov8-baseline/baseline-yolov8n-640-e50-b8-v2/weights/best.pt source=D:/science-data/datasets/fruits-detection/test/images imgsz=640 conf=0.25 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=baseline-yolov8n-640-e50-b8-v2-predict-test save=True
+```
+
+Test Validation Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml split=test model=D:/science-data/runs/fruits-yolov8-baseline/baseline-yolov8n-640-e50-b8-v2/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=baseline-yolov8n-640-e50-b8-v2-val-test workers=4
+```
+
+Run Output:
+
+- Prediction folder: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2-predict-test`
+- Test validation folder: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2-val-test`
+- Error analysis: `papers\001-fruits-yolov8-baseline\results\error-analysis.md`
+- Selected figures: `papers\001-fruits-yolov8-baseline\results\figures`
+
+Results:
+
+- Precision: 0.527
+- Recall: 0.415
+- mAP50: 0.408
+- mAP50-95: 0.269
+
+Main Findings:
+
+- The test score is lower than the validation score, so generalization is limited.
+- Recall is low, meaning the model misses many real fruits.
+- The dataset has mixed annotation styles: some images use group boxes, while others use instance-level boxes.
+- Dense scenes, cluttered market scenes, and Pineapple/Orange are weak cases.
+
+Next Step:
+
+- Run YOLOv8s or lower the prediction confidence threshold to study the precision-recall tradeoff.

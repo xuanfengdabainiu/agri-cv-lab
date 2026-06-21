@@ -30,6 +30,7 @@ yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model
 | baseline-001 | YOLOv8n | Fruits Detection | - | - | - | - | planned |
 | smoke-yolov8n-320 | YOLOv8n | Fruits Detection | 0.29064 | 0.28016 | 0.18047 | 0.10253 | 1 epoch smoke test |
 | baseline-yolov8n-640-e50-b8-v2 | YOLOv8n | Fruits Detection | 0.638 | 0.441 | 0.478 | 0.320 | 50 epochs, best.pt on val |
+| baseline-yolov8n-640-e50-b8-v2 | YOLOv8n | Fruits Detection | 0.527 | 0.415 | 0.408 | 0.269 | 50 epochs, best.pt on test |
 
 ## Dataset
 
@@ -55,6 +56,7 @@ Classes:
 - Data is stored outside Git.
 - Weights and full runs are excluded from Git.
 - This experiment is for learning the complete YOLO workflow: dataset setup, training, validation, prediction, metrics, and logging.
+- First test-set error analysis: [results/error-analysis.md](results/error-analysis.md)
 
 ## Local Paths
 
