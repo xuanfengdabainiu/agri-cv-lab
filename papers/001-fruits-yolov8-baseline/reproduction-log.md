@@ -273,3 +273,30 @@ Main Findings:
 Next Step:
 
 - Run YOLOv8s or lower the prediction confidence threshold to study the precision-recall tradeoff.
+
+## 2026-06-21 Plot Training Curves
+
+Goal:
+
+- Practice reading YOLO `results.csv` with Python and plotting training curves.
+
+Script:
+
+```bash
+python papers/001-fruits-yolov8-baseline/scripts/plot_yolo_results.py
+```
+
+Input:
+
+- `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2\results.csv`
+
+Output:
+
+- `papers\001-fruits-yolov8-baseline\results\figures\baseline-yolov8n-map-curve.png`
+- `papers\001-fruits-yolov8-baseline\results\figures\baseline-yolov8n-loss-curve.png`
+
+Notes:
+
+- `epoch` is the training round number.
+- `loss` roughly means how wrong the model is during training or validation. Lower is usually better.
+- `mAP`, `Precision`, and `Recall` measure detection performance. Higher is usually better.
