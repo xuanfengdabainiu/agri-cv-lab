@@ -31,9 +31,10 @@ The pretrained `.pt` files are starting points. The `best.pt` files are the weig
 
 | Model | Epochs | Precision | Recall | mAP50 | mAP50-95 |
 |---|---:|---:|---:|---:|---:|
+| YOLOv8n | 50 | 0.527 | 0.415 | 0.408 | 0.269 |
 | YOLOv8s | 20 | 0.515 | 0.408 | 0.414 | 0.266 |
 
-The main issue is still limited Recall and imperfect localization. Precision is also not high, meaning the model still has false positives.
+The YOLOv8n result was rerun on the test split and matched the previous record. YOLOv8s only improves mAP50 slightly, while Precision, Recall, and mAP50-95 are slightly lower. This is not enough to conclude that YOLOv8s is better.
 
 ## Visual Samples
 
@@ -77,20 +78,27 @@ The model sometimes confuses visually similar or unusual fruit appearances. Pine
 
 ## Why YOLOv8s Did Not Clearly Beat YOLOv8n
 
-YOLOv8s is larger than YOLOv8n, but it only trained for 20 epochs. It may not have trained long enough.
+The YOLOv8n test result was rerun and confirmed:
 
-More importantly, some errors seem caused by the dataset:
+- YOLOv8n 50 epochs: Precision 0.527, Recall 0.415, mAP50 0.408, mAP50-95 0.269
+- YOLOv8s 20 epochs: Precision 0.515, Recall 0.408, mAP50 0.414, mAP50-95 0.266
+
+So YOLOv8s only improves mAP50 slightly, while the other three metrics are slightly lower. This is not enough to conclude that YOLOv8s is better.
+
+This comparison is also not fully fair because YOLOv8n trained for 50 epochs and YOLOv8s trained for 20 epochs. YOLOv8s may need longer training.
+
+The hard-sample images suggest that both model size and data quality may matter. The dataset contains:
 
 - image styles are mixed
 - label styles are inconsistent
 - some images contain printed or decorative fruit-like objects
 - some scenes are cluttered or far away
 
-Because of these issues, simply using a larger model may not solve the main problem.
+These issues can affect both YOLOv8n and YOLOv8s, so simply increasing model size may not be sufficient.
 
 ## Current Conclusion
 
-YOLOv8s can detect many obvious fruits, but the hard samples show that the main bottleneck is not only model size. The dataset and labels are also important. Before trying many model changes, it may be useful to inspect the dataset quality and define a cleaner agricultural detection subset.
+YOLOv8s can detect many obvious fruits, but based on the YOLOv8n rerun and YOLOv8s test result, YOLOv8s 20 epochs is not clearly better. The current evidence suggests that training length and dataset quality should both be checked before concluding that a larger model helps.
 
 ## Next Step Ideas
 

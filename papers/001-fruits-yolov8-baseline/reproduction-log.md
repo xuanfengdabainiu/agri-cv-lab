@@ -388,3 +388,31 @@ Notes:
 - YOLOv8s slightly improves test mAP50, but Precision, Recall, and mAP50-95 are slightly lower than YOLOv8n.
 - The difference is small, so YOLOv8s 20 epochs is not clearly better on the test split.
 - A fairer comparison would require training YOLOv8s for 50 epochs or running repeated experiments.
+
+## 2026-06-22 YOLOv8n Test Rerun
+
+Goal:
+
+- Re-run YOLOv8n `best.pt` on the test split to confirm the comparison with YOLOv8s.
+
+Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml split=test model=D:/science-data/runs/fruits-yolov8-baseline/baseline-yolov8n-640-e50-b8-v2/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=baseline-yolov8n-640-e50-b8-v2-val-test-rerun workers=4
+```
+
+Run Output:
+
+- Test validation folder: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2-val-test-rerun`
+
+Results:
+
+- Precision: 0.527
+- Recall: 0.415
+- mAP50: 0.408
+- mAP50-95: 0.269
+
+Notes:
+
+- The rerun matches the previously recorded YOLOv8n test result.
+- This confirms that the YOLOv8n vs YOLOv8s test comparison is based on reproducible YOLOv8n metrics.
