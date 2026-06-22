@@ -66,4 +66,4 @@ Use `shared/templates/experiment/` when creating a new experiment.
 
 ## Workflow
 
-- Standard experiment workflow: [docs/experiment-workflow.md](docs/experiment-workflow.md)
+- Standard experiment workflow: [docs/workflow.md](docs/workflow.md)
