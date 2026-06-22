@@ -421,3 +421,21 @@ Follow-up:
 
 - Added YOLOv8n hard-sample analysis: `results/hard-samples-yolov8n.md`
 - The YOLOv8n hard samples show similar error types to YOLOv8s, including mixed image styles, inconsistent labels, decorative fruit-like objects, and cluttered scenes.
+
+## 2026-06-22 YOLOv8n vs YOLOv8s Same-Batch Comparison
+
+Goal:
+
+- Compare YOLOv8n and YOLOv8s on the same test batches, not only by metric numbers.
+
+Files:
+
+- YOLOv8n hard samples: `results/hard-samples-yolov8n.md`
+- YOLOv8s hard samples: `results/hard-samples-yolov8s.md`
+- Same-batch comparison: `results/yolov8n-vs-yolov8s-comparison.md`
+
+Main conclusion:
+
+- YOLOv8s 20 epochs does not clearly beat YOLOv8n 50 epochs.
+- YOLOv8s slightly improves mAP50, but YOLOv8n is slightly better on Precision, Recall, and mAP50-95.
+- Both models share similar hard cases, so the next fairer comparison should train YOLOv8s for 50 epochs.
