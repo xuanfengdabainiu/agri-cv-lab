@@ -58,6 +58,7 @@ Classes:
 - Data is stored outside Git.
 - Weights and full runs are excluded from Git.
 - This experiment is for learning the complete YOLO workflow: dataset setup, training, validation, prediction, metrics, and logging.
+- Current experiment summary: [results/experiment-summary.md](results/experiment-summary.md)
 - First test-set error analysis: [results/error-analysis.md](results/error-analysis.md)
 
 ## Local Paths
