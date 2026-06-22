@@ -416,3 +416,8 @@ Notes:
 
 - The rerun matches the previously recorded YOLOv8n test result.
 - This confirms that the YOLOv8n vs YOLOv8s test comparison is based on reproducible YOLOv8n metrics.
+
+Follow-up:
+
+- Added YOLOv8n hard-sample analysis: `results/hard-samples-yolov8n.md`
+- The YOLOv8n hard samples show similar error types to YOLOv8s, including mixed image styles, inconsistent labels, decorative fruit-like objects, and cluttered scenes.

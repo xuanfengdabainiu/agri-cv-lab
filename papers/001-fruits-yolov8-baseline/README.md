@@ -60,6 +60,7 @@ Classes:
 - This experiment is for learning the complete YOLO workflow: dataset setup, training, validation, prediction, metrics, and logging.
 - Current experiment summary: [results/experiment-summary.md](results/experiment-summary.md)
 - First test-set error analysis: [results/error-analysis.md](results/error-analysis.md)
+- YOLOv8n hard-sample analysis: [results/hard-samples-yolov8n.md](results/hard-samples-yolov8n.md)
 - YOLOv8s hard-sample analysis: [results/hard-samples-yolov8s.md](results/hard-samples-yolov8s.md)
 
 ## Local Paths

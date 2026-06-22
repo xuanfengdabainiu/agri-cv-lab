@@ -4,6 +4,8 @@
 
 This note analyzes hard test samples for the YOLOv8s quick-compare model. The goal is to understand what kinds of images are difficult for the model, instead of only looking at metric numbers.
 
+For the YOLOv8n baseline hard-sample reference, see `hard-samples-yolov8n.md`.
+
 ## Model Files
 
 Original pretrained model files:
@@ -87,7 +89,7 @@ So YOLOv8s only improves mAP50 slightly, while the other three metrics are sligh
 
 This comparison is also not fully fair because YOLOv8n trained for 50 epochs and YOLOv8s trained for 20 epochs. YOLOv8s may need longer training.
 
-The hard-sample images suggest that both model size and data quality may matter. The dataset contains:
+The YOLOv8n hard-sample analysis shows similar error types. This suggests that both model size and data quality may matter. The dataset contains:
 
 - image styles are mixed
 - label styles are inconsistent
