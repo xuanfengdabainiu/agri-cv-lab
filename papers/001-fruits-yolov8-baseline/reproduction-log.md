@@ -354,3 +354,37 @@ Notes:
 Next Step:
 
 - Either continue YOLOv8s to 50 epochs later, or use this as a quick model-size comparison and move on to data/error analysis.
+
+## 2026-06-22 YOLOv8s Test Validation
+
+Goal:
+
+- Evaluate whether the YOLOv8s 20-epoch quick compare generalizes to the held-out test split.
+
+Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml split=test model=D:/science-data/runs/fruits-yolov8-baseline/compare-yolov8s-640-e20-b8/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=compare-yolov8s-640-e20-b8-val-test workers=4
+```
+
+Run Output:
+
+- Test validation folder: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8-val-test`
+
+Results:
+
+- Precision: 0.515
+- Recall: 0.408
+- mAP50: 0.414
+- mAP50-95: 0.266
+
+Comparison with YOLOv8n 50-epoch test:
+
+- YOLOv8n 50 epochs: Precision 0.527, Recall 0.415, mAP50 0.408, mAP50-95 0.269
+- YOLOv8s 20 epochs: Precision 0.515, Recall 0.408, mAP50 0.414, mAP50-95 0.266
+
+Notes:
+
+- YOLOv8s slightly improves test mAP50, but Precision, Recall, and mAP50-95 are slightly lower than YOLOv8n.
+- The difference is small, so YOLOv8s 20 epochs is not clearly better on the test split.
+- A fairer comparison would require training YOLOv8s for 50 epochs or running repeated experiments.
