@@ -300,3 +300,57 @@ Notes:
 - `epoch` is the training round number.
 - `loss` roughly means how wrong the model is during training or validation. Lower is usually better.
 - `mAP`, `Precision`, and `Recall` measure detection performance. Higher is usually better.
+
+## 2026-06-22 YOLOv8s Quick Compare
+
+Goal:
+
+- Compare a larger YOLOv8s model with the YOLOv8n baseline.
+- Stop at 20 epochs to reduce training time and use it as a quick comparison.
+
+Training Command:
+
+```bash
+yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=yolov8s.pt epochs=50 imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=compare-yolov8s-640-e50-b8 workers=4
+```
+
+Adjustment:
+
+- The run was originally started with `epochs=50`.
+- It was stopped after epoch 20 at the user's request.
+- The output folder was renamed from `compare-yolov8s-640-e50-b8` to `compare-yolov8s-640-e20-b8` to match the actual run.
+
+Validation Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=D:/science-data/runs/fruits-yolov8-baseline/compare-yolov8s-640-e20-b8/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=compare-yolov8s-640-e20-b8-val-best workers=4
+```
+
+Run Output:
+
+- Run folder: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8`
+- Validation folder: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8-val-best`
+- Best weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8\weights\best.pt`
+- Last weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8\weights\last.pt`
+
+Results:
+
+- Precision: 0.592
+- Recall: 0.450
+- mAP50: 0.481
+- mAP50-95: 0.310
+
+Comparison with YOLOv8n 50-epoch validation:
+
+- YOLOv8n 50 epochs: Precision 0.638, Recall 0.441, mAP50 0.478, mAP50-95 0.320
+- YOLOv8s 20 epochs: Precision 0.592, Recall 0.450, mAP50 0.481, mAP50-95 0.310
+
+Notes:
+
+- YOLOv8s has more parameters than YOLOv8n, so it trains more slowly.
+- After only 20 epochs, YOLOv8s slightly improved Recall and mAP50, but mAP50-95 was slightly lower.
+- This is not a fully fair comparison yet because YOLOv8n trained for 50 epochs and YOLOv8s trained for 20 epochs.
+
+Next Step:
+
+- Either continue YOLOv8s to 50 epochs later, or use this as a quick model-size comparison and move on to data/error analysis.
