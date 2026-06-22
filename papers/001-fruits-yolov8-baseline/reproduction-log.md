@@ -389,6 +389,40 @@ Notes:
 - The difference is small, so YOLOv8s 20 epochs is not clearly better on the test split.
 - A fairer comparison would require training YOLOv8s for 50 epochs or running repeated experiments.
 
+## 2026-06-22 YOLOv8s Hard-Sample Analysis
+
+Goal:
+
+- Inspect YOLOv8s test predictions visually and identify common hard cases.
+- Avoid judging the model only by metric numbers.
+
+Files:
+
+- Hard-sample note: `results/hard-samples-yolov8s.md`
+- Batch 0 labels: `results/figures/yolov8s-hard-batch0-labels.jpg`
+- Batch 0 predictions: `results/figures/yolov8s-hard-batch0-pred.jpg`
+- Batch 1 labels: `results/figures/yolov8s-hard-batch1-labels.jpg`
+- Batch 1 predictions: `results/figures/yolov8s-hard-batch1-pred.jpg`
+- Batch 2 labels: `results/figures/yolov8s-hard-batch2-labels.jpg`
+- Batch 2 predictions: `results/figures/yolov8s-hard-batch2-pred.jpg`
+
+Main observations:
+
+- YOLOv8s predicts more boxes in some dense fruit scenes.
+- It still has false positives on printed, decorative, or fruit-like objects.
+- It still misses some small, occluded, or cluttered fruits.
+- Some errors are affected by inconsistent label styles, such as group boxes vs individual fruit boxes.
+
+Conclusion:
+
+- YOLOv8s 20 epochs is not clearly better than YOLOv8n on the test split.
+- Hard samples suggest that data quality and label consistency should be checked before assuming that a larger model will solve the problem.
+
+Logging issue:
+
+- This analysis was created earlier in commit `0fa0e95`, but this reproduction-log entry was missing at that time.
+- The cause was a workflow gap: the result file and figures were committed, but the reproduction log was not updated in the same step.
+
 ## 2026-06-22 YOLOv8n Test Rerun
 
 Goal:

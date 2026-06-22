@@ -63,3 +63,7 @@ papers/000-experiment-slug/
 ```
 
 Use `shared/templates/experiment/` when creating a new experiment.
+
+## Workflow
+
+- Standard experiment workflow: [docs/experiment-workflow.md](docs/experiment-workflow.md)
