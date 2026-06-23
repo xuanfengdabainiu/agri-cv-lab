@@ -80,10 +80,13 @@ If the laptop GPU cannot fit the paper's exact settings, the reproduction log mu
 - Dataset: `D:\science-data\datasets\blueberry-dcm`
 - Runs: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction`
 - Weights: `D:\science-data\weights`
+- Official code: `D:\science-data\code\BlueberryDetectionAndCounting`
+- Conda environment: `D:\conda_envs\blueberry-yolo`
 
 ## Notes
 
 - This experiment is now planned as a full reproduction, not a simplified baseline.
 - The first technical task is to inspect the Zenodo dataset files and official GitHub code to identify the exact split, label format, training parameters, and evaluation scripts.
+- The environment record is stored in `configs/environment.yaml`.
 - If conversion is needed, conversion scripts should be placed in `scripts/`.
 - Every run or analysis must be recorded in `reproduction-log.md`.

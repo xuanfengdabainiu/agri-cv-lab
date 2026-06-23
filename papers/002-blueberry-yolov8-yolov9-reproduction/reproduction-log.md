@@ -58,3 +58,48 @@ Immediate next step:
 
 - Download the BlueberryDCM dataset and official code to D drive.
 - Inspect the official file structure before writing configs or commands.
+
+## 2026-06-23 Environment Setup
+
+Goal:
+
+- Prepare a separate environment for the Blueberry YOLOv8/YOLOv9 full reproduction.
+- Keep it separate from the previous Fruits YOLOv8 experiment environment.
+
+Local code:
+
+- Official repository: `D:\science-data\code\BlueberryDetectionAndCounting`
+- GitHub URL: https://github.com/vicdxxx/BlueberryDetectionAndCounting
+- Checked commit: `c47858d`
+
+Environment:
+
+- Conda environment: `D:\conda_envs\blueberry-yolo`
+- Python: 3.10.20
+- PyTorch: 2.11.0+cu128
+- TorchVision: 0.26.0+cu128
+- CUDA available: yes
+- GPU: NVIDIA GeForce RTX 5060 Laptop GPU
+- Ultralytics: 8.4.61
+
+Important packages:
+
+- `opencv-python==4.13.0.92`
+- `Pillow==9.5.0`
+- `pandas==2.3.3`
+- `albumentations==2.0.8`
+- `pycocotools==2.0.11`
+- `tensorboard==2.20.0`
+- `polars==1.33.1`
+
+Validation:
+
+- YOLOv8 CLI works with `D:\conda_envs\blueberry-yolo\Scripts\yolo.exe`.
+- YOLOv9 `train.py --help` loads successfully.
+- YOLOv8 official `train_yolov8.py` currently fails because `config_da.py` is missing from the repository.
+
+Notes:
+
+- The official YOLOv8 script also contains author-specific Windows paths. For exact reproduction, this must be inspected and adapted carefully.
+- YOLOv9 appears more directly runnable once the dataset YAML and weights are prepared.
+- Environment record added: `configs/environment.yaml`.
