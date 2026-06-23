@@ -2,16 +2,19 @@
 
 ## Goal
 
-Reproduce a simplified version of the paper **Canopy Image-based Blueberry Detection by YOLOv8 and YOLOv9**.
+Fully reproduce the main experiments from **Canopy Image-based Blueberry Detection by YOLOv8 and YOLOv9**.
 
-The first goal is not to match the highest reported score immediately. The first goal is to build a clean reproduction workflow:
+The target is to reproduce the paper's main workflow as closely as possible:
 
-- download the public dataset
-- inspect label format
-- convert or configure data for YOLO
-- run a small YOLO baseline
-- evaluate detection and counting results
-- write error analysis and experiment summary
+- download the public BlueberryDCM dataset
+- inspect the official code and dataset split
+- reproduce YOLOv8l experiments
+- reproduce YOLOv9-c experiments
+- test high-resolution settings such as 2560 and 3520 image size if hardware allows
+- compute detection metrics
+- compute fruit counting RMSE
+- compute Blue fruit percentage RMSE
+- compare reproduced results with the paper
 
 ## Paper
 
@@ -63,13 +66,14 @@ Large dataset files should stay on D drive and should not be committed to Git.
 
 ## Planned Runs
 
-| Run | Model | Epochs | Image Size | Purpose |
-|---|---|---:|---:|---|
-| smoke-yolov8n-640 | YOLOv8n | 1 | 640 | Check dataset config and training command. |
-| baseline-yolov8n-640 | YOLOv8n | 50 | 640 | Small baseline. |
-| baseline-yolov8s-640 | YOLOv8s | 50 | 640 | Compare with larger model. |
+| Run | Model | Image Size | Purpose |
+|---|---|---:|---|
+| inspect-dataset | - | - | Inspect official dataset structure, labels, and split. |
+| reproduce-yolov8l-2560 | YOLOv8l | 2560 | Reproduce main YOLOv8l high-resolution experiment. |
+| reproduce-yolov9c-2560 | YOLOv9-c | 2560 | Reproduce main YOLOv9-c high-resolution experiment. |
+| reproduce-yolov8l-3520 | YOLOv8l | 3520 | Reproduce the highest-resolution YOLOv8l result if hardware allows. |
 
-The paper reports high-resolution experiments such as 2560 and 3520 image size, but this reproduction will start from 640 to keep the first run manageable.
+If the laptop GPU cannot fit the paper's exact settings, the reproduction log must record the limitation clearly and use the closest possible batch size or image size.
 
 ## Local Paths
 
@@ -79,7 +83,7 @@ The paper reports high-resolution experiments such as 2560 and 3520 image size, 
 
 ## Notes
 
-- This experiment starts from a simplified reproduction.
-- The first technical task is to inspect the Zenodo dataset files and decide whether labels can be used directly by Ultralytics YOLO.
+- This experiment is now planned as a full reproduction, not a simplified baseline.
+- The first technical task is to inspect the Zenodo dataset files and official GitHub code to identify the exact split, label format, training parameters, and evaluation scripts.
 - If conversion is needed, conversion scripts should be placed in `scripts/`.
 - Every run or analysis must be recorded in `reproduction-log.md`.

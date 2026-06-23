@@ -4,7 +4,7 @@
 |---|---|---|---|---|---|---|
 | 000 | Template | template | - | - | template | - |
 | 001 | Fruits YOLOv8 Baseline | baseline | lightly-ai/dataset_fruits_detection | Ultralytics YOLOv8 | done | YOLOv8s 50e test mAP50 0.439 |
-| 002 | Blueberry YOLOv8/YOLOv9 Reproduction | reproduction | BlueberryDCM | vicdxxx/BlueberryDetectionAndCounting | setup | planned |
+| 002 | Blueberry YOLOv8/YOLOv9 Reproduction | reproduction | BlueberryDCM | vicdxxx/BlueberryDetectionAndCounting | setup | full reproduction planned |
 
 ## Status Values
 

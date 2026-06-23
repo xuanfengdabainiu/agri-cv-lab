@@ -79,11 +79,11 @@ Reported result summary:
 
 ## 6. What I Can Change
 
-Good beginner-friendly changes:
+After the full reproduction is complete, possible improvement directions are:
 
-1. Start with YOLOv8n or YOLOv8s at 640 image size.
-2. Compare YOLOv8n and YOLOv8s before trying YOLOv8l.
-3. Add hard-sample analysis for occluded blueberries.
-4. Compare detection mAP with counting error.
-5. Study whether `visible` and `occluded` examples should be trained as two classes or only used for error analysis.
-6. Try a cleaned subset or split images by orchard/lighting condition.
+1. Compare lower-cost YOLOv8n/YOLOv8s models with the paper's YOLOv8l and YOLOv9-c.
+2. Study whether high-resolution input is necessary for counting accuracy.
+3. Add detailed hard-sample analysis for occluded blueberries.
+4. Compare detection mAP with counting RMSE and Blue fruit percentage RMSE.
+5. Study whether `visible` and `occluded` examples should be trained as separate classes or only used for error analysis.
+6. Try a cleaner split by orchard, lighting condition, or occlusion level.
