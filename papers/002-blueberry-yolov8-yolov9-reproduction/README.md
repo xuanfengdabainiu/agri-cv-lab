@@ -26,7 +26,7 @@ The target is to reproduce the paper's main workflow as closely as possible:
 
 ## Status
 
-`setup`
+`dataset downloaded`
 
 ## Why This Paper
 
@@ -63,6 +63,13 @@ D:\science-data\datasets\blueberry-dcm
 ```
 
 Large dataset files should stay on D drive and should not be committed to Git.
+
+Current local dataset status:
+
+- Archive: `D:\science-data\datasets\blueberry-dcm\BlueberryDCM.7z`
+- Extracted folder: `D:\science-data\datasets\blueberry-dcm\extracted\Dataset`
+- Verified MD5: `77fc808520dbe7751cb367dbd06ea32f`
+- Extracted files: 140 images, 140 JSON labels, 140 TXT labels, 140 XML labels
 
 ## Planned Runs
 

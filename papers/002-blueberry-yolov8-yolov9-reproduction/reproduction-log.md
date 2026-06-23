@@ -103,3 +103,42 @@ Notes:
 - The official YOLOv8 script also contains author-specific Windows paths. For exact reproduction, this must be inspected and adapted carefully.
 - YOLOv9 appears more directly runnable once the dataset YAML and weights are prepared.
 - Environment record added: `configs/environment.yaml`.
+
+## 2026-06-23 Dataset Download and Extraction
+
+Goal:
+
+- Download and verify the public BlueberryDCM dataset from Zenodo.
+- Keep the dataset on D drive, not in the Git repository.
+
+Dataset source:
+
+- Zenodo record: https://zenodo.org/records/14002517
+- File: `BlueberryDCM.7z`
+- Official file size: `107267412` bytes
+- Official MD5: `77fc808520dbe7751cb367dbd06ea32f`
+
+Local dataset:
+
+- Archive: `D:\science-data\datasets\blueberry-dcm\BlueberryDCM.7z`
+- Extracted folder: `D:\science-data\datasets\blueberry-dcm\extracted\Dataset`
+
+Download notes:
+
+- Single-connection download from Zenodo was very slow and failed twice before completion.
+- The final download was completed by splitting the file into byte ranges, downloading ranges in parallel, and merging them.
+- Final local file size: `107267412` bytes
+- Final local MD5: `77fc808520dbe7751cb367dbd06ea32f`
+- Conclusion: the downloaded archive matches the official Zenodo checksum.
+
+Extracted file count:
+
+- `.jpg`: 140
+- `.json`: 140
+- `.txt`: 140
+- `.xml`: 140
+
+Notes:
+
+- Each image appears to have three annotation formats: JSON, TXT, and XML.
+- Next step is dataset inspection: confirm label format, class IDs, split strategy, and whether the official code expects YOLO TXT, VOC XML, or JSON annotations.
