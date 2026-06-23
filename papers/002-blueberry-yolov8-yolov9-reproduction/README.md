@@ -26,7 +26,7 @@ The target is to reproduce the paper's main workflow as closely as possible:
 
 ## Status
 
-`dataset downloaded`
+`local split prepared`
 
 ## Why This Paper
 
@@ -68,8 +68,17 @@ Current local dataset status:
 
 - Archive: `D:\science-data\datasets\blueberry-dcm\BlueberryDCM.7z`
 - Extracted folder: `D:\science-data\datasets\blueberry-dcm\extracted\Dataset`
+- YOLO local split: `D:\science-data\datasets\blueberry-dcm\yolo-local-split`
+- YOLO data config: `configs/blueberry-local-seed42.yaml`
+- Split lists: `configs/split-local-seed42/`
 - Verified MD5: `77fc808520dbe7751cb367dbd06ea32f`
 - Extracted files: 140 images, 140 JSON labels, 140 TXT labels, 140 XML labels
+- Local split: 112 train, 14 val, 14 test
+- Local classes:
+  - `0`: Unblue
+  - `1`: Blue
+
+The official `train2017.0`, `val2017.0`, and `test2017.0` split folders were not included in the released Zenodo archive. For the first reproduction, this project uses a fixed local split with seed `42`.
 
 ## Planned Runs
 

@@ -1,0 +1,7 @@
+path: D:/science-data/datasets/blueberry-dcm/yolo-local-split
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: Unblue
+  1: Blue

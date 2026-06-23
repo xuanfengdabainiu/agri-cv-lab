@@ -181,3 +181,68 @@ Next step:
 - Remap YOLO class `3` to `1` for a standard two-class setup:
   - `0`: Unblue
   - `1`: Blue
+
+## 2026-06-23 Local Train/Val/Test Split
+
+Goal:
+
+- Create a simple fixed split for the first reproduction.
+- Use the released data even though the official split folders are missing.
+
+Script:
+
+- `scripts/prepare_local_split.py`
+
+Inputs:
+
+- Source folder: `D:\science-data\datasets\blueberry-dcm\extracted\Dataset`
+- Source labels: original YOLO `.txt` labels with class IDs `0` and `3`
+
+Outputs:
+
+- YOLO dataset folder: `D:\science-data\datasets\blueberry-dcm\yolo-local-split`
+- YOLO data config: `configs/blueberry-local-seed42.yaml`
+- Split lists:
+  - `configs/split-local-seed42/train.txt`
+  - `configs/split-local-seed42/val.txt`
+  - `configs/split-local-seed42/test.txt`
+
+Split settings:
+
+- Random seed: `42`
+- Train: 112 images
+- Val: 14 images
+- Test: 14 images
+
+Label handling:
+
+- Original class `0` kept as `0`: Unblue
+- Original class `3` remapped to `1`: Blue
+- Final class counts:
+  - `0`: 10,981 boxes
+  - `1`: 6,974 boxes
+- Total boxes after conversion: 17,955
+
+Reason:
+
+- This is the first reproduction, so the split is intentionally simple.
+- The split is still fixed and documented, so future runs can reproduce the same data setup.
+
+Validation check:
+
+- Command used:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect val data=C:\Users\liuqilu\Documents\science\agri-cv-lab\papers\002-blueberry-yolov8-yolov9-reproduction\configs\blueberry-local-seed42.yaml model=yolov8n.pt imgsz=640 batch=4 device=0 project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=data-check-yolov8n-640
+```
+
+- Result: YOLO successfully read the local validation split.
+- Val images: 14
+- Val boxes: 959
+- Saved run folder: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\data-check-yolov8n-640`
+
+Note:
+
+- This was only a data loading check, not a real model evaluation.
+- The command used COCO-pretrained `yolov8n.pt`, so the printed class names came from COCO and the metrics were zero.
+- This is expected and does not indicate a dataset problem.
