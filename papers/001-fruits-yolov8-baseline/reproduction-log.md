@@ -562,3 +562,32 @@ Conclusion:
 
 - Longer training helps YOLOv8s, but it does not fully solve the dataset-related hard cases.
 - The next useful direction is data cleaning or building a cleaner real-fruit subset.
+
+## 2026-06-23 Final Experiment Summary and Closure
+
+Goal:
+
+- Close the current Fruits Detection YOLOv8 baseline experiment.
+- Update the final error analysis and experiment summary using all completed runs.
+
+Updated Files:
+
+- Final error analysis: `results/error-analysis.md`
+- Final experiment summary: `results/experiment-summary.md`
+- Experiment README status changed to `closed`.
+
+Final best run:
+
+- Model: YOLOv8s
+- Epochs: 50
+- Test Precision: 0.542
+- Test Recall: 0.438
+- Test mAP50: 0.439
+- Test mAP50-95: 0.294
+
+Final conclusion:
+
+- YOLOv8s 50 epochs is better than YOLOv8n 50 epochs on this test split.
+- The improvement is moderate, and hard samples still show dataset-quality issues.
+- This experiment should end here.
+- The next experiment should focus on data cleaning or building a cleaner real-fruit subset.

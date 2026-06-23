@@ -13,7 +13,7 @@ Train a clean Ultralytics YOLOv8 baseline on a public fruit detection dataset, t
 
 ## Status
 
-`baseline complete`
+`closed`
 
 ## Quick Start
 
@@ -61,11 +61,12 @@ Classes:
 - Weights and full runs are excluded from Git.
 - This experiment is for learning the complete YOLO workflow: dataset setup, training, validation, prediction, metrics, and logging.
 - Current experiment summary: [results/experiment-summary.md](results/experiment-summary.md)
-- First test-set error analysis: [results/error-analysis.md](results/error-analysis.md)
+- Final error analysis: [results/error-analysis.md](results/error-analysis.md)
 - YOLOv8n hard-sample analysis: [results/hard-samples-yolov8n.md](results/hard-samples-yolov8n.md)
 - YOLOv8s hard-sample analysis: [results/hard-samples-yolov8s.md](results/hard-samples-yolov8s.md)
 - YOLOv8s 50-epoch hard-sample analysis: [results/hard-samples-yolov8s-e50.md](results/hard-samples-yolov8s-e50.md)
 - YOLOv8n vs YOLOv8s comparison: [results/yolov8n-vs-yolov8s-comparison.md](results/yolov8n-vs-yolov8s-comparison.md)
+- Final conclusion: YOLOv8s 50 epochs is the best run, but data quality and label consistency are the next bottlenecks.
 
 ## Local Paths
 

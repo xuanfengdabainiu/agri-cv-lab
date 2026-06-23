@@ -2,125 +2,191 @@
 
 ## Purpose
 
-This experiment is the first baseline practice for agricultural object detection. The main goal is not to propose a new method yet, but to learn a complete YOLO workflow:
+This experiment is the first complete agricultural computer vision practice in this repository. The goal was not to propose a new algorithm, but to learn and record a full YOLO object detection workflow:
 
+- set up the environment
 - prepare a dataset
-- configure the environment
-- train a baseline model
-- validate and test the trained weights
+- train baseline models
+- validate and test trained weights
+- compare model sizes
 - inspect prediction errors
-- compare a slightly larger model
 - keep reproducible experiment records
 
-The task is fruit detection with six classes: Apple, Banana, Grape, Orange, Pineapple, and Watermelon.
+The task is fruit detection with six classes:
 
-## Experiments
+- Apple
+- Banana
+- Grape
+- Orange
+- Pineapple
+- Watermelon
 
-### Experiment 1: YOLOv8n Baseline
+## Dataset
 
+Dataset:
+
+- Fruits Detection dataset
+- Local path: `D:\science-data\datasets\fruits-detection`
+
+The dataset is useful for learning YOLO, but it is visually mixed. It contains clean fruit photos, market scenes, product-like images, paintings, printed fruit-like objects, and decorative objects.
+
+## Environment
+
+- Conda environment: `D:\conda_envs\agri-yolo`
+- Main tool: Ultralytics YOLOv8
+- GPU: NVIDIA GeForce RTX 5060 Laptop GPU
+- Large local outputs: `D:\science-data\runs\fruits-yolov8-baseline`
+
+## Completed Runs
+
+### 1. Smoke Test
+
+- Run: `smoke-yolov8n-320`
+- Model: YOLOv8n
+- Epochs: 1
+- Image size: 320
+- Purpose: check whether the environment, dataset config, and training command work.
+
+### 2. YOLOv8n Baseline
+
+- Run: `baseline-yolov8n-640-e50-b8-v2`
 - Model: YOLOv8n
 - Epochs: 50
 - Image size: 640
 - Batch size: 8
-- Main run: `baseline-yolov8n-640-e50-b8-v2`
 - Best weights: `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2\weights\best.pt`
 
-YOLOv8n is the smallest model in the YOLOv8 family. It is fast and suitable as the first baseline.
+This is the main small-model baseline.
 
-### Experiment 2: YOLOv8s Quick Compare
+### 3. YOLOv8s Quick Compare
 
+- Run: `compare-yolov8s-640-e20-b8`
 - Model: YOLOv8s
 - Epochs: 20
 - Image size: 640
 - Batch size: 8
-- Main run: `compare-yolov8s-640-e20-b8`
 - Best weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8\weights\best.pt`
 
-YOLOv8s is larger than YOLOv8n. It has more parameters and may have better learning ability, but it trains more slowly. This run was originally started with 50 epochs, then stopped at epoch 20 to save time.
+This run was used as an early check. It was not a fair final comparison because YOLOv8n trained for 50 epochs while YOLOv8s trained for only 20 epochs.
 
-## Results
+### 4. YOLOv8s Fair Comparison
+
+- Run: `compare-yolov8s-640-e50-b8-v2`
+- Model: YOLOv8s
+- Epochs: 50
+- Image size: 640
+- Batch size: 8
+- Best weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2\weights\best.pt`
+
+This is the fairer comparison with YOLOv8n because both models trained for 50 epochs.
+
+## Final Results
 
 ### Validation Set
-
-The validation set is used during training to check model performance and select `best.pt`.
 
 | Model | Epochs | Precision | Recall | mAP50 | mAP50-95 |
 |---|---:|---:|---:|---:|---:|
 | YOLOv8n | 50 | 0.638 | 0.441 | 0.478 | 0.320 |
 | YOLOv8s | 20 | 0.592 | 0.450 | 0.481 | 0.310 |
-
-On the validation set, YOLOv8s has slightly higher Recall and mAP50, but lower Precision and mAP50-95. This means YOLOv8s may find a few more objects, but its predictions are not clearly more accurate overall.
+| YOLOv8s | 50 | 0.638 | 0.474 | 0.496 | 0.332 |
 
 ### Test Set
-
-The test set is used after training to check final generalization.
 
 | Model | Epochs | Precision | Recall | mAP50 | mAP50-95 |
 |---|---:|---:|---:|---:|---:|
 | YOLOv8n | 50 | 0.527 | 0.415 | 0.408 | 0.269 |
 | YOLOv8s | 20 | 0.515 | 0.408 | 0.414 | 0.266 |
-
-On the test set, YOLOv8s only slightly improves mAP50, while Precision, Recall, and mAP50-95 are slightly lower. The difference is small, so YOLOv8s 20 epochs cannot be considered clearly better than YOLOv8n 50 epochs.
+| YOLOv8s | 50 | 0.542 | 0.438 | 0.439 | 0.294 |
 
 ## What The Metrics Mean
 
-- Precision: among the boxes predicted by the model, how many are correct. Higher Precision means fewer false detections.
-- Recall: among the real objects, how many are found by the model. Higher Recall means fewer missed objects.
+- Precision: among predicted boxes, how many are correct. Higher Precision means fewer false detections.
+- Recall: among real objects, how many are found. Higher Recall means fewer missed objects.
 - mAP50: a common detection score using a looser box-matching standard.
-- mAP50-95: a stricter detection score. It requires boxes to be more accurately located, so it is usually lower than mAP50.
+- mAP50-95: a stricter detection score. It requires boxes to be more accurately located.
 
 ## Main Findings
 
-1. YOLOv8n is a usable baseline
+### 1. The Full YOLO Workflow Was Completed
 
-YOLOv8n completed the full 50-epoch training and produced a working `best.pt`. It gives a reasonable first baseline, but the test Recall is only 0.415, so missed detections are still common.
+This experiment successfully covered:
 
-2. YOLOv8s has potential but is not clearly better yet
+- dataset setup
+- training
+- validation
+- test evaluation
+- prediction image inspection
+- metrics recording
+- hard-sample analysis
+- GitHub logging
+- workflow check with GitHub Actions
 
-YOLOv8s reached similar performance after only 20 epochs, which suggests that a larger model may be useful. However, the test results do not show a clear improvement. A fairer comparison would require training YOLOv8s for 50 epochs.
+### 2. YOLOv8s 50 Epochs Is The Best Run
 
-3. Validation results and test results are different
+YOLOv8s 50 epochs improves all four test metrics compared with YOLOv8n 50 epochs:
 
-Both models perform better on the validation set than on the test set. This means the test set is harder or less similar to the training data. The test set result is more important when judging final generalization.
+- Precision: 0.527 to 0.542
+- Recall: 0.415 to 0.438
+- mAP50: 0.408 to 0.439
+- mAP50-95: 0.269 to 0.294
 
-4. Recall is still a key problem
+This shows that a larger model and longer training help.
 
-Both models have relatively low Recall. This means the models still miss many real fruits, especially in dense or cluttered scenes.
+### 3. The Improvement Is Moderate
 
-5. Dataset quality affects the result
+YOLOv8s 50 epochs is better, but the improvement is not large enough to say the task is solved. The best test Recall is still only 0.438, meaning missed detections are still common.
 
-The dataset contains many different image types, including real fruit photos, market scenes, product photos, and some unusual images. The annotation style is also not fully consistent: some images use one large box for a group of fruits, while others use many boxes for individual fruits. This makes training and evaluation harder.
+### 4. Dataset Quality Is The Main Next Bottleneck
 
-## Current Conclusion
+Hard-sample analysis shows repeated issues:
 
-The first baseline workflow has been completed successfully. YOLOv8n 50 epochs is the current main baseline. YOLOv8s 20 epochs is a useful quick comparison, but it is not enough to prove that YOLOv8s is better.
+- mixed image styles
+- decorative or printed fruit-like objects
+- paintings and non-real fruit scenes
+- cluttered market scenes
+- inconsistent group-box vs individual-box labels
 
-At this stage, the most important result is not only the model score, but also that the full experiment process has been established:
+These issues affect both YOLOv8n and YOLOv8s.
 
-- data is stored on D drive
-- code and records are stored in GitHub
-- metrics are recorded in `metrics.md`
-- errors are analyzed in `error-analysis.md`
-- training curves can be plotted with Python
+### 5. The Experiment Record System Improved
 
-## Next Steps
+During this experiment, a missing `reproduction-log.md` entry was found and fixed. A GitHub Actions workflow check was added to prevent the same mistake:
 
-1. Continue YOLOv8s to 50 epochs
+- If `configs/`, `results/`, or `scripts/` changes, `reproduction-log.md` must also change.
 
-This would make the comparison with YOLOv8n fairer, but it will take more time.
+## Final Conclusion
 
-2. Analyze hard examples
+This experiment can be closed.
 
-Collect images where the model misses objects or predicts wrong classes. This can help identify whether the main problem is small objects, dense scenes, class confusion, or noisy labels.
+The best result is YOLOv8s trained for 50 epochs:
 
-3. Try a lower confidence threshold
+- Precision: 0.542
+- Recall: 0.438
+- mAP50: 0.439
+- mAP50-95: 0.294
 
-Lowering the prediction confidence threshold may improve Recall, but it may also reduce Precision by adding more false detections.
+The final conclusion is:
 
-4. Practice Python analysis
+> YOLOv8s 50 epochs is better than YOLOv8n 50 epochs on this fruit detection dataset, but the improvement is moderate. The next meaningful improvement should focus on data cleaning and label consistency, not only trying larger models.
 
-Continue using Python to read `results.csv`, plot curves, compare runs, and summarize metrics automatically.
+## Final Files
 
-5. Consider a cleaner agricultural dataset
+Important result files:
 
-The current dataset is useful for learning YOLO, but it is visually mixed. A cleaner fruit or crop dataset may be better for future agricultural detection experiments.
+- `results/metrics.md`
+- `results/error-analysis.md`
+- `results/hard-samples-yolov8n.md`
+- `results/hard-samples-yolov8s.md`
+- `results/hard-samples-yolov8s-e50.md`
+- `results/yolov8n-vs-yolov8s-comparison.md`
+- `reproduction-log.md`
+
+## Recommended Next Experiment
+
+Start a new experiment focused on data quality:
+
+1. Create a cleaner real-fruit subset.
+2. Remove or separate paintings, printed images, decorative objects, and confusing market signs.
+3. Decide whether labels should be group boxes or individual fruit boxes.
+4. Retrain YOLOv8n or YOLOv8s on the cleaned subset.
+5. Compare original dataset vs cleaned subset.
