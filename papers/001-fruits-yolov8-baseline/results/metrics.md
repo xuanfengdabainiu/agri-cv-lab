@@ -8,3 +8,5 @@
 | baseline-yolov8n-640-e50-b8-v2 | 2026-06-21 | YOLOv8n | test | 50 | 640 | 0.527 | 0.415 | 0.408 | 0.269 | best.pt on held-out test split |
 | compare-yolov8s-640-e20-b8 | 2026-06-22 | YOLOv8s | val | 20 | 640 | 0.592 | 0.450 | 0.481 | 0.310 | quick compare; stopped at epoch 20 |
 | compare-yolov8s-640-e20-b8 | 2026-06-22 | YOLOv8s | test | 20 | 640 | 0.515 | 0.408 | 0.414 | 0.266 | best.pt on held-out test split |
+| compare-yolov8s-640-e50-b8-v2 | 2026-06-23 | YOLOv8s | val | 50 | 640 | 0.638 | 0.474 | 0.496 | 0.332 | 50-epoch fair comparison; final epoch val metrics |
+| compare-yolov8s-640-e50-b8-v2 | 2026-06-23 | YOLOv8s | test | 50 | 640 | 0.542 | 0.438 | 0.439 | 0.294 | best.pt on held-out test split |

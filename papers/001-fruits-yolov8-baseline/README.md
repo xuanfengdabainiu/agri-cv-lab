@@ -33,6 +33,8 @@ yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model
 | baseline-yolov8n-640-e50-b8-v2 | YOLOv8n | Fruits Detection | 0.527 | 0.415 | 0.408 | 0.269 | 50 epochs, best.pt on test |
 | compare-yolov8s-640-e20-b8 | YOLOv8s | Fruits Detection | 0.592 | 0.450 | 0.481 | 0.310 | 20 epochs, best.pt on val |
 | compare-yolov8s-640-e20-b8 | YOLOv8s | Fruits Detection | 0.515 | 0.408 | 0.414 | 0.266 | 20 epochs, best.pt on test |
+| compare-yolov8s-640-e50-b8-v2 | YOLOv8s | Fruits Detection | 0.638 | 0.474 | 0.496 | 0.332 | 50 epochs, final epoch on val |
+| compare-yolov8s-640-e50-b8-v2 | YOLOv8s | Fruits Detection | 0.542 | 0.438 | 0.439 | 0.294 | 50 epochs, best.pt on test |
 
 ## Dataset
 

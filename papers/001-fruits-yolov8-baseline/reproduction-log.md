@@ -473,3 +473,62 @@ Main conclusion:
 - YOLOv8s 20 epochs does not clearly beat YOLOv8n 50 epochs.
 - YOLOv8s slightly improves mAP50, but YOLOv8n is slightly better on Precision, Recall, and mAP50-95.
 - Both models share similar hard cases, so the next fairer comparison should train YOLOv8s for 50 epochs.
+
+## 2026-06-23 YOLOv8s 50-Epoch Fair Comparison
+
+Goal:
+
+- Train YOLOv8s for 50 epochs so it can be compared more fairly with the YOLOv8n 50-epoch baseline.
+
+Training Command:
+
+```bash
+yolo detect train data=papers/001-fruits-yolov8-baseline/configs/data.yaml model=yolov8s.pt epochs=50 imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=compare-yolov8s-640-e50-b8-v2 workers=4
+```
+
+Run Output:
+
+- Run folder: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2`
+- Best weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2\weights\best.pt`
+- Last weights: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2\weights\last.pt`
+
+Progress Notes:
+
+- Epoch 5: Precision 0.465, Recall 0.345, mAP50 0.321, mAP50-95 0.190
+- Epoch 10: Precision 0.507, Recall 0.423, mAP50 0.420, mAP50-95 0.264
+- Epoch 15: Precision 0.565, Recall 0.442, mAP50 0.465, mAP50-95 0.298
+- Epoch 20: Precision 0.594, Recall 0.436, mAP50 0.471, mAP50-95 0.304
+- Epoch 25: Precision 0.598, Recall 0.447, mAP50 0.485, mAP50-95 0.315
+- Epoch 30: Precision 0.654, Recall 0.437, mAP50 0.494, mAP50-95 0.331
+- Epoch 35: Precision 0.654, Recall 0.456, mAP50 0.502, mAP50-95 0.335
+- Epoch 40: Precision 0.614, Recall 0.466, mAP50 0.504, mAP50-95 0.334
+- Epoch 45: Precision 0.618, Recall 0.469, mAP50 0.487, mAP50-95 0.329
+- Epoch 50: Precision 0.638, Recall 0.474, mAP50 0.496, mAP50-95 0.332
+
+Test Validation Command:
+
+```bash
+yolo detect val data=papers/001-fruits-yolov8-baseline/configs/data.yaml split=test model=D:/science-data/runs/fruits-yolov8-baseline/compare-yolov8s-640-e50-b8-v2/weights/best.pt imgsz=640 batch=8 device=0 project=D:/science-data/runs/fruits-yolov8-baseline name=compare-yolov8s-640-e50-b8-v2-val-test workers=4
+```
+
+Test Run Output:
+
+- Test validation folder: `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2-val-test`
+
+Test Results:
+
+- Precision: 0.542
+- Recall: 0.438
+- mAP50: 0.439
+- mAP50-95: 0.294
+
+Comparison with YOLOv8n 50-epoch test:
+
+- YOLOv8n 50 epochs: Precision 0.527, Recall 0.415, mAP50 0.408, mAP50-95 0.269
+- YOLOv8s 50 epochs: Precision 0.542, Recall 0.438, mAP50 0.439, mAP50-95 0.294
+
+Notes:
+
+- YOLOv8s 50 epochs improves all four test metrics compared with YOLOv8n 50 epochs.
+- The improvement is real but not huge, so hard-sample analysis is still needed before claiming the problem is solved.
+- The next step should be visual prediction and hard-sample analysis for this YOLOv8s 50-epoch model.
