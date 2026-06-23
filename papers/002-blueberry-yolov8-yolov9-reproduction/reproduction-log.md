@@ -142,3 +142,42 @@ Notes:
 
 - Each image appears to have three annotation formats: JSON, TXT, and XML.
 - Next step is dataset inspection: confirm label format, class IDs, split strategy, and whether the official code expects YOLO TXT, VOC XML, or JSON annotations.
+
+## 2026-06-23 Dataset Inspection
+
+Goal:
+
+- Inspect the extracted dataset before writing training configs.
+- Confirm annotation format, class IDs, and whether an official train/val/test split is available.
+
+Inspection report:
+
+- `results/dataset-inspection.md`
+
+Findings:
+
+- The extracted dataset contains 140 images.
+- Each image has `.txt`, `.xml`, and `.json` annotations.
+- The `.txt` annotations are valid YOLO-format labels.
+- The YOLO labels contain 17,955 total boxes.
+- The YOLO labels only use class IDs `0` and `3`:
+  - `0`: Unblue
+  - `3`: Blue
+- The XML labels preserve four detailed classes:
+  - `Unblue_visible`: 4,142
+  - `Unblue_occluded`: 6,839
+  - `Blue_visible`: 1,722
+  - `Blue_occluded`: 5,252
+
+Important reproduction issue:
+
+- The released Zenodo archive does not include the official `train2017.0`, `val2017.0`, or `test2017.0` split folders referenced by the official code.
+- This means exact paper reproduction is blocked unless the official split can be recovered.
+
+Next step:
+
+- Create a documented local train/val/test split from the released 140 images.
+- Save the split lists in Git.
+- Remap YOLO class `3` to `1` for a standard two-class setup:
+  - `0`: Unblue
+  - `1`: Blue
