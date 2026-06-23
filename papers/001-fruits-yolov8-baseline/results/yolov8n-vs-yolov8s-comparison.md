@@ -10,8 +10,9 @@ This note compares YOLOv8n and YOLOv8s on the same fruit detection test split. T
 |---|---:|---|---|
 | YOLOv8n | 50 | `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2\weights\best.pt` | `D:\science-data\runs\fruits-yolov8-baseline\baseline-yolov8n-640-e50-b8-v2-val-test-rerun` |
 | YOLOv8s | 20 | `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8\weights\best.pt` | `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e20-b8-val-test` |
+| YOLOv8s | 50 | `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2\weights\best.pt` | `D:\science-data\runs\fruits-yolov8-baseline\compare-yolov8s-640-e50-b8-v2-val-test` |
 
-Important note: this is not a fully fair comparison because YOLOv8n trained for 50 epochs, while YOLOv8s trained for 20 epochs.
+The YOLOv8s 20-epoch comparison was not fully fair because YOLOv8n trained for 50 epochs. The YOLOv8s 50-epoch run gives a fairer model-size comparison.
 
 ## Test Metrics
 
@@ -19,12 +20,13 @@ Important note: this is not a fully fair comparison because YOLOv8n trained for 
 |---|---:|---:|---:|---:|---:|
 | YOLOv8n | 50 | 0.527 | 0.415 | 0.408 | 0.269 |
 | YOLOv8s | 20 | 0.515 | 0.408 | 0.414 | 0.266 |
+| YOLOv8s | 50 | 0.542 | 0.438 | 0.439 | 0.294 |
 
 Simple reading:
 
-- YOLOv8s has slightly higher mAP50.
-- YOLOv8n has slightly higher Precision, Recall, and mAP50-95.
-- The difference is small, so YOLOv8s is not clearly better in this setting.
+- YOLOv8s 20 epochs only slightly improves mAP50 and is not clearly better than YOLOv8n 50 epochs.
+- YOLOv8s 50 epochs improves all four test metrics compared with YOLOv8n 50 epochs.
+- The YOLOv8s 50-epoch improvement is real but still moderate.
 
 ## Same-Batch Visual Comparison
 
@@ -33,6 +35,14 @@ Simple reading:
 | Batch 0 | `figures/test-batch0-labels.jpg` | `figures/test-batch0-pred.jpg` | `figures/yolov8s-hard-batch0-pred.jpg` |
 | Batch 1 | `figures/test-batch1-labels.jpg` | `figures/test-batch1-pred.jpg` | `figures/yolov8s-hard-batch1-pred.jpg` |
 | Batch 2 | `figures/test-batch2-labels.jpg` | `figures/test-batch2-pred.jpg` | `figures/yolov8s-hard-batch2-pred.jpg` |
+
+YOLOv8s 50-epoch prediction samples:
+
+| Batch | Ground Truth | YOLOv8s 50-Epoch Prediction |
+|---|---|---|
+| Batch 0 | `figures/yolov8s-e50-batch0-labels.jpg` | `figures/yolov8s-e50-batch0-pred.jpg` |
+| Batch 1 | `figures/yolov8s-e50-batch1-labels.jpg` | `figures/yolov8s-e50-batch1-pred.jpg` |
+| Batch 2 | `figures/yolov8s-e50-batch2-labels.jpg` | `figures/yolov8s-e50-batch2-pred.jpg` |
 
 ## Main Observations
 
@@ -97,27 +107,22 @@ This makes the model behavior hard to judge:
 
 This is why visual analysis is important together with metric analysis.
 
-## Current Conclusion
+## Updated Conclusion
 
 YOLOv8s 20 epochs does not clearly beat YOLOv8n 50 epochs on the test split. It only slightly improves mAP50, while Precision, Recall, and mAP50-95 are slightly lower.
 
-The visual comparison shows that both models share similar hard cases. The main bottleneck is likely a combination of:
+YOLOv8s 50 epochs gives a fairer comparison and improves all four test metrics over YOLOv8n 50 epochs. This means longer training helps YOLOv8s.
 
-- YOLOv8s training time may be insufficient
+The visual comparison still shows similar hard cases. The main bottleneck is likely a combination of:
+
 - dataset image styles are mixed
 - labels are not fully consistent
 - some samples are not clean real-fruit detection images
 
 So the current conclusion should be careful:
 
-> Under the current settings, YOLOv8s is not clearly better than YOLOv8n. More training and cleaner data are both worth checking before changing the model structure.
+> YOLOv8s 50 epochs is better than YOLOv8n 50 epochs on this test split, but the improvement is moderate. Data cleaning is likely more valuable than only trying larger models.
 
 ## Next Step
 
-The best next experiment is to train YOLOv8s for 50 epochs. This will make the model-size comparison fairer because both YOLOv8n and YOLOv8s would use the same epoch setting.
-
-After that, compare:
-
-- YOLOv8n 50 epochs on test
-- YOLOv8s 50 epochs on test
-- hard samples from both models
+The best next experiment is to create a cleaner real-fruit subset and compare training results before and after data cleaning.

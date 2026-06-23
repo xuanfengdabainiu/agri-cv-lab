@@ -64,6 +64,7 @@ Classes:
 - First test-set error analysis: [results/error-analysis.md](results/error-analysis.md)
 - YOLOv8n hard-sample analysis: [results/hard-samples-yolov8n.md](results/hard-samples-yolov8n.md)
 - YOLOv8s hard-sample analysis: [results/hard-samples-yolov8s.md](results/hard-samples-yolov8s.md)
+- YOLOv8s 50-epoch hard-sample analysis: [results/hard-samples-yolov8s-e50.md](results/hard-samples-yolov8s-e50.md)
 - YOLOv8n vs YOLOv8s comparison: [results/yolov8n-vs-yolov8s-comparison.md](results/yolov8n-vs-yolov8s-comparison.md)
 
 ## Local Paths

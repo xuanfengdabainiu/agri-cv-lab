@@ -532,3 +532,33 @@ Notes:
 - YOLOv8s 50 epochs improves all four test metrics compared with YOLOv8n 50 epochs.
 - The improvement is real but not huge, so hard-sample analysis is still needed before claiming the problem is solved.
 - The next step should be visual prediction and hard-sample analysis for this YOLOv8s 50-epoch model.
+
+## 2026-06-23 YOLOv8s 50-Epoch Hard-Sample Analysis
+
+Goal:
+
+- Inspect YOLOv8s 50-epoch test predictions visually.
+- Check whether longer training reduces the hard cases seen in the YOLOv8s 20-epoch run.
+
+Files:
+
+- Hard-sample note: `results/hard-samples-yolov8s-e50.md`
+- Batch 0 labels: `results/figures/yolov8s-e50-batch0-labels.jpg`
+- Batch 0 predictions: `results/figures/yolov8s-e50-batch0-pred.jpg`
+- Batch 1 labels: `results/figures/yolov8s-e50-batch1-labels.jpg`
+- Batch 1 predictions: `results/figures/yolov8s-e50-batch1-pred.jpg`
+- Batch 2 labels: `results/figures/yolov8s-e50-batch2-labels.jpg`
+- Batch 2 predictions: `results/figures/yolov8s-e50-batch2-pred.jpg`
+
+Main observations:
+
+- YOLOv8s 50 epochs is more conservative than the 20-epoch run in some dense scenes.
+- It improves all four test metrics compared with YOLOv8s 20 epochs and YOLOv8n 50 epochs.
+- It still has false positives on printed, painted, or decorative fruit-like objects.
+- It still misses some small, occluded, far-away, or cluttered fruits.
+- Label-style inconsistency remains an important issue.
+
+Conclusion:
+
+- Longer training helps YOLOv8s, but it does not fully solve the dataset-related hard cases.
+- The next useful direction is data cleaning or building a cleaner real-fruit subset.
