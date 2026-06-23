@@ -88,6 +88,7 @@ Before committing, check:
 ```bash
 git status --short
 git diff
+python .github/scripts/check_workflow.py HEAD~1 HEAD
 ```
 
 Confirm that:
@@ -96,6 +97,18 @@ Confirm that:
 - result notes are updated
 - README links are updated when needed
 - large data, weights, and full run folders are not included
+
+## GitHub Actions Workflow Check
+
+This repository uses `.github/workflows/check-workflow.yml` to check whether commits follow this workflow.
+
+The check currently enforces:
+
+- If `papers/<experiment>/configs/`, `results/`, or `scripts/` changes, then `papers/<experiment>/reproduction-log.md` must also change.
+- A new experiment folder should include `README.md`, `paper-notes.md`, `reproduction-log.md`, and `results/metrics.md`.
+- Large artifacts, model weights, and archive files should not be committed.
+
+The check is intentionally focused on the most common mistakes. It does not prove that the experiment is correct; it only checks whether the basic workflow was followed.
 
 ## Known Workflow Mistake
 
