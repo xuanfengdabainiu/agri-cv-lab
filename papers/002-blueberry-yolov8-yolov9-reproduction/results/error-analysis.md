@@ -107,14 +107,9 @@ The following prediction images were copied into the repository for quick review
 
 - The count comparison uses raw prediction counts at confidence 0.25.
 - It does not perform one-to-one IoU matching with ground-truth boxes.
-- It does not yet compute the paper's counting RMSE or Blue percentage RMSE.
+- Counting RMSE and Blue percentage RMSE are reported separately in `results/application-metrics.md`.
 - The local seed42 test split has only 14 images, so image-level conclusions should be treated cautiously.
 
 ## Next Step
 
-Compute the application metrics used by the paper:
-
-- Counting RMSE
-- Blue percentage RMSE
-
-These should be computed from prediction counts and ground-truth counts for each test image.
+Use this analysis to choose the next experiment, such as a smaller YOLOv8 model comparison or an intermediate image size.

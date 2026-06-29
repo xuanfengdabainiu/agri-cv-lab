@@ -541,3 +541,31 @@ Notes:
 - It does not perform one-to-one IoU matching for the application metrics.
 - Detection quality is already evaluated separately by mAP.
 - `results/metrics.md` was updated with these values for the e50 test row.
+
+## 2026-06-29 Experiment Summary
+
+Goal:
+
+- Write a stage-level summary for the completed YOLOv8l 1920 local reproduction.
+
+Output:
+
+- `results/experiment-summary.md`
+
+Summary:
+
+- The current best run is `yolov8l-1920-e50-b1-local-seed42`.
+- Test mAP50: 0.89700
+- Test mAP50-95: 0.60500
+- Counting RMSE: 6.9334 berries/image
+- Blue Percentage RMSE: 7.8007 percentage points
+
+Main conclusion:
+
+- YOLOv8l at 1920 produced a usable local reproduction result.
+- The 50-epoch run clearly improved over the 20-epoch run.
+- The experiment is not an exact paper reproduction because the official split is unavailable and 2560/3520 settings are too heavy for the current laptop GPU.
+
+Recommended next experiment:
+
+- Try a smaller model comparison at 1920, such as YOLOv8m or YOLOv8s.
