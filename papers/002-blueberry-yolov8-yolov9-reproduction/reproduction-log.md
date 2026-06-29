@@ -500,3 +500,44 @@ Representative images copied:
 Next step:
 
 - Compute counting RMSE and Blue percentage RMSE.
+
+## 2026-06-29 Application Metrics
+
+Goal:
+
+- Compute the application-level metrics used by the paper:
+  - Counting RMSE
+  - Blue Percentage RMSE
+
+Script:
+
+- `scripts/compute_application_metrics.py`
+
+Inputs:
+
+- Ground-truth labels: `D:\science-data\datasets\blueberry-dcm\yolo-local-split\labels\test`
+- Prediction labels: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42-test-predict\labels`
+
+Output:
+
+- `results/application-metrics.md`
+
+Method:
+
+- Count ground-truth boxes per test image.
+- Count predicted boxes per test image at confidence 0.25.
+- Compute fruit-count error per image.
+- Compute Blue percentage error per image.
+- Compute RMSE across the 14 test images.
+
+Results:
+
+- Counting RMSE: 6.9334 berries/image
+- Blue Percentage RMSE: 7.8007 percentage points
+
+Notes:
+
+- This follows the count-from-detections application setting.
+- It does not perform one-to-one IoU matching for the application metrics.
+- Detection quality is already evaluated separately by mAP.
+- `results/metrics.md` was updated with these values for the e50 test row.
