@@ -300,3 +300,49 @@ Notes:
 - The local run folder was renamed from `yolov8l-1920-e100-b1-local-seed42` to `yolov8l-1920-e20-b1-local-seed42` so the folder name matches the actual completed epoch count.
 - `best.pt` is expected to correspond to epoch 19 because epoch 19 had the best validation mAP.
 - Counting RMSE and Blue percentage RMSE were not computed yet.
+
+## 2026-06-29 YOLOv8l 2560 Attempt Stopped
+
+Goal:
+
+- Try a 20-epoch YOLOv8l run at image size 2560 to move closer to the paper's main high-resolution setting.
+- Report progress every 5 epochs if the run was able to progress normally.
+
+Command:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect train data=C:\Users\liuqilu\Documents\science\agri-cv-lab\papers\002-blueberry-yolov8-yolov9-reproduction\configs\blueberry-local-seed42.yaml model=yolov8l.pt epochs=20 imgsz=2560 batch=1 device=0 project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=yolov8l-2560-e20-b1-local-seed42 workers=0 patience=20 close_mosaic=10 seed=42
+```
+
+Outcome:
+
+- The run was manually stopped before completing epoch 1.
+- No `results.csv` was produced.
+- No validation metrics were available.
+- No `best.pt` or `last.pt` was produced.
+
+Local folder:
+
+- `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-2560-e20-b1-local-seed42`
+
+Files left by the interrupted run:
+
+- `args.yaml`
+- `labels.jpg`
+- `train_batch0.jpg`
+- `train_batch1.jpg`
+- `train_batch2.jpg`
+- empty `weights\` folder
+
+Reason:
+
+- The run used almost all available GPU memory.
+- Observed GPU memory while running: about 7.75 GB used out of 8 GB.
+- The machine had only about 50-60 MB free GPU memory during the attempt.
+- Training did not finish the first epoch after a long wait, so the run was stopped by request.
+
+Decision:
+
+- Do not treat this as a valid metrics run.
+- Keep it in the reproduction log as a resource-limited attempt.
+- Next practical option is to use 1920 for longer training, or try an intermediate image size such as 2240 before returning to 2560.
