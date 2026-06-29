@@ -452,3 +452,51 @@ Notes:
 - The test result is higher than the validation result, but the test set is small, so this should be interpreted cautiously.
 - `results/metrics.md` was updated to include an explicit `Eval Split` column.
 - Counting RMSE and Blue percentage RMSE still need to be computed separately.
+
+## 2026-06-29 YOLOv8l 1920 Test Prediction and Error Analysis
+
+Goal:
+
+- Generate prediction images for the local seed42 test split.
+- Save prediction labels for count-level inspection.
+- Write the first error analysis report.
+
+Command:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect predict model=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42\weights\best.pt source=D:\science-data\datasets\blueberry-dcm\yolo-local-split\images\test imgsz=1920 device=0 project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=yolov8l-1920-e50-b1-local-seed42-test-predict save=True save_txt=True save_conf=True conf=0.25 iou=0.7 max_det=5000
+```
+
+Outputs:
+
+- Prediction folder: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42-test-predict`
+- Prediction labels: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42-test-predict\labels`
+- Error analysis: `results/error-analysis.md`
+- Copied example figures: `results/figures/test-predictions/`
+
+Findings:
+
+- Ground-truth test boxes:
+  - Unblue: 1,056
+  - Blue: 307
+  - Total: 1,363
+- Predicted boxes at confidence 0.25:
+  - Unblue: 970
+  - Blue: 324
+  - Total: 1,294
+- Main pattern:
+  - Unblue is under-counted.
+  - Blue is slightly over-predicted.
+  - Dense images show larger count gaps.
+
+Representative images copied:
+
+- `MSState_YL_Cropped_0030.jpg`
+- `MSState_YL_Cropped_0072.jpg`
+- `MSState_YL_Cropped_0028.jpg`
+- `MSState_YL_Cropped_0057.jpg`
+- `MSState_YL_Cropped_0037.jpg`
+
+Next step:
+
+- Compute counting RMSE and Blue percentage RMSE.
