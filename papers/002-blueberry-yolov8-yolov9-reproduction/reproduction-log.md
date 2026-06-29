@@ -264,7 +264,7 @@ Actual run:
 
 - User requested stopping at epoch 20.
 - Training was manually stopped after epoch 20.
-- Run folder: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e100-b1-local-seed42`
+- Run folder: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e20-b1-local-seed42`
 - Weights:
   - `weights\best.pt`
   - `weights\last.pt`
@@ -297,5 +297,6 @@ Last epoch result:
 Notes:
 
 - The run was originally launched with `epochs=100`, but was stopped at epoch 20 by request.
+- The local run folder was renamed from `yolov8l-1920-e100-b1-local-seed42` to `yolov8l-1920-e20-b1-local-seed42` so the folder name matches the actual completed epoch count.
 - `best.pt` is expected to correspond to epoch 19 because epoch 19 had the best validation mAP.
 - Counting RMSE and Blue percentage RMSE were not computed yet.
