@@ -409,3 +409,46 @@ Remaining work:
 
 - Run test-set evaluation with `best.pt`.
 - Compute counting RMSE and Blue percentage RMSE.
+
+## 2026-06-29 YOLOv8l 1920 50-Epoch Test Evaluation
+
+Goal:
+
+- Evaluate the 50-epoch run's `best.pt` on the held-out local seed42 test split.
+- Make the metrics table distinguish validation results from test results.
+
+Command:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect val data=C:\Users\liuqilu\Documents\science\agri-cv-lab\papers\002-blueberry-yolov8-yolov9-reproduction\configs\blueberry-local-seed42.yaml model=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42\weights\best.pt imgsz=1920 batch=1 device=0 split=test project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=yolov8l-1920-e50-b1-local-seed42-test workers=0
+```
+
+Run folder:
+
+- `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42-test`
+
+Test split:
+
+- Images: 14
+- Boxes: 1,363
+
+Overall test result:
+
+- Precision: 0.885
+- Recall: 0.831
+- mAP50: 0.897
+- mAP50-95: 0.605
+
+Per-class test result:
+
+| Class | Images | Instances | Precision | Recall | mAP50 | mAP50-95 |
+|---|---:|---:|---:|---:|---:|---:|
+| Unblue | 14 | 1,056 | 0.926 | 0.820 | 0.902 | 0.623 |
+| Blue | 14 | 307 | 0.843 | 0.842 | 0.891 | 0.586 |
+
+Notes:
+
+- This test used the `best.pt` selected from validation epoch 48.
+- The test result is higher than the validation result, but the test set is small, so this should be interpreted cautiously.
+- `results/metrics.md` was updated to include an explicit `Eval Split` column.
+- Counting RMSE and Blue percentage RMSE still need to be computed separately.
