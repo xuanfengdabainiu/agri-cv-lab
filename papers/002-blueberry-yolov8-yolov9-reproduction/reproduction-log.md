@@ -246,3 +246,56 @@ Note:
 - This was only a data loading check, not a real model evaluation.
 - The command used COCO-pretrained `yolov8n.pt`, so the printed class names came from COCO and the metrics were zero.
 - This is expected and does not indicate a dataset problem.
+
+## 2026-06-29 YOLOv8l 1920 Training
+
+Goal:
+
+- Start the first real YOLOv8l reproduction run on the local seed42 split.
+- Use image size 1920 as a middle step before trying the paper's higher-resolution settings.
+
+Command:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect train data=C:\Users\liuqilu\Documents\science\agri-cv-lab\papers\002-blueberry-yolov8-yolov9-reproduction\configs\blueberry-local-seed42.yaml model=yolov8l.pt epochs=100 imgsz=1920 batch=1 device=0 project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=yolov8l-1920-e100-b1-local-seed42 workers=4 patience=100 close_mosaic=50 seed=42
+```
+
+Actual run:
+
+- User requested stopping at epoch 20.
+- Training was manually stopped after epoch 20.
+- Run folder: `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e100-b1-local-seed42`
+- Weights:
+  - `weights\best.pt`
+  - `weights\last.pt`
+
+Settings:
+
+- Model: YOLOv8l
+- Dataset split: local seed42
+- Image size: 1920
+- Batch size: 1
+- Completed epochs: 20
+- Device: RTX 5060 Laptop GPU
+
+Best validation result:
+
+- Best epoch: 19
+- Precision: 0.77062
+- Recall: 0.68240
+- mAP50: 0.75591
+- mAP50-95: 0.46523
+
+Last epoch result:
+
+- Epoch: 20
+- Precision: 0.83011
+- Recall: 0.64287
+- mAP50: 0.75025
+- mAP50-95: 0.45129
+
+Notes:
+
+- The run was originally launched with `epochs=100`, but was stopped at epoch 20 by request.
+- `best.pt` is expected to correspond to epoch 19 because epoch 19 had the best validation mAP.
+- Counting RMSE and Blue percentage RMSE were not computed yet.
