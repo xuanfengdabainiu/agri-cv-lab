@@ -346,3 +346,66 @@ Decision:
 - Do not treat this as a valid metrics run.
 - Keep it in the reproduction log as a resource-limited attempt.
 - Next practical option is to use 1920 for longer training, or try an intermediate image size such as 2240 before returning to 2560.
+
+## 2026-06-29 YOLOv8l 1920 50-Epoch Training
+
+Goal:
+
+- Extend the successful 1920 YOLOv8l setup from 20 epochs to 50 epochs.
+- Compare whether longer training improves validation performance on the local seed42 split.
+
+Command:
+
+```text
+D:\conda_envs\blueberry-yolo\Scripts\yolo.exe detect train data=C:\Users\liuqilu\Documents\science\agri-cv-lab\papers\002-blueberry-yolov8-yolov9-reproduction\configs\blueberry-local-seed42.yaml model=yolov8l.pt epochs=50 imgsz=1920 batch=1 device=0 project=D:\science-data\runs\blueberry-yolov8-yolov9-reproduction name=yolov8l-1920-e50-b1-local-seed42 workers=4 patience=50 close_mosaic=25 seed=42
+```
+
+Run folder:
+
+- `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\yolov8l-1920-e50-b1-local-seed42`
+
+Settings:
+
+- Model: YOLOv8l
+- Dataset split: local seed42
+- Image size: 1920
+- Batch size: 1
+- Epochs: 50
+- Device: RTX 5060 Laptop GPU
+
+Best validation result:
+
+- Best epoch: 48
+- Precision: 0.86003
+- Recall: 0.77750
+- mAP50: 0.86768
+- mAP50-95: 0.56141
+
+Final epoch result:
+
+- Epoch: 50
+- Precision: 0.85239
+- Recall: 0.77773
+- mAP50: 0.85786
+- mAP50-95: 0.55221
+
+Weights:
+
+- `weights\best.pt`
+- `weights\last.pt`
+
+Hardware notes:
+
+- GPU was heavily used during training.
+- Checked GPU temperature near the end of training: about 71-76 C, which was acceptable for this laptop run.
+
+Comparison with 20-epoch run:
+
+- 20-epoch best mAP50-95: 0.46523
+- 50-epoch best mAP50-95: 0.56141
+- Longer training clearly improved validation performance.
+
+Remaining work:
+
+- Run test-set evaluation with `best.pt`.
+- Compute counting RMSE and Blue percentage RMSE.
