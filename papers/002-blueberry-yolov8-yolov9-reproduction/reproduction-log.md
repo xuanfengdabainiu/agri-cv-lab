@@ -664,3 +664,25 @@ Conclusion:
 - `YOLOv9-c / imgsz=1920 / batch=1` is not feasible on this laptop GPU.
 - A formal YOLOv9-c 1920 experiment should not be started locally unless memory-saving changes are made.
 - Lower image sizes such as 1280 or 1536 may be tested next, or YOLOv9-c can be run on a larger GPU.
+
+## 2026-06-30 Stage Summary Update
+
+Goal:
+
+- Update the project summary after completing the local YOLOv8l reproduction and YOLOv9-c feasibility checks.
+
+Output:
+
+- `results/experiment-summary.md`
+
+Summary:
+
+- Marked this project as a completed first-stage local reproduction.
+- Added YOLOv9-c smoke-test results.
+- Added the YOLOv9-c 1920 memory-limit conclusion.
+- Explained why the project can be paused before starting the next paper.
+
+Conclusion:
+
+- The project should be kept as a workflow template and reference.
+- Future work on this paper should require either a larger GPU or a narrower optional experiment.
