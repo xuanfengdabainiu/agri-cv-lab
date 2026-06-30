@@ -625,3 +625,42 @@ Notes:
 - Peak GPU memory at image size 640 was about 4.06 GB.
 - The official code shows an albumentations warning, but training still completed.
 - A formal YOLOv9-c run at 1920 or higher will be much heavier than this smoke test.
+
+## 2026-06-30 YOLOv9-c 1920 Smoke Test Attempt
+
+Goal:
+
+- Check whether YOLOv9-c can train at image size 1920 on the local laptop GPU.
+
+Command setting:
+
+- Model: YOLOv9-c
+- Pretrained weight: `D:\science-data\weights\yolov9\yolov9-c.pt`
+- Dataset config: `configs/blueberry-local-seed42.yaml`
+- Epochs: 1
+- Image size: 1920
+- Batch size: 1
+- Device: GPU 0
+- Workers: 0
+
+Output:
+
+- `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\smoke-yolov9c-1920-e1-b1-local-seed42`
+
+Result:
+
+- Failed during the first epoch because of CUDA out-of-memory.
+- No completed epoch metrics were produced.
+- The run created partial local files such as `opt.yaml`, `hyp.yaml`, label plots, and `train_batch0.jpg`.
+
+Error summary:
+
+- GPU: NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB.
+- YOLOv9-c at image size 1920 reported about 12.4 GB GPU memory demand before failing.
+- The available GPU memory is not enough for `YOLOv9-c / imgsz=1920 / batch=1`.
+
+Conclusion:
+
+- `YOLOv9-c / imgsz=1920 / batch=1` is not feasible on this laptop GPU.
+- A formal YOLOv9-c 1920 experiment should not be started locally unless memory-saving changes are made.
+- Lower image sizes such as 1280 or 1536 may be tested next, or YOLOv9-c can be run on a larger GPU.
