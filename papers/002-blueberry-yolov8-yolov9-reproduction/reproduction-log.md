@@ -569,3 +569,59 @@ Main conclusion:
 Recommended next experiment:
 
 - Try a smaller model comparison at 1920, such as YOLOv8m or YOLOv8s.
+
+## 2026-06-30 YOLOv9-c Smoke Test
+
+Goal:
+
+- Check whether the `blueberry-yolo` conda environment can run YOLOv9-c before starting a formal experiment.
+
+Model weight:
+
+- The conda environment does not contain the YOLOv9-c model weight by itself.
+- Downloaded official pretrained weight to `D:\science-data\weights\yolov9\yolov9-c.pt`.
+- File size: 103,153,312 bytes.
+
+Local code compatibility fixes:
+
+- Patched local D-drive official YOLOv9 code for PyTorch 2.6+ checkpoint loading.
+- `D:\science-data\code\BlueberryDetectionAndCounting\yolov9\train_dual.py`
+- `D:\science-data\code\BlueberryDetectionAndCounting\yolov9\utils\general.py`
+- `D:\science-data\code\BlueberryDetectionAndCounting\yolov9\models\experimental.py`
+- In each case, `torch.load(...)` needs `weights_only=False` when loading trusted YOLOv9 checkpoints.
+
+Smoke-test command setting:
+
+- Model: YOLOv9-c
+- Pretrained weight: `D:\science-data\weights\yolov9\yolov9-c.pt`
+- Dataset config: `configs/blueberry-local-seed42.yaml`
+- Epochs: 1
+- Image size: 640
+- Batch size: 1
+- Device: GPU 0
+- Workers: 0
+
+Output:
+
+- `D:\science-data\runs\blueberry-yolov8-yolov9-reproduction\smoke-yolov9c-640-e1-b1-local-seed42-final`
+
+Result:
+
+| Run | Split | Epochs | Image Size | Batch | Precision | Recall | mAP50 | mAP50-95 | Notes |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| smoke-yolov9c-640-e1-b1-local-seed42-final | val | 1 | 640 | 1 | 0.335 | 0.485 | 0.361 | 0.209 | smoke test only |
+
+Per-class final validation:
+
+| Class | Images | Instances | Precision | Recall | mAP50 | mAP50-95 |
+|---|---:|---:|---:|---:|---:|---:|
+| Unblue | 14 | 661 | 0.463 | 0.330 | 0.380 | 0.226 |
+| Blue | 14 | 298 | 0.207 | 0.641 | 0.343 | 0.192 |
+
+Notes:
+
+- This is not a formal reproduction result.
+- It only proves that YOLOv9-c can load, train, validate, save weights, strip optimizer, and reload `best.pt` in the current environment.
+- Peak GPU memory at image size 640 was about 4.06 GB.
+- The official code shows an albumentations warning, but training still completed.
+- A formal YOLOv9-c run at 1920 or higher will be much heavier than this smoke test.
