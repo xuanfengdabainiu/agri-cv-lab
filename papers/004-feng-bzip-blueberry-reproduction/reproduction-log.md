@@ -25,6 +25,14 @@
 - Generated salt and drought expression heatmaps using log10(mean FPKM + 1).
 - This step reproduces the supplementary-table summaries only. It does not rerun differential expression from raw RNA-seq reads.
 
+## 2026-11-13: Draper V1.0 genome preparation
+
+- Downloaded the official `Vaccinium corymbosum` cv. Draper V1.0 protein FASTA, GFF gene annotation, and scaffold FASTA from GDV.
+- Stored files under `D:\science-data\datasets\feng-bzip-2025\genome`.
+- Validated 128,559 protein sequences and 128,559 GFF gene features.
+- Validated 1,760 scaffolds and 1,826,686,181 genome bases.
+- These files are ready for the bZIP candidate-identification, gene-structure, and promoter-sequence stages.
+
 ## Next Run
 
 - Inspect Supplementary Tables S1-S10.
