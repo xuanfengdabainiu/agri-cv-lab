@@ -4,7 +4,15 @@
 
 The project has completed paper and data source inspection. The supplementary archive is available locally.
 
-The first supplementary-table reproduction is complete. Tables S1, S3, and S4 reproduce the paper's reported counts of 102 VcbZIP genes, 18 salt-responsive VcbZIP genes, and 13 drought-responsive VcbZIP genes. Heatmaps use log10(mean FPKM + 1) across the three reported samples at each time point.
+The first supplementary-table reproduction is complete. The following three sheets come from the paper's `supplementary tables.xlsx` file:
+
+| Sheet | Original table title | What it contains | What we reproduced |
+|---|---|---|---|
+| Table S1 | Basic information about VcbZIP proteins in blueberry | The authors' identified VcbZIP genes, groups, protein sequences, lengths, and annotations | Counted 102 VcbZIP gene names |
+| Table S3 | The differentially expressed VcbZIP genes under salt stress from transcriptome sequencing (RNA-Seq) | Salt-stress FPKM values and differential-expression results | Counted 18 responsive genes and plotted the time-course heatmap |
+| Table S4 | The differentially expressed VcbZIP genes under drought stress from transcriptome sequencing (RNA-Seq) | Drought-stress FPKM values and differential-expression results | Counted 13 responsive genes and plotted the time-course heatmap |
+
+The heatmaps use log10(mean FPKM + 1) across the three reported samples at each time point.
 
 The official Draper V1.0 protein FASTA, GFF annotation, and scaffold FASTA have been downloaded and checked. They are ready for bZIP candidate identification.
 

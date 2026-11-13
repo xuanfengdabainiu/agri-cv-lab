@@ -49,6 +49,11 @@
 - The union contained 267 candidate proteins and recovered all 153 paper reference proteins.
 - The extra 114 proteins require bZIP-domain confirmation before they can be treated as final candidates. The paper used Pfam profiles plus SMART/CDD confirmation and manual filtering, so this homology screen is a preliminary candidate stage.
 
+## 2026-11-13: documentation clarification
+
+- Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.
+- This clarifies that S1 provides the identified VcbZIP list, S3 provides salt-stress RNA-seq results, and S4 provides drought-stress RNA-seq results.
+
 ## Next Run
 
 - Inspect Supplementary Tables S1-S10.
