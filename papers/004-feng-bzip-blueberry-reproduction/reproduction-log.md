@@ -33,6 +33,14 @@
 - Validated 1,760 scaffolds and 1,826,686,181 genome bases.
 - These files are ready for the bZIP candidate-identification, gene-structure, and promoter-sequence stages.
 
+## 2026-11-13: bZIP homology candidate screen
+
+- Installed `pyhmmer` in the `blueberry-bzip` environment because a native HMMER command was not available on this Windows setup.
+- Mapped the paper's 102 VcbZIP names to 153 unique Draper V1.0 protein records. Several VcbZIP names represent multiple homoeologous gene IDs.
+- Used the 153 reference proteins to search all 128,559 proteins with local `phmmer` at E-value <= 1e-5.
+- The union contained 267 candidate proteins and recovered all 153 paper reference proteins.
+- The extra 114 proteins require bZIP-domain confirmation before they can be treated as final candidates. The paper used Pfam profiles plus SMART/CDD confirmation and manual filtering, so this homology screen is a preliminary candidate stage.
+
 ## Next Run
 
 - Inspect Supplementary Tables S1-S10.
