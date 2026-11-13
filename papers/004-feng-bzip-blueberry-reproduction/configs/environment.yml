@@ -1,0 +1,13 @@
+name: blueberry-bzip
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - openpyxl
+  - matplotlib
+  - seaborn
+  - numpy
+  - biopython
+  - pip
+
