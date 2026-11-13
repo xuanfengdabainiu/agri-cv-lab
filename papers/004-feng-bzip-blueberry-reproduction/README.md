@@ -17,6 +17,24 @@ Reproduce the computational analysis of Feng et al. (2025) on bZIP transcription
 
 `setup`
 
+## Quick Start
+
+```powershell
+conda activate D:\conda_envs\blueberry-bzip
+
+python scripts\summarize_supplementary.py `
+  --workbook "D:\science-data\datasets\feng-bzip-2025\supplementary\extracted\supplementary tables.xlsx" `
+  --output-dir results
+```
+
+## Main Results
+
+| Run | Analysis | Input | Result | Notes |
+|---|---|---|---|---|
+| supplementary-001 | Tables S1, S3, S4 summary | Supplementary workbook | 102 / 18 / 13 | Matches the paper's reported bZIP, salt-response, and drought-response counts |
+| genome-001 | Draper V1.0 preparation | Protein FASTA, GFF, scaffold FASTA | 128,559 proteins / 1,760 scaffolds | File-level counts passed |
+| candidate-001 | bZIP homology screen | 153 paper reference proteins | 267 candidates | All 153 reference proteins were recovered; domain confirmation is pending |
+
 ## Data Sources
 
 - Blueberry genome and annotations: Genome Database for *Vaccinium* (Draper V1.0)
@@ -50,4 +68,13 @@ Download the SRA reads, run quality control and quantification, perform differen
 The paper reports 102 VcbZIP genes. It uses Pfam bZIP domains, Arabidopsis sequences, the Vaccinium genome database, MEGA X, MEME, CDD, PlantCARE, TBtools-II, and DESeq2.
 
 The raw salt and drought projects are large. The lightweight phase will be completed before downloading all raw FASTQ files.
+
+## Result Files
+
+- [Supplementary summary](results/supplementary-summary.csv)
+- [Salt-expression heatmap](results/figures/salt-vcbzip-heatmap.png)
+- [Drought-expression heatmap](results/figures/drought-vcbzip-heatmap.png)
+- [Paper gene-to-protein mapping](results/vcbzip-protein-mapping.csv)
+- [bZIP homology candidates](results/phmmer-bzip-candidates.csv)
+- [Experiment summary](results/experiment-summary.md)
 

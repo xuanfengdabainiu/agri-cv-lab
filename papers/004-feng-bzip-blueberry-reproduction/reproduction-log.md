@@ -15,6 +15,9 @@
 
 ## 2026-11-13: supplementary-table summary
 
+- Goal: reproduce the paper's reported VcbZIP, salt-response, and drought-response counts from supplied tables.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pandas, openpyxl, matplotlib, seaborn.
+- Command: `python scripts/summarize_supplementary.py --workbook <supplementary tables.xlsx> --output-dir results`.
 - Created the `blueberry-bzip` Conda environment at `D:\conda_envs\blueberry-bzip`.
 - Added `scripts/summarize_supplementary.py` to summarize Tables S1, S3, and S4.
 - Reproduced the three counts reported in the paper from the supplied workbook:
@@ -27,6 +30,8 @@
 
 ## 2026-11-13: Draper V1.0 genome preparation
 
+- Goal: download and validate the exact Draper V1.0 files used by the paper.
+- Output: `D:\science-data\datasets\feng-bzip-2025\genome`.
 - Downloaded the official `Vaccinium corymbosum` cv. Draper V1.0 protein FASTA, GFF gene annotation, and scaffold FASTA from GDV.
 - Stored files under `D:\science-data\datasets\feng-bzip-2025\genome`.
 - Validated 128,559 protein sequences and 128,559 GFF gene features.
@@ -35,6 +40,9 @@
 
 ## 2026-11-13: bZIP homology candidate screen
 
+- Goal: use the paper's confirmed proteins as reference queries against the full Draper proteome.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pyhmmer 0.12.3.
+- Command: `python scripts/phmmer_bzip_candidates.py --references <reference FASTA> --proteins <Draper protein FASTA> --output results/phmmer-bzip-candidates.csv --cpus 8 --evalue 1e-5`.
 - Installed `pyhmmer` in the `blueberry-bzip` environment because a native HMMER command was not available on this Windows setup.
 - Mapped the paper's 102 VcbZIP names to 153 unique Draper V1.0 protein records. Several VcbZIP names represent multiple homoeologous gene IDs.
 - Used the 153 reference proteins to search all 128,559 proteins with local `phmmer` at E-value <= 1e-5.
