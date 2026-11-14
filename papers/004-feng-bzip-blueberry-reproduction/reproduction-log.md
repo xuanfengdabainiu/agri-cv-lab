@@ -106,6 +106,17 @@
 - MEME Suite has no native Windows build. This computer has no WSL, Docker, or native MEME executable.
 - The motif analysis is pending a Linux/WSL/remote execution environment. It is not replaced with a different motif algorithm because that would not reproduce the paper's method.
 
+## 2026-11-14: RNA-seq source-study metadata and supplementary-matrix verification
+
+- Goal: verify the source datasets behind the bZIP paper's salt, drought, and ABA expression tables without downloading all raw FASTQ files.
+- Downloaded NCBI SRA run metadata and supplementary archives from the three original stress studies.
+- SRA metadata shows 5 drought runs (35.6 GB), 5 salt runs (37.9 GB), and 3 ABA runs (18.2 GB). Each run corresponds to one treatment time point.
+- The original supplementary workbooks contain three FPKM or read-count replicates per time point. The SRA run sizes approximately equal the three replicate libraries combined, so the public raw runs cannot be separated back into the individual biological replicates.
+- Drought verification: 11 of 13 VcbZIP entries have FPKM values that match the source matrix exactly across all 15 sample columns. Two bZIP-paper gene IDs are absent from the source matrix.
+- Salt verification: all 18 salt-responsive VcbZIP genes appear in at least one source-study differential-expression comparison.
+- ABA verification: 6 of 7 bZIP-paper ABA genes appear by identical gene ID in the source-study hormone-pathway table; VcbZIP1 is absent from that restricted table.
+- Output: `configs/rna-seq-sample-manifest.csv`, `results/drought-fpkm-source-verification.csv`, and `results/salt-aba-source-membership-verification.csv`.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.

@@ -39,6 +39,7 @@ python scripts\summarize_supplementary.py `
 | promoter-001 | genome-derived promoter extraction | Draper V1.0 GFF and scaffold FASTA | 153 sequences for 102 VcbZIP names | ready for PlantCARE batch analysis |
 | phylogeny-001 | preliminary UPGMA tree | 153 VcbZIP copies + 78 AtbZIP references | 231 proteins / 2,172 columns | final group labels need motif evidence |
 | structure-001 | exon-intron structure summary | Draper V1.0 GFF | 153 gene copies / exon range 1-14 | motif analysis requires a Linux-compatible MEME environment |
+| expression-source-001 | stress-expression source verification | original stress-study supplementary workbooks | drought 11/13 exact; salt 18/18; ABA 6/7 | SRA runs are pooled by time point; table-level reproduction is supported |
 
 ## Data Sources
 
@@ -93,5 +94,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [VcbZIP gene structures](results/vcbzip-gene-structures.csv)
 - [Exon-count summary](results/vcbzip-exon-count-summary.csv)
 - [Exon-count figure](results/figures/vcbzip-exon-counts.png)
+- [RNA-seq sample manifest](configs/rna-seq-sample-manifest.csv)
+- [Drought FPKM source verification](results/drought-fpkm-source-verification.csv)
+- [Salt and ABA source verification](results/salt-aba-source-membership-verification.csv)
 - [Experiment summary](results/experiment-summary.md)
 

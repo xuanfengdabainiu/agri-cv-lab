@@ -32,10 +32,12 @@ Gene-structure analysis is complete from the Draper V1.0 GFF. Across 153 VcbZIP 
 
 Conserved motif analysis is pending. The paper used MEME 4.10.1, which has no native Windows build; this computer has no WSL, Docker, or MEME executable. A substitute motif algorithm has not been used because it would no longer reproduce the paper's method.
 
+Expression-source verification is complete using the supplementary workbooks from the three original stress studies. The drought matrix reproduces 11 of 13 bZIP-paper FPKM profiles exactly; the two remaining bZIP-paper gene IDs are absent from the drought source matrix. All 18 salt-responsive bZIP genes occur in the source salt DEG tables. Six of seven ABA-responsive bZIP genes occur by identical ID in the source ABA hormone-pathway table. The SRA metadata exposes one large run per time point, while the source workbooks preserve three replicates. Therefore, table-level expression reproduction is supported, but a strict DESeq2 rerun from independently separated raw replicate FASTQ files is not supported by the current SRA deposition.
+
 ## Planned Checkpoints
 
-1. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
-2. Compare gene structures across provisional phylogenetic branches.
+1. Recreate the bZIP stress-expression heatmaps from the verified source matrices and compare them with Tables S3-S5.
+2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
 3. Reproduce expression and differential analysis from public transcriptome data.
 4. Compare results with the paper and document any differences.
