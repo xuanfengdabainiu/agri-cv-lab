@@ -1,0 +1,4 @@
+classification,count,min,median,mean,max,shorter_than_100aa,longer_than_1000aa
+additional_bzip_domain_candidate,61,49,371.0,408.2295081967213,916,1,0
+paper_reference_bzip,153,109,301.0,309.5947712418301,780,0,0
+similar_sequence_without_bzip_domain,53,68,307.0,329.7358490566038,1395,5,1

@@ -58,6 +58,20 @@
 - Result: all 267 API jobs completed successfully. Of 267 homology candidates, 214 had at least one target bZIP Pfam domain. All 153 paper reference proteins were confirmed. The remaining 61 domain-confirmed proteins are additional candidates that need the paper's duplicate and completeness filtering rules.
 - Output: `results/ebi-pfam-bzip-domain-confirmation.csv` and `results/bzip-domain-candidate-summary.csv`.
 
+## 2026-11-14: candidate-filter review
+
+- Goal: assess whether the paper's stated duplicate and incomplete-sequence filtering can explain the 61 domain-confirmed proteins outside the paper reference set.
+- Result: none of the 61 additional candidates is an exact amino-acid duplicate of a paper reference protein. Only one is shorter than 100 amino acids; the remaining candidates have normal protein lengths and bZIP domain hits.
+- Conclusion: the paper does not provide enough per-sequence filtering detail to reproduce the final reduction from 214 domain-confirmed proteins to 102 VcbZIP names automatically. This is recorded as a reproducibility limitation rather than resolved by an arbitrary filter.
+
+## 2026-11-14: promoter cis-element supplementary-table summary
+
+- Goal: reproduce the promoter cis-element statistics in Table S2.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pandas, openpyxl, matplotlib.
+- Command: `python scripts/summarize_cis_elements.py --workbook <supplementary tables.xlsx> --output-dir results`.
+- Result: 82 of 102 VcbZIP promoters contain abscisic-acid-responsive elements, totaling 261 elements. The next most frequent categories are MeJA-responsive elements (135 elements across 79 genes) and gibberellin-responsive elements (92 across 57 genes).
+- Output: `results/cis-element-summary.csv` and `results/figures/cis-element-counts.png`.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.

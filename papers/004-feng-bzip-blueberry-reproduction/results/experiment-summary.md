@@ -20,10 +20,14 @@ A local homology screen using the 153 reference proteins extracted from the pape
 
 Pfam-domain confirmation is complete. The 267 homology candidates were checked for the four bZIP domains used by the paper: PF00170, PF07716, PF03131, and PF12498. A total of 214 proteins contained at least one target domain. This set includes all 153 paper reference proteins and 61 additional domain-confirmed candidates. The paper's final 102 VcbZIP names combine homoeologous copies and remove duplicate or incomplete sequences, so the remaining filtering rules must be reconstructed before comparing a final count.
 
+The available evidence does not support a deterministic final filter for the additional 61 proteins: none is an exact duplicate of a paper-reference protein, and only one is shorter than 100 amino acids. The paper does not publish a sequence-level exclusion list. This is a documented limitation of the from-scratch gene-identification reproduction.
+
+Table S2 promoter statistics were also reproduced. The paper's 102 VcbZIP promoters contain 261 predicted abscisic-acid-responsive elements across 82 genes. This result currently comes from the supplied promoter table. The genome-derived promoter extraction and independent cis-element scan remain to be run.
+
 ## Planned Checkpoints
 
-1. Reconstruct the duplicate and sequence-completeness filtering that maps domain-confirmed proteins to final VcbZIP names.
-2. Rebuild the bZIP identification workflow.
+1. Extract 2 kb upstream promoter sequences from the Draper genome and compare them with Table S2.
+2. Rebuild the phylogeny, motif, and gene-structure analyses.
 3. Reproduce expression and differential analysis from public transcriptome data.
 4. Compare results with the paper and document any differences.
 

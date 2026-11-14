@@ -35,6 +35,7 @@ python scripts\summarize_supplementary.py `
 | genome-001 | Draper V1.0 preparation | Protein FASTA, GFF, scaffold FASTA | 128,559 proteins / 1,760 scaffolds | File-level counts passed |
 | candidate-001 | bZIP homology screen | 153 paper reference proteins | 267 candidates | All 153 reference proteins were recovered; domain confirmation is pending |
 | domain-001 | Pfam bZIP-domain confirmation | 267 homology candidates | 214 domain-confirmed proteins | All 153 paper reference proteins confirmed; 61 extra candidates remain for duplicate/completeness filtering |
+| cis-element-001 | promoter cis-element summary | Table S2 | 261 ABA-responsive elements across 82 genes | Genome-derived promoter analysis is pending |
 
 ## Data Sources
 
@@ -79,5 +80,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [bZIP homology candidates](results/phmmer-bzip-candidates.csv)
 - [Pfam domain confirmation](results/ebi-pfam-bzip-domain-confirmation.csv)
 - [Domain-confirmed candidate summary](results/bzip-domain-candidate-summary.csv)
+- [Additional domain-confirmed candidates](results/additional-bzip-domain-candidates.csv)
+- [Cis-element summary](results/cis-element-summary.csv)
+- [Cis-element counts](results/figures/cis-element-counts.png)
 - [Experiment summary](results/experiment-summary.md)
 
