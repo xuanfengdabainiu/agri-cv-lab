@@ -36,6 +36,8 @@ Expression-source verification is complete using the supplementary workbooks fro
 
 The drought DEG list was reproduced directly from the original DESeq2 comparison blocks. Applying absolute log2FC >= 1 and p < 0.05 to P6/P12/P24/P48 versus P0 recovers 11 of the 13 VcbZIP genes reported by the bZIP paper. The two unresolved genes are absent from the original study's FPKM and DEG tables.
 
+The salt DEG list was reproduced directly from the original DESeq2 comparison blocks. Applying the same thresholds to S6/S12/S24/S48 versus S0 recovers all 18 VcbZIP genes reported by the bZIP paper. This is the strongest direct expression-result reproduction in the project so far.
+
 ## Planned Checkpoints
 
 1. Recreate the bZIP drought heatmap from the 11 verified source-matrix genes and compare it with Table S4.

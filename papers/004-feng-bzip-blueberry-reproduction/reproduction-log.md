@@ -125,6 +125,14 @@
 - Result: 11 of 13 VcbZIP genes are independently recovered. The two unresolved genes are the same two IDs absent from the original drought FPKM matrix.
 - Output: `results/05_expression/drought-deg-membership-verification.csv`.
 
+## 2026-11-14: salt DEG membership reproduction
+
+- Goal: reproduce the bZIP paper's salt-responsive gene list using source salt-study DESeq2 result blocks.
+- Command: `python scripts/05_expression/verify_salt_deg_membership.py --bzip-workbook <bZIP supplementary workbook> --source-workbook <salt supplementary workbook> --output results/05_expression/salt-deg-membership-verification.csv`.
+- Method: checked S6_vs_S0, S12_vs_S0, S24_vs_S0, and S48_vs_S0 using absolute log2FC >= 1 and p < 0.05.
+- Result: all 18 VcbZIP genes are independently recovered as salt responsive. The output also records the source-study time comparisons where each gene was significant.
+- Output: `results/05_expression/salt-deg-membership-verification.csv`.
+
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.
