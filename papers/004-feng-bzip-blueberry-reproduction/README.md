@@ -22,7 +22,7 @@ Reproduce the computational analysis of Feng et al. (2025) on bZIP transcription
 ```powershell
 conda activate D:\conda_envs\blueberry-bzip
 
-python scripts\summarize_supplementary.py `
+python scripts\01_supplementary\summarize_supplementary.py `
   --workbook "D:\science-data\datasets\feng-bzip-2025\supplementary\extracted\supplementary tables.xlsx" `
   --output-dir results
 ```
@@ -98,4 +98,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [Drought FPKM source verification](results/drought-fpkm-source-verification.csv)
 - [Salt and ABA source verification](results/salt-aba-source-membership-verification.csv)
 - [Experiment summary](results/experiment-summary.md)
+
+## Script Index
+
+See [scripts/README.md](scripts/README.md) for scripts grouped by workflow stage.
 
