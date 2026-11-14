@@ -42,7 +42,7 @@
 
 - Goal: use the paper's confirmed proteins as reference queries against the full Draper proteome.
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pyhmmer 0.12.3.
-- Command: `python scripts/03_domain_screen/phmmer_bzip_candidates.py --references <reference FASTA> --proteins <Draper protein FASTA> --output results/phmmer-bzip-candidates.csv --cpus 8 --evalue 1e-5`.
+- Command: `python scripts/03_domain_screen/phmmer_bzip_candidates.py --references <reference FASTA> --proteins <Draper protein FASTA> --output results/03_domain_screen/phmmer-bzip-candidates.csv --cpus 8 --evalue 1e-5`.
 - Installed `pyhmmer` in the `blueberry-bzip` environment because a native HMMER command was not available on this Windows setup.
 - Mapped the paper's 102 VcbZIP names to 153 unique Draper V1.0 protein records. Several VcbZIP names represent multiple homoeologous gene IDs.
 - Used the 153 reference proteins to search all 128,559 proteins with local `phmmer` at E-value <= 1e-5.
@@ -54,9 +54,9 @@
 - Goal: confirm whether the 267 homology candidates contain one or more of the four bZIP Pfam domains reported in the paper: PF00170, PF07716, PF03131, and PF12498.
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pyhmmer 0.12.3.
 - Method: submitted candidate proteins one at a time to the EBI HMMER Pfam API with five concurrent requests. NCBI Batch CD-Search could not be used programmatically because it returned a CAPTCHA page.
-- Command: `python scripts/03_domain_screen/confirm_bzip_domains_ebi.py --input <candidate FASTA> --output results/ebi-pfam-bzip-domain-confirmation.csv --workers 5`.
+- Command: `python scripts/03_domain_screen/confirm_bzip_domains_ebi.py --input <candidate FASTA> --output results/03_domain_screen/ebi-pfam-bzip-domain-confirmation.csv --workers 5`.
 - Result: all 267 API jobs completed successfully. Of 267 homology candidates, 214 had at least one target bZIP Pfam domain. All 153 paper reference proteins were confirmed. The remaining 61 domain-confirmed proteins are additional candidates that need the paper's duplicate and completeness filtering rules.
-- Output: `results/ebi-pfam-bzip-domain-confirmation.csv` and `results/bzip-domain-candidate-summary.csv`.
+- Output: `results/03_domain_screen/ebi-pfam-bzip-domain-confirmation.csv` and `results/03_domain_screen/bzip-domain-candidate-summary.csv`.
 
 ## 2026-11-14: candidate-filter review
 
@@ -70,13 +70,13 @@
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pandas, openpyxl, matplotlib.
 - Command: `python scripts/01_supplementary/summarize_cis_elements.py --workbook <supplementary tables.xlsx> --output-dir results`.
 - Result: 82 of 102 VcbZIP promoters contain abscisic-acid-responsive elements, totaling 261 elements. The next most frequent categories are MeJA-responsive elements (135 elements across 79 genes) and gibberellin-responsive elements (92 across 57 genes).
-- Output: `results/cis-element-summary.csv` and `results/figures/cis-element-counts.png`.
+- Output: `results/01_supplementary/cis-element-summary.csv` and `results/01_supplementary/figures/cis-element-counts.png`.
 
 ## 2026-11-14: genome-derived promoter extraction
 
 - Goal: independently prepare the 2 kb upstream promoter sequences used as input for the paper's PlantCARE analysis.
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, Biopython.
-- Command: `python scripts/02_genome/extract_vcbzip_promoters.py --workbook <supplementary tables.xlsx> --gff <Draper GFF> --genome <Draper scaffold FASTA> --output-fasta <promoter FASTA> --output-table results/vcbzip-promoter-extraction.csv --length 2000`.
+- Command: `python scripts/02_genome/extract_vcbzip_promoters.py --workbook <supplementary tables.xlsx> --gff <Draper GFF> --genome <Draper scaffold FASTA> --output-fasta <promoter FASTA> --output-table results/02_genome/vcbzip-promoter-extraction.csv --length 2000`.
 - Method: used the first CDS coordinate as the ATG position on plus-strand genes and the last CDS coordinate on minus-strand genes; minus-strand promoters were reverse complemented.
 - Result: extracted 153 promoter sequences representing the paper's 102 VcbZIP names. One VcbZIP43 copy lies near a scaffold boundary and has only 430 bp upstream sequence.
 - Output FASTA: `D:\science-data\datasets\feng-bzip-2025\reference\vcbzip-promoters-2kb.fasta`.
@@ -87,10 +87,10 @@
 - Goal: prepare the paper's phylogenetic-analysis input by combining blueberry VcbZIP proteins with the Arabidopsis bZIP reference set.
 - Reference data: downloaded 78 canonical Arabidopsis bZIP proteins from Ensembl Plants using the published AtbZIP1-AtbZIP79 gene list, excluding pseudogene AtbZIP73.
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, Biopython, pyfamsa.
-- Command: `python scripts/04_phylogeny/build_bzip_phylogeny.py --blueberry <VcbZIP reference FASTA> --arabidopsis <AtbZIP reference FASTA> --alignment results/bzip-blueberry-arabidopsis-alignment.fasta --tree results/bzip-upgma-tree.nwk --threads 8`.
+- Command: `python scripts/04_phylogeny/build_bzip_phylogeny.py --blueberry <VcbZIP reference FASTA> --arabidopsis <AtbZIP reference FASTA> --alignment results/04_phylogeny/bzip-blueberry-arabidopsis-alignment.fasta --tree results/04_phylogeny/bzip-upgma-tree.nwk --threads 8`.
 - Result: aligned 153 blueberry protein copies and 78 Arabidopsis references, yielding 231 proteins across 2,172 alignment columns. Built a preliminary UPGMA tree and mapped every blueberry copy to its nearest Arabidopsis reference tip.
 - Limitation: this tree is an initial similarity-based reconstruction. The paper's final A-S group labels also use conserved motif evidence and should not be assigned from nearest-neighbor relationships alone.
-- Output: `results/bzip-blueberry-arabidopsis-alignment.fasta`, `results/bzip-upgma-tree.nwk`, and `results/bzip-nearest-arabidopsis-references.csv`.
+- Output: `results/04_phylogeny/bzip-blueberry-arabidopsis-alignment.fasta`, `results/04_phylogeny/bzip-upgma-tree.nwk`, and `results/04_phylogeny/bzip-nearest-arabidopsis-references.csv`.
 
 ## 2026-11-14: gene-structure analysis
 
@@ -98,7 +98,7 @@
 - Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pandas, Biopython, matplotlib.
 - Command: `python scripts/02_genome/summarize_vcbzip_gene_structures.py --workbook <supplementary tables.xlsx> --gff <Draper GFF> --output-dir results`.
 - Result: summarized 153 gene copies across 102 VcbZIP names. Exon count ranges from 1 to 14. The most common exon counts are 1 and 4, each occurring in 36 gene copies.
-- Output: `results/vcbzip-gene-structures.csv`, `results/vcbzip-exon-count-summary.csv`, and `results/figures/vcbzip-exon-counts.png`.
+- Output: `results/02_genome/vcbzip-gene-structures.csv`, `results/02_genome/vcbzip-exon-count-summary.csv`, and `results/02_genome/figures/vcbzip-exon-counts.png`.
 
 ## 2026-11-14: motif-analysis environment check
 
@@ -115,13 +115,19 @@
 - Drought verification: 11 of 13 VcbZIP entries have FPKM values that match the source matrix exactly across all 15 sample columns. Two bZIP-paper gene IDs are absent from the source matrix.
 - Salt verification: all 18 salt-responsive VcbZIP genes appear in at least one source-study differential-expression comparison.
 - ABA verification: 6 of 7 bZIP-paper ABA genes appear by identical gene ID in the source-study hormone-pathway table; VcbZIP1 is absent from that restricted table.
-- Output: `configs/rna-seq-sample-manifest.csv`, `results/drought-fpkm-source-verification.csv`, and `results/salt-aba-source-membership-verification.csv`.
+- Output: `configs/rna-seq-sample-manifest.csv`, `results/05_expression/drought-fpkm-source-verification.csv`, and `results/05_expression/salt-aba-source-membership-verification.csv`.
 
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.
 - Added `scripts/README.md` as an index describing the purpose of each script.
 - Updated recorded command paths and the README quick-start command.
+
+## 2026-11-14: result organization
+
+- Grouped result files into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.
+- Kept `metrics.md` and `experiment-summary.md` in the results root as project-level overview files.
+- Added `results/README.md` as a result index and updated README links and recorded output paths.
 
 ## 2026-11-13: documentation clarification
 
