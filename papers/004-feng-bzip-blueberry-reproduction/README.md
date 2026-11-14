@@ -40,6 +40,7 @@ python scripts\01_supplementary\summarize_supplementary.py `
 | phylogeny-001 | preliminary UPGMA tree | 153 VcbZIP copies + 78 AtbZIP references | 231 proteins / 2,172 columns | final group labels need motif evidence |
 | structure-001 | exon-intron structure summary | Draper V1.0 GFF | 153 gene copies / exon range 1-14 | motif analysis requires a Linux-compatible MEME environment |
 | expression-source-001 | stress-expression source verification | original stress-study supplementary workbooks | drought 11/13 exact; salt 18/18; ABA 6/7 | SRA runs are pooled by time point; table-level reproduction is supported |
+| drought-deg-001 | drought DEG list reproduction | source drought DESeq2 comparisons | 11/13 VcbZIP genes recovered | two gene IDs are missing from source matrices |
 
 ## Data Sources
 
@@ -98,6 +99,7 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [RNA-seq sample manifest](configs/rna-seq-sample-manifest.csv)
 - [Drought FPKM source verification](results/05_expression/drought-fpkm-source-verification.csv)
 - [Salt and ABA source verification](results/05_expression/salt-aba-source-membership-verification.csv)
+- [Drought DEG membership verification](results/05_expression/drought-deg-membership-verification.csv)
 - [Experiment summary](results/experiment-summary.md)
 
 ## Script Index

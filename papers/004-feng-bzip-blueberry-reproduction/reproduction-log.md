@@ -117,6 +117,14 @@
 - ABA verification: 6 of 7 bZIP-paper ABA genes appear by identical gene ID in the source-study hormone-pathway table; VcbZIP1 is absent from that restricted table.
 - Output: `configs/rna-seq-sample-manifest.csv`, `results/05_expression/drought-fpkm-source-verification.csv`, and `results/05_expression/salt-aba-source-membership-verification.csv`.
 
+## 2026-11-14: drought DEG membership reproduction
+
+- Goal: reproduce the bZIP paper's drought-responsive gene list using source drought-study DESeq2 result blocks.
+- Command: `python scripts/05_expression/verify_drought_deg_membership.py --bzip-workbook <bZIP supplementary workbook> --source-workbook <drought supplementary workbook> --output results/05_expression/drought-deg-membership-verification.csv`.
+- Method: checked P6_vs_P0, P12_vs_P0, P24_vs_P0, and P48_vs_P0 using absolute log2FC >= 1 and p < 0.05.
+- Result: 11 of 13 VcbZIP genes are independently recovered. The two unresolved genes are the same two IDs absent from the original drought FPKM matrix.
+- Output: `results/05_expression/drought-deg-membership-verification.csv`.
+
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.

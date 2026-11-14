@@ -14,4 +14,5 @@ This project is in the setup stage. No reproduction metrics have been produced.
 | phylogeny-001 | 2026-11-14 | preliminary UPGMA phylogeny | 153 VcbZIP protein copies + 78 AtbZIP references | 231 proteins / 2,172 alignment columns | nearest Arabidopsis references mapped; final A-S grouping needs motif evidence |
 | structure-001 | 2026-11-14 | exon-intron structure summary | Draper V1.0 GFF | 153 gene copies / exon range 1-14 | gene structure table and exon-count figure generated |
 | expression-source-001 | 2026-11-14 | source-study expression verification | 3 original stress-study supplementary workbooks | drought 11/13 exact FPKM; salt 18/18; ABA 6/7 | raw SRA runs are pooled by time point, while supplementary tables preserve three replicates |
+| drought-deg-001 | 2026-11-14 | drought DEG list reproduction | source drought DESeq2 comparisons | 11/13 VcbZIP genes recovered | two gene IDs are absent from the source matrix and DEG table |
 

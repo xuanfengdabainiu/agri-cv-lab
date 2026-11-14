@@ -1,0 +1,14 @@
+gene_id,gene_name,significant_source_comparisons,reproduced_as_drought_responsive
+VaccDscaff7-snap-gene-24.27,VcbZIP1,P6_vs_P0;P24_vs_P0;P48_vs_P0,True
+VaccDscaff31-processed-gene-337.9,VcbZIP2,P6_vs_P0;P24_vs_P0;P48_vs_P0,True
+VaccDscaff169-augustus-gene-0.20,VcbZIP3,P6_vs_P0;P24_vs_P0;P48_vs_P0,True
+VaccDscaff26-processed-gene-309.0,VcbZIP9,P12_vs_P0,True
+VaccDscaff20-processed-gene-106.3,VcbZIP75,P6_vs_P0,True
+VaccDscaff32-processed-gene-266.16,VcbZIP83,P24_vs_P0;P48_vs_P0,True
+VaccDscaff5-processed-gene-16.7,VcbZIP84,P24_vs_P0,True
+VaccDscaff32-processed-gene-90.3,VcbZIP89,P24_vs_P0;P48_vs_P0,True
+VaccDscaff12-processed-gene-62.6,VcbZIP91,P12_vs_P0,True
+VaccDscaff592-processed-gene-0.2,VcbZIP95,,False
+VaccDscaff22-processed-gene-91.4,VcbZIP96,P12_vs_P0;P24_vs_P0,True
+VaccDscaff42-snap-gene-204.35,VcbZIP97,P24_vs_P0,True
+VaccDscaff28-snap-gene-90.32,VcbZIP45,,False

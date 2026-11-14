@@ -34,11 +34,12 @@ Conserved motif analysis is pending. The paper used MEME 4.10.1, which has no na
 
 Expression-source verification is complete using the supplementary workbooks from the three original stress studies. The drought matrix reproduces 11 of 13 bZIP-paper FPKM profiles exactly; the two remaining bZIP-paper gene IDs are absent from the drought source matrix. All 18 salt-responsive bZIP genes occur in the source salt DEG tables. Six of seven ABA-responsive bZIP genes occur by identical ID in the source ABA hormone-pathway table. The SRA metadata exposes one large run per time point, while the source workbooks preserve three replicates. Therefore, table-level expression reproduction is supported, but a strict DESeq2 rerun from independently separated raw replicate FASTQ files is not supported by the current SRA deposition.
 
+The drought DEG list was reproduced directly from the original DESeq2 comparison blocks. Applying absolute log2FC >= 1 and p < 0.05 to P6/P12/P24/P48 versus P0 recovers 11 of the 13 VcbZIP genes reported by the bZIP paper. The two unresolved genes are absent from the original study's FPKM and DEG tables.
+
 ## Planned Checkpoints
 
-1. Recreate the bZIP stress-expression heatmaps from the verified source matrices and compare them with Tables S3-S5.
+1. Recreate the bZIP drought heatmap from the 11 verified source-matrix genes and compare it with Table S4.
 2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
-3. Reproduce expression and differential analysis from public transcriptome data.
-4. Compare results with the paper and document any differences.
+4. Compare remaining expression-table differences with the paper and document the gene-ID mismatches.
 
