@@ -11,4 +11,5 @@ This project is in the setup stage. No reproduction metrics have been produced.
 | domain-001 | 2026-11-14 | Pfam bZIP-domain confirmation | 267 homology candidates | 214 domain-confirmed / 153 paper references recovered | 61 additional domain-confirmed candidates require duplicate and completeness filtering |
 | cis-element-001 | 2026-11-14 | promoter cis-element summary | Table S2 | 261 ABA-responsive elements across 82 VcbZIP genes | supplementary-table reproduction; genome-derived promoter analysis is pending |
 | promoter-001 | 2026-11-14 | genome-derived promoter extraction | Draper V1.0 scaffold FASTA and GFF | 153 sequences for 102 VcbZIP names | one VcbZIP43 copy has only 430 bp upstream due to scaffold boundary |
+| phylogeny-001 | 2026-11-14 | preliminary UPGMA phylogeny | 153 VcbZIP protein copies + 78 AtbZIP references | 231 proteins / 2,172 alignment columns | nearest Arabidopsis references mapped; final A-S grouping needs motif evidence |
 

@@ -26,10 +26,13 @@ Table S2 promoter statistics were also reproduced. The paper's 102 VcbZIP promot
 
 Genome-derived promoter extraction is complete. The Draper GFF and genome FASTA produced 153 upstream sequences for the 102 VcbZIP names because several names represent multiple homoeologous copies. One VcbZIP43 copy has only 430 bp available before a scaffold boundary. The resulting promoter FASTA is ready for an independent PlantCARE batch scan; the scan itself remains pending because PlantCARE provides this analysis through its web interface rather than a stable public batch API.
 
+An initial phylogenetic reconstruction is complete. The 153 blueberry protein copies from the paper were aligned with 78 canonical Arabidopsis bZIP reference proteins, excluding AtbZIP73 because it is a pseudogene. The local UPGMA tree contains 231 tips and maps each blueberry copy to its nearest Arabidopsis bZIP reference. This supports later group assignment but does not replace the paper's motif-based group classification.
+
 ## Planned Checkpoints
 
-1. Submit the extracted promoter FASTA to PlantCARE and compare its `.tab` output with Table S2.
-2. Rebuild the phylogeny, motif, and gene-structure analyses.
+1. Rebuild conserved motif analysis and use it with the phylogeny for group assignment.
+2. Rebuild gene-structure analysis from the GFF file.
+3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
 3. Reproduce expression and differential analysis from public transcriptome data.
 4. Compare results with the paper and document any differences.
 

@@ -37,6 +37,7 @@ python scripts\summarize_supplementary.py `
 | domain-001 | Pfam bZIP-domain confirmation | 267 homology candidates | 214 domain-confirmed proteins | All 153 paper reference proteins confirmed; 61 extra candidates remain for duplicate/completeness filtering |
 | cis-element-001 | promoter cis-element summary | Table S2 | 261 ABA-responsive elements across 82 genes | Genome-derived promoter analysis is pending |
 | promoter-001 | genome-derived promoter extraction | Draper V1.0 GFF and scaffold FASTA | 153 sequences for 102 VcbZIP names | ready for PlantCARE batch analysis |
+| phylogeny-001 | preliminary UPGMA tree | 153 VcbZIP copies + 78 AtbZIP references | 231 proteins / 2,172 columns | final group labels need motif evidence |
 
 ## Data Sources
 
@@ -85,5 +86,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [Cis-element summary](results/cis-element-summary.csv)
 - [Cis-element counts](results/figures/cis-element-counts.png)
 - [Promoter extraction coordinates](results/vcbzip-promoter-extraction.csv)
+- [Blueberry-Arabidopsis protein alignment](results/bzip-blueberry-arabidopsis-alignment.fasta)
+- [UPGMA phylogenetic tree](results/bzip-upgma-tree.nwk)
+- [Nearest Arabidopsis reference mapping](results/bzip-nearest-arabidopsis-references.csv)
 - [Experiment summary](results/experiment-summary.md)
 

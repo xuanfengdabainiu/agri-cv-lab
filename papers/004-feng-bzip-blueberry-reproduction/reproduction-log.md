@@ -82,6 +82,16 @@
 - Output FASTA: `D:\science-data\datasets\feng-bzip-2025\reference\vcbzip-promoters-2kb.fasta`.
 - Next: submit the promoter FASTA to PlantCARE through its web batch interface, then compare the downloaded `.tab` output against Table S2. PlantCARE has no stable public batch API for this script to call directly.
 
+## 2026-11-14: preliminary phylogenetic analysis
+
+- Goal: prepare the paper's phylogenetic-analysis input by combining blueberry VcbZIP proteins with the Arabidopsis bZIP reference set.
+- Reference data: downloaded 78 canonical Arabidopsis bZIP proteins from Ensembl Plants using the published AtbZIP1-AtbZIP79 gene list, excluding pseudogene AtbZIP73.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, Biopython, pyfamsa.
+- Command: `python scripts/build_bzip_phylogeny.py --blueberry <VcbZIP reference FASTA> --arabidopsis <AtbZIP reference FASTA> --alignment results/bzip-blueberry-arabidopsis-alignment.fasta --tree results/bzip-upgma-tree.nwk --threads 8`.
+- Result: aligned 153 blueberry protein copies and 78 Arabidopsis references, yielding 231 proteins across 2,172 alignment columns. Built a preliminary UPGMA tree and mapped every blueberry copy to its nearest Arabidopsis reference tip.
+- Limitation: this tree is an initial similarity-based reconstruction. The paper's final A-S group labels also use conserved motif evidence and should not be assigned from nearest-neighbor relationships alone.
+- Output: `results/bzip-blueberry-arabidopsis-alignment.fasta`, `results/bzip-upgma-tree.nwk`, and `results/bzip-nearest-arabidopsis-references.csv`.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.
