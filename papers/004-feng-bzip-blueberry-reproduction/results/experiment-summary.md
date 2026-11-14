@@ -24,9 +24,11 @@ The available evidence does not support a deterministic final filter for the add
 
 Table S2 promoter statistics were also reproduced. The paper's 102 VcbZIP promoters contain 261 predicted abscisic-acid-responsive elements across 82 genes. This result currently comes from the supplied promoter table. The genome-derived promoter extraction and independent cis-element scan remain to be run.
 
+Genome-derived promoter extraction is complete. The Draper GFF and genome FASTA produced 153 upstream sequences for the 102 VcbZIP names because several names represent multiple homoeologous copies. One VcbZIP43 copy has only 430 bp available before a scaffold boundary. The resulting promoter FASTA is ready for an independent PlantCARE batch scan; the scan itself remains pending because PlantCARE provides this analysis through its web interface rather than a stable public batch API.
+
 ## Planned Checkpoints
 
-1. Extract 2 kb upstream promoter sequences from the Draper genome and compare them with Table S2.
+1. Submit the extracted promoter FASTA to PlantCARE and compare its `.tab` output with Table S2.
 2. Rebuild the phylogeny, motif, and gene-structure analyses.
 3. Reproduce expression and differential analysis from public transcriptome data.
 4. Compare results with the paper and document any differences.

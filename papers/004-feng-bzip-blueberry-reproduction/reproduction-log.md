@@ -72,6 +72,16 @@
 - Result: 82 of 102 VcbZIP promoters contain abscisic-acid-responsive elements, totaling 261 elements. The next most frequent categories are MeJA-responsive elements (135 elements across 79 genes) and gibberellin-responsive elements (92 across 57 genes).
 - Output: `results/cis-element-summary.csv` and `results/figures/cis-element-counts.png`.
 
+## 2026-11-14: genome-derived promoter extraction
+
+- Goal: independently prepare the 2 kb upstream promoter sequences used as input for the paper's PlantCARE analysis.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, Biopython.
+- Command: `python scripts/extract_vcbzip_promoters.py --workbook <supplementary tables.xlsx> --gff <Draper GFF> --genome <Draper scaffold FASTA> --output-fasta <promoter FASTA> --output-table results/vcbzip-promoter-extraction.csv --length 2000`.
+- Method: used the first CDS coordinate as the ATG position on plus-strand genes and the last CDS coordinate on minus-strand genes; minus-strand promoters were reverse complemented.
+- Result: extracted 153 promoter sequences representing the paper's 102 VcbZIP names. One VcbZIP43 copy lies near a scaffold boundary and has only 430 bp upstream sequence.
+- Output FASTA: `D:\science-data\datasets\feng-bzip-2025\reference\vcbzip-promoters-2kb.fasta`.
+- Next: submit the promoter FASTA to PlantCARE through its web batch interface, then compare the downloaded `.tab` output against Table S2. PlantCARE has no stable public batch API for this script to call directly.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.
