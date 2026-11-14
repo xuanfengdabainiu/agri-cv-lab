@@ -92,6 +92,20 @@
 - Limitation: this tree is an initial similarity-based reconstruction. The paper's final A-S group labels also use conserved motif evidence and should not be assigned from nearest-neighbor relationships alone.
 - Output: `results/bzip-blueberry-arabidopsis-alignment.fasta`, `results/bzip-upgma-tree.nwk`, and `results/bzip-nearest-arabidopsis-references.csv`.
 
+## 2026-11-14: gene-structure analysis
+
+- Goal: reproduce the exon-intron structure input from the Draper V1.0 GFF annotation.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pandas, Biopython, matplotlib.
+- Command: `python scripts/summarize_vcbzip_gene_structures.py --workbook <supplementary tables.xlsx> --gff <Draper GFF> --output-dir results`.
+- Result: summarized 153 gene copies across 102 VcbZIP names. Exon count ranges from 1 to 14. The most common exon counts are 1 and 4, each occurring in 36 gene copies.
+- Output: `results/vcbzip-gene-structures.csv`, `results/vcbzip-exon-count-summary.csv`, and `results/figures/vcbzip-exon-counts.png`.
+
+## 2026-11-14: motif-analysis environment check
+
+- The paper used MEME 4.10.1 with a maximum of 10 motifs.
+- MEME Suite has no native Windows build. This computer has no WSL, Docker, or native MEME executable.
+- The motif analysis is pending a Linux/WSL/remote execution environment. It is not replaced with a different motif algorithm because that would not reproduce the paper's method.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.

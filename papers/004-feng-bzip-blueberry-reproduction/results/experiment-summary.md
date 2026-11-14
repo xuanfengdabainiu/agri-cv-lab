@@ -28,10 +28,14 @@ Genome-derived promoter extraction is complete. The Draper GFF and genome FASTA 
 
 An initial phylogenetic reconstruction is complete. The 153 blueberry protein copies from the paper were aligned with 78 canonical Arabidopsis bZIP reference proteins, excluding AtbZIP73 because it is a pseudogene. The local UPGMA tree contains 231 tips and maps each blueberry copy to its nearest Arabidopsis bZIP reference. This supports later group assignment but does not replace the paper's motif-based group classification.
 
+Gene-structure analysis is complete from the Draper V1.0 GFF. Across 153 VcbZIP gene copies, exon counts range from 1 to 14. A total of 36 copies have one exon and 36 have four exons. The per-copy structure table is available for later comparison with the phylogenetic groups.
+
+Conserved motif analysis is pending. The paper used MEME 4.10.1, which has no native Windows build; this computer has no WSL, Docker, or MEME executable. A substitute motif algorithm has not been used because it would no longer reproduce the paper's method.
+
 ## Planned Checkpoints
 
-1. Rebuild conserved motif analysis and use it with the phylogeny for group assignment.
-2. Rebuild gene-structure analysis from the GFF file.
+1. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
+2. Compare gene structures across provisional phylogenetic branches.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
 3. Reproduce expression and differential analysis from public transcriptome data.
 4. Compare results with the paper and document any differences.
