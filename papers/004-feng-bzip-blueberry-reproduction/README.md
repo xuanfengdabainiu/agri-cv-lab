@@ -34,6 +34,7 @@ python scripts\summarize_supplementary.py `
 | supplementary-001 | Tables S1, S3, S4 summary | Supplementary workbook | 102 / 18 / 13 | Matches the paper's reported bZIP, salt-response, and drought-response counts |
 | genome-001 | Draper V1.0 preparation | Protein FASTA, GFF, scaffold FASTA | 128,559 proteins / 1,760 scaffolds | File-level counts passed |
 | candidate-001 | bZIP homology screen | 153 paper reference proteins | 267 candidates | All 153 reference proteins were recovered; domain confirmation is pending |
+| domain-001 | Pfam bZIP-domain confirmation | 267 homology candidates | 214 domain-confirmed proteins | All 153 paper reference proteins confirmed; 61 extra candidates remain for duplicate/completeness filtering |
 
 ## Data Sources
 
@@ -76,5 +77,7 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [Drought-expression heatmap](results/figures/drought-vcbzip-heatmap.png)
 - [Paper gene-to-protein mapping](results/vcbzip-protein-mapping.csv)
 - [bZIP homology candidates](results/phmmer-bzip-candidates.csv)
+- [Pfam domain confirmation](results/ebi-pfam-bzip-domain-confirmation.csv)
+- [Domain-confirmed candidate summary](results/bzip-domain-candidate-summary.csv)
 - [Experiment summary](results/experiment-summary.md)
 

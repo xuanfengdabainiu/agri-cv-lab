@@ -49,6 +49,15 @@
 - The union contained 267 candidate proteins and recovered all 153 paper reference proteins.
 - The extra 114 proteins require bZIP-domain confirmation before they can be treated as final candidates. The paper used Pfam profiles plus SMART/CDD confirmation and manual filtering, so this homology screen is a preliminary candidate stage.
 
+## 2026-11-14: Pfam bZIP-domain confirmation
+
+- Goal: confirm whether the 267 homology candidates contain one or more of the four bZIP Pfam domains reported in the paper: PF00170, PF07716, PF03131, and PF12498.
+- Environment: `D:\conda_envs\blueberry-bzip`, Python 3.11, pyhmmer 0.12.3.
+- Method: submitted candidate proteins one at a time to the EBI HMMER Pfam API with five concurrent requests. NCBI Batch CD-Search could not be used programmatically because it returned a CAPTCHA page.
+- Command: `python scripts/confirm_bzip_domains_ebi.py --input <candidate FASTA> --output results/ebi-pfam-bzip-domain-confirmation.csv --workers 5`.
+- Result: all 267 API jobs completed successfully. Of 267 homology candidates, 214 had at least one target bZIP Pfam domain. All 153 paper reference proteins were confirmed. The remaining 61 domain-confirmed proteins are additional candidates that need the paper's duplicate and completeness filtering rules.
+- Output: `results/ebi-pfam-bzip-domain-confirmation.csv` and `results/bzip-domain-candidate-summary.csv`.
+
 ## 2026-11-13: documentation clarification
 
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.
