@@ -140,6 +140,13 @@
 - Result: six of seven VcbZIP entries match all nine FPKM values exactly across 0 h, 6 h, and 12 h triplicates. VcbZIP1 is absent from the source ABA hormone-pathway table.
 - Output: `results/05_expression/aba-fpkm-source-verification.csv`.
 
+## 2026-11-15: verified source-expression heatmaps
+
+- Goal: redraw bZIP drought and ABA heatmaps using original stress-study FPKM matrices rather than copied bZIP-paper tables.
+- Command: `python scripts/05_expression/plot_verified_source_expression.py --mode <drought|aba> --bzip-workbook <bZIP supplementary workbook> --source-workbook <source workbook> --verification <verification CSV> --output-dir results/05_expression`.
+- Result: created a drought heatmap for 11 source-verified VcbZIP genes and an ABA heatmap for 6 source-verified VcbZIP genes. For all included genes, source FPKM values match the bZIP paper values exactly.
+- Output: `results/05_expression/drought-verified-source-mean-fpkm.csv`, `results/05_expression/aba-verified-source-mean-fpkm.csv`, and heatmaps in `results/05_expression/figures`.
+
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.
