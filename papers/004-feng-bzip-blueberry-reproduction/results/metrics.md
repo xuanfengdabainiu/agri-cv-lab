@@ -16,4 +16,5 @@ This project is in the setup stage. No reproduction metrics have been produced.
 | expression-source-001 | 2026-11-14 | source-study expression verification | 3 original stress-study supplementary workbooks | drought 11/13 exact FPKM; salt 18/18; ABA 6/7 | raw SRA runs are pooled by time point, while supplementary tables preserve three replicates |
 | drought-deg-001 | 2026-11-14 | drought DEG list reproduction | source drought DESeq2 comparisons | 11/13 VcbZIP genes recovered | two gene IDs are absent from the source matrix and DEG table |
 | salt-deg-001 | 2026-11-14 | salt DEG list reproduction | source salt DESeq2 comparisons | 18/18 VcbZIP genes recovered | all reported salt-responsive genes reproduced at the stated thresholds |
+| aba-fpkm-001 | 2026-11-15 | ABA FPKM source verification | source ABA hormone-pathway matrix | 6/7 exact FPKM profiles | VcbZIP1 is absent from the source table |
 

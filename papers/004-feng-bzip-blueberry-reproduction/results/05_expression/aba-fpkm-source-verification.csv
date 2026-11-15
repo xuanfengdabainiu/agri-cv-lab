@@ -1,0 +1,8 @@
+gene_id,gene_name,source_status,max_absolute_difference,exact_match_within_1e-9
+VaccDscaff7-snap-gene-24.27,VcbZIP1,missing_from_source_table,,False
+VaccDscaff31-processed-gene-337.9,VcbZIP2,matched,0.0,True
+VaccDscaff169-augustus-gene-0.20,VcbZIP3,matched,0.0,True
+VaccDscaff41-augustus-gene-47.25,VcbZIP4,matched,0.0,True
+VaccDscaff23-snap-gene-318.41,VcbZIP5,matched,0.0,True
+VaccDscaff982-snap-gene-0.6,VcbZIP6,matched,0.0,True
+VaccDscaff14-augustus-gene-358.38,VcbZIP7,matched,0.0,True

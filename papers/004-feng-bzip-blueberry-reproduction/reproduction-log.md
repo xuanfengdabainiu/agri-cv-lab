@@ -133,6 +133,13 @@
 - Result: all 18 VcbZIP genes are independently recovered as salt responsive. The output also records the source-study time comparisons where each gene was significant.
 - Output: `results/05_expression/salt-deg-membership-verification.csv`.
 
+## 2026-11-15: ABA FPKM source verification
+
+- Goal: compare the seven ABA-responsive VcbZIP expression profiles in the bZIP paper against the original ABA-study supplementary matrix.
+- Command: `python scripts/05_expression/verify_aba_fpkm_source.py --bzip-workbook <bZIP supplementary workbook> --source-workbook <ABA supplementary workbook> --output results/05_expression/aba-fpkm-source-verification.csv`.
+- Result: six of seven VcbZIP entries match all nine FPKM values exactly across 0 h, 6 h, and 12 h triplicates. VcbZIP1 is absent from the source ABA hormone-pathway table.
+- Output: `results/05_expression/aba-fpkm-source-verification.csv`.
+
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.

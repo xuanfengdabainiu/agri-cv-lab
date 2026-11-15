@@ -38,9 +38,11 @@ The drought DEG list was reproduced directly from the original DESeq2 comparison
 
 The salt DEG list was reproduced directly from the original DESeq2 comparison blocks. Applying the same thresholds to S6/S12/S24/S48 versus S0 recovers all 18 VcbZIP genes reported by the bZIP paper. This is the strongest direct expression-result reproduction in the project so far.
 
+The ABA expression values were verified against the source ABA hormone-pathway matrix. Six of seven bZIP-paper genes match all nine FPKM values exactly across three replicates at 0 h, 6 h, and 12 h. VcbZIP1 is absent from the restricted source table, matching the gene-ID coverage issue seen in the drought source study.
+
 ## Planned Checkpoints
 
-1. Recreate the bZIP drought heatmap from the 11 verified source-matrix genes and compare it with Table S4.
+1. Recreate the bZIP drought and ABA heatmaps from the verified source matrices and compare them with Tables S4 and S5.
 2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
 4. Compare remaining expression-table differences with the paper and document the gene-ID mismatches.
