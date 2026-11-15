@@ -155,6 +155,14 @@
 - Result: 140 of 162 reported correlations were computable from source matrices; 129 matched within 0.001. The other 22 use bZIP IDs missing from the source matrix. A small number of computable correlations differ more substantially, likely due to ambiguous multi-copy gene rows.
 - Output: `results/05_expression/drought-stress-gene-correlation-verification.csv` and `results/05_expression/figures/drought-stress-gene-correlation-verification.png`.
 
+## 2026-11-15: salt Figure 8 source-coverage assessment
+
+- Goal: determine whether the public salt-study DEG read-count blocks contain enough timepoint coverage to independently reproduce the salt VcbZIP-stress-gene correlations in Table S8.
+- Command: `python scripts/05_expression/assess_salt_figure8_coverage.py --bzip-workbook <bZIP supplementary workbook> --source-workbook <salt supplementary workbook> --output-dir results/05_expression`.
+- Result: of 69 stress-responsive genes in Table S8, only 4 have read counts available in all four salt-treatment comparison blocks. The remaining genes lack one or more timepoints because the public source table only retains genes significant in each individual comparison.
+- Conclusion: the public salt source does not contain a complete expression matrix for Table S8 genes, so a source-level Pearson reproduction would be unreliable and was not performed.
+- Output: `results/05_expression/salt-figure8-source-coverage.csv`, `results/05_expression/salt-figure8-source-coverage-summary.csv`, and `results/05_expression/figures/salt-figure8-source-coverage.png`.
+
 ## 2026-11-15: VcbZIP correlation-table reproduction
 
 - Goal: reproduce the Pearson correlation coefficients in Tables S6 (salt) and S7 (drought).

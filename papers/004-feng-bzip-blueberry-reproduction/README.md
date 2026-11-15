@@ -46,6 +46,7 @@ python scripts\01_supplementary\summarize_supplementary.py `
 | expression-heatmap-001 | verified-source heatmaps | drought and ABA source FPKM matrices | drought 11 genes / ABA 6 genes | uses only exact source-matched gene IDs |
 | correlation-001 | VcbZIP Pearson correlations | Tables S3/S4 FPKM matrices | salt max diff 0.027; drought 77/78 pairs close | one drought pair differs by 0.360 |
 | figure8-drought-001 | VcbZIP-stress gene correlations | Table S9 and source drought FPKM | 129/140 computable pairs match within 0.001 | some source IDs are missing or represent multiple copies |
+| figure8-salt-coverage-001 | salt Figure 8 source coverage | source salt DEG blocks | 4/69 stress genes have all time points | public source data cannot support full Pearson reproduction |
 
 ## Data Sources
 
@@ -112,6 +113,7 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [Salt correlation heatmap](results/05_expression/figures/salt-bzip-recomputed-correlation.png)
 - [Drought correlation heatmap](results/05_expression/figures/drought-bzip-recomputed-correlation.png)
 - [Drought Figure 8 correlation verification](results/05_expression/figures/drought-stress-gene-correlation-verification.png)
+- [Salt Figure 8 source coverage](results/05_expression/figures/salt-figure8-source-coverage.png)
 - [Experiment summary](results/experiment-summary.md)
 
 ## Script Index

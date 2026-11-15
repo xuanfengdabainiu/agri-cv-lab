@@ -1,0 +1,70 @@
+gene_id,gene_name,gene_family,S6_vs_S0,S12_vs_S0,S24_vs_S0,S48_vs_S0,treatment_timepoints_available
+VaccDscaff1-processed-gene-18.16/VaccDscaff5-snap-gene-16.37/VaccDscaff8-snap-gene-397.69,ALDH22A1,Aldehyde dehydrogenase,False,False,True,True,2
+VaccDscaff3-augustus-gene-174.24,ALDH2a,,False,True,False,False,1
+VaccDscaff12-processed-gene-335.18,ALDH2c,,False,True,True,True,3
+VaccDscaff12-snap-gene-335.44,ALDH2-C4,,False,True,True,True,3
+VaccDscaff12-processed-gene-335.17,ALDH2-C4a,,False,True,True,True,3
+VaccDscaff13-augustus-gene-45.43/VaccDscaff30-augustus-gene-300.25,ALDH3c,,False,True,True,True,3
+VaccDscaff14-augustus-gene-137.25,ALDH3-H1,,True,False,False,False,1
+VaccDscaff9-augustus-gene-408.29/VaccDscaff35-augustus-gene-318.28,ALDH7,,False,False,True,True,2
+VaccDscaff14-processed-gene-228.2,ALDH2-B7,,False,True,True,True,3
+VaccDscaff5-augustus-gene-165.13/VaccDscaff5-augustus-gene-165.13,APX3,Ascorbate peroxidase,True,True,False,False,2
+VaccDscaff16-augustus-gene-216.35,APX6c,,False,False,False,True,1
+VaccDscaff31-augustus-gene-153.29/VaccDscaff16-augustus-gene-215.24,APX6,,False,True,True,True,3
+VaccDscaff821-snap-gene-0.6,APX6a,,False,False,True,False,1
+VaccDscaff470-snap-gene-0.13/VaccDscaff516-snap-gene-0.17,APX6b,,False,True,True,True,3
+VaccDscaff14-augustus-gene-183.19,CAD1a,Cinnamyl alcohol dehydrogenase,False,True,False,False,1
+VaccDscaff22-augustus-gene-306.29/VaccDscaff47-augustus-gene-129.28,CAD1b,,False,True,True,True,3
+VaccDscaff149-snap-gene-2.68,CAD,,False,True,False,False,1
+VaccDscaff115-augustus-gene-1.24,CAT1,Catalase isozyme,True,False,False,False,1
+VaccDscaff18-processed-gene-63.2,GSTb,Glutathione transferase,False,True,False,False,1
+VaccDscaff17-processed-gene-183.3,GST23,,False,True,True,True,3
+VaccDscaff44-augustus-gene-54.37/VaccDscaff44-augustus-gene-54.38,GSTU26,,False,True,True,True,3
+VaccDscaff24-snap-gene-14.32,NHX2a,Sodium/hydrogen exchanger,False,True,False,False,1
+VaccDscaff4-augustus-gene-18.24,NHX2,,True,False,False,False,1
+VaccDscaff12-augustus-gene-290.24/VaccDscaff23-augustus-gene-103.24/VaccDscaff41-augustus-gene-171.17,PIP,Aquaporin ,False,True,True,True,3
+VaccDscaff40-augustus-gene-184.31,PIP1,,False,True,True,True,3
+VaccDscaff35-augustus-gene-294.33,PIP10,,False,True,False,True,2
+VaccDscaff27-augustus-gene-318.45/VaccDscaff34-snap-gene-27.36,PIP12,,False,True,False,False,1
+VaccDscaff21-processed-gene-129.2/VaccDscaff33-augustus-gene-207.17,PIP1-4,,False,True,True,False,2
+VaccDscaff10-augustus-gene-114.32/VaccDscaff1-augustus-gene-315.19,PIP1a,,False,True,True,True,3
+VaccDscaff19-augustus-gene-334.21,PIP1b,,False,False,True,True,2
+VaccDscaff10-augustus-gene-226.27/VaccDscaff8-augustus-gene-239.25,PIP2-1,,True,True,True,False,3
+VaccDscaff32-snap-gene-104.20,PIP23,,True,True,True,True,4
+VaccDscaff22-augustus-gene-251.20/VaccDscaff43-snap-gene-134.30/VaccDscaff47-augustus-gene-66.24,TIP1-1a,,True,True,True,False,3
+VaccDscaff225-augustus-gene-1.30,TIP1-1b ,,True,True,True,False,3
+VaccDscaff15-augustus-gene-317.30,TIP1-2,,True,True,True,False,3
+VaccDscaff19-augustus-gene-345.27/VaccDscaff11-augustus-gene-326.27/VaccDscaff24-augustus-gene-88.32,TIP1-3,,True,True,True,True,4
+VaccDscaff17-snap-gene-355.42,TIP2-1 ,,False,True,False,False,1
+VaccDscaff20-augustus-gene-249.24/VaccDscaff44-augustus-gene-110.30,TIP4-1,,False,True,True,True,3
+VaccDscaff28-augustus-gene-142.19,NIP1-2b,,True,True,False,False,2
+VaccDscaff35-augustus-gene-117.34,POD,Peroxidase ,True,False,True,False,2
+VaccDscaff21-augustus-gene-112.20/VaccDscaff33-snap-gene-226.25,POD4,,True,True,False,False,2
+VaccDscaff14-augustus-gene-273.31/VaccDscaff14-augustus-gene-273.36/VaccDscaff25-augustus-gene-316.26,POD12,,True,False,True,True,3
+VaccDscaff6-snap-gene-342.27,POD17,,False,True,True,True,3
+VaccDscaff10-snap-gene-57.39/VaccDscaff10-snap-gene-57.40/VaccDscaff1-snap-gene-361.45/VaccDscaff1-snap-gene-362.30/VaccDscaff5-snap-gene-340.25/VaccDscaff8-augustus-gene-96.16,POD27b,,False,True,True,True,3
+VaccDscaff8-snap-gene-96.20,POD27a,,False,True,True,True,3
+VaccDscaff11-augustus-gene-203.18,POD42b,,False,True,True,True,3
+VaccDscaff15-augustus-gene-196.27,POD42a,,False,False,False,True,1
+VaccDscaff38-augustus-gene-142.18/VaccDscaff37-augustus-gene-166.16/VaccDscaff6-augustus-gene-281.11,POD47,,True,True,False,True,3
+VaccDscaff43-augustus-gene-90.26,POD68a,,True,False,False,False,1
+VaccDscaff2-augustus-gene-374.34/VaccDscaff14-augustus-gene-324.32,PODN1,,False,True,False,False,1
+VaccDscaff47-snap-gene-122.45,PODc,,True,True,True,False,3
+VaccDscaff17-augustus-gene-86.20/VaccDscaff34-processed-gene-305.11,PODe,,False,False,True,True,2
+VaccDscaff30-processed-gene-232.3/VaccDscaff32-augustus-gene-237.19/VaccDscaff42-augustus-gene-66.27,PODh,,False,True,True,True,3
+VaccDscaff32-augustus-gene-326.24,PODi,,False,False,True,True,2
+VaccDscaff23-processed-gene-11.4/VaccDscaff53-augustus-gene-11.27,RD22a,BURP domain protein,True,True,True,True,4
+VaccDscaff12-snap-gene-384.51,RD22b,,False,True,True,True,3
+VaccDscaff53-augustus-gene-13.32,RD22d,,False,True,True,True,3
+VaccDscaff208-processed-gene-1.6,RD22e,,False,True,True,True,3
+VaccDscaff41-augustus-gene-268.20,RD23f,,True,True,True,True,4
+VaccDscaff53-snap-gene-11.33/VaccDscaff23-snap-gene-12.37/VaccDscaff41-snap-gene-268.29,RD22g,,False,True,True,True,3
+VaccDscaff41-snap-gene-268.28,RD22j,,False,True,True,True,3
+VaccDscaff41-augustus-gene-268.19,RD22k,,False,False,True,True,2
+VaccDscaff41-snap-gene-268.27/VaccDscaff23-snap-gene-12.41,RD23h,,False,False,True,True,2
+VaccDscaff35-augustus-gene-210.20,RD23i,,False,True,True,True,3
+VaccDscaff21-augustus-gene-109.25,SOD,Superoxide dismutase,False,True,True,False,2
+VaccDscaff11-augustus-gene-294.27/VaccDscaff15-augustus-gene-278.29,SOD1b,,False,False,False,True,1
+VaccDscaff29-augustus-gene-100.28,SOD2a,,False,False,False,True,1
+VaccDscaff225-augustus-gene-1.32/VaccDscaff22-augustus-gene-250.28/VaccDscaff43-augustus-gene-135.18,SODa,,True,False,True,True,3
+ ∗ Correlation significant at the 0.05 level; ∗∗Correlation significant at the 0.01 level; -- indicate no significant correlation; positive numbers indicate positive correlations; negative numbers indicate negative correlations.,,,False,False,False,False,0

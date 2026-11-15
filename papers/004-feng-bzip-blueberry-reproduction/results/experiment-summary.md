@@ -46,10 +46,11 @@ The Pearson correlation tables were also reproduced from the bZIP paper's FPKM m
 
 The drought portion of Figure 8 was independently checked against the original drought expression matrix. Of 162 correlations shown in Table S9, 140 can be computed from matching source IDs and 129 of those agree with the paper within 0.001. The remaining differences are concentrated in rows with multiple candidate gene copies or bZIP IDs that are absent from the source matrix.
 
+The salt portion of Figure 8 cannot be independently recomputed from the public source tables. The salt source publishes read counts only for genes significant in each separate timepoint comparison. Only 4 of 69 Table S8 stress genes appear in all four treatment blocks, which is insufficient for a reliable five-timepoint Pearson analysis. This is a source-data limitation rather than a failed calculation.
+
 ## Planned Checkpoints
 
-1. Assess whether salt Figure 8 correlations can be reconstructed from public source read-count blocks.
-2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
-3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
-4. Summarize remaining gene-ID and correlation discrepancies against the paper.
+1. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
+2. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
+3. Summarize remaining gene-ID and correlation discrepancies against the paper.
 
