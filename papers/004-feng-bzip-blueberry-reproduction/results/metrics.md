@@ -18,4 +18,5 @@ This project is in the setup stage. No reproduction metrics have been produced.
 | salt-deg-001 | 2026-11-14 | salt DEG list reproduction | source salt DESeq2 comparisons | 18/18 VcbZIP genes recovered | all reported salt-responsive genes reproduced at the stated thresholds |
 | aba-fpkm-001 | 2026-11-15 | ABA FPKM source verification | source ABA hormone-pathway matrix | 6/7 exact FPKM profiles | VcbZIP1 is absent from the source table |
 | expression-heatmap-001 | 2026-11-15 | verified-source heatmaps | drought and ABA source FPKM matrices | drought 11 genes / ABA 6 genes | uses only exact source-matched gene IDs |
+| correlation-001 | 2026-11-15 | VcbZIP Pearson correlations | Tables S3/S4 FPKM values | salt max diff 0.027; drought 77/78 pairs close | drought VcbZIP83-VcbZIP45 is the one large mismatch |
 

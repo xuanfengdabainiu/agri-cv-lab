@@ -42,10 +42,12 @@ The ABA expression values were verified against the source ABA hormone-pathway m
 
 Independent source-expression heatmaps are complete for the verified gene subsets: 11 drought VcbZIP genes and 6 ABA VcbZIP genes. Both use three-replicate mean FPKM values directly from the original stress-study supplementary matrices. Their included profiles are numerically identical to the corresponding bZIP-paper tables.
 
+The Pearson correlation tables were also reproduced from the bZIP paper's FPKM matrices. Salt correlations closely match all 153 reported pairs, with maximum absolute difference 0.027. Drought correlations match all but one pair closely: VcbZIP83-VcbZIP45 differs by 0.360. This isolated discrepancy is recorded rather than overwritten.
+
 ## Planned Checkpoints
 
-1. Reproduce the correlation tables from verified source-expression matrices.
+1. Reproduce correlations from the verified source-study matrices where gene IDs are available.
 2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
-4. Compare remaining expression-table differences with the paper and document the gene-ID mismatches.
+4. Summarize remaining gene-ID and correlation discrepancies against the paper.
 

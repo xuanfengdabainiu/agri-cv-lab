@@ -147,6 +147,14 @@
 - Result: created a drought heatmap for 11 source-verified VcbZIP genes and an ABA heatmap for 6 source-verified VcbZIP genes. For all included genes, source FPKM values match the bZIP paper values exactly.
 - Output: `results/05_expression/drought-verified-source-mean-fpkm.csv`, `results/05_expression/aba-verified-source-mean-fpkm.csv`, and heatmaps in `results/05_expression/figures`.
 
+## 2026-11-15: VcbZIP correlation-table reproduction
+
+- Goal: reproduce the Pearson correlation coefficients in Tables S6 (salt) and S7 (drought).
+- Method: calculated mean FPKM across the three repeats at each time point, then calculated Pearson r across the five treatment time points for every VcbZIP pair.
+- Command: `python scripts/05_expression/reproduce_bzip_correlations.py --workbook <bZIP supplementary workbook> --mode <salt|drought> --output-dir results/05_expression`.
+- Result: salt correlations reproduce the paper closely across all 153 gene pairs, with maximum absolute difference 0.027. Drought correlations reproduce 77 of 78 pairs closely; VcbZIP83-VcbZIP45 differs by 0.360, while all other pairwise differences are <= 0.019.
+- Output: recomputed matrices, pairwise comparison tables, and heatmaps in `results/05_expression`.
+
 ## 2026-11-14: script organization
 
 - Grouped project scripts into `01_supplementary`, `02_genome`, `03_domain_screen`, `04_phylogeny`, and `05_expression`.

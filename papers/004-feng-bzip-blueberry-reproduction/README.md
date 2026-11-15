@@ -44,6 +44,7 @@ python scripts\01_supplementary\summarize_supplementary.py `
 | salt-deg-001 | salt DEG list reproduction | source salt DESeq2 comparisons | 18/18 VcbZIP genes recovered | all reported salt-responsive genes reproduced |
 | aba-fpkm-001 | ABA FPKM source verification | source ABA hormone-pathway matrix | 6/7 exact FPKM profiles | VcbZIP1 is absent from the source table |
 | expression-heatmap-001 | verified-source heatmaps | drought and ABA source FPKM matrices | drought 11 genes / ABA 6 genes | uses only exact source-matched gene IDs |
+| correlation-001 | VcbZIP Pearson correlations | Tables S3/S4 FPKM matrices | salt max diff 0.027; drought 77/78 pairs close | one drought pair differs by 0.360 |
 
 ## Data Sources
 
@@ -107,6 +108,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [ABA FPKM source verification](results/05_expression/aba-fpkm-source-verification.csv)
 - [Verified drought heatmap](results/05_expression/figures/drought-verified-source-heatmap.png)
 - [Verified ABA heatmap](results/05_expression/figures/aba-verified-source-heatmap.png)
+- [Salt correlation heatmap](results/05_expression/figures/salt-bzip-recomputed-correlation.png)
+- [Drought correlation heatmap](results/05_expression/figures/drought-bzip-recomputed-correlation.png)
 - [Experiment summary](results/experiment-summary.md)
 
 ## Script Index
