@@ -163,6 +163,14 @@
 - Conclusion: the public salt source does not contain a complete expression matrix for Table S8 genes, so a source-level Pearson reproduction would be unreliable and was not performed.
 - Output: `results/05_expression/salt-figure8-source-coverage.csv`, `results/05_expression/salt-figure8-source-coverage-summary.csv`, and `results/05_expression/figures/salt-figure8-source-coverage.png`.
 
+## 2026-11-15: author group and gene-structure summary
+
+- Goal: recover the Table S1 VcbZIP group assignments and relate them to GFF-derived exon structure.
+- Command: `python scripts/01_supplementary/summarize_vcbzip_groups.py --workbook <supplementary tables.xlsx> --gene-structures results/02_genome/vcbzip-gene-structures.csv --output-dir results/01_supplementary`.
+- Method: forward-filled Excel merged group labels in Table S1, then merged author groups with the 153-copy gene-structure table.
+- Result: Group A has 29 VcbZIP names, Groups I and S have 21 each. Group S has a median of one exon per copy, while Groups D and G have higher exon counts. This supports the paper's observation that gene structures differ across phylogenetic groups.
+- Output: group assignment, group summary, group-level exon summary, and two figures in `results/01_supplementary`.
+
 ## 2026-11-15: VcbZIP correlation-table reproduction
 
 - Goal: reproduce the Pearson correlation coefficients in Tables S6 (salt) and S7 (drought).

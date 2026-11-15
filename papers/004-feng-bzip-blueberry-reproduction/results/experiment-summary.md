@@ -48,9 +48,11 @@ The drought portion of Figure 8 was independently checked against the original d
 
 The salt portion of Figure 8 cannot be independently recomputed from the public source tables. The salt source publishes read counts only for genes significant in each separate timepoint comparison. Only 4 of 69 Table S8 stress genes appear in all four treatment blocks, which is insufficient for a reliable five-timepoint Pearson analysis. This is a source-data limitation rather than a failed calculation.
 
+The author group labels were recovered from merged cells in Table S1 and linked to the GFF-derived gene structures. Group A contains 29 VcbZIP names, and Groups I and S contain 21 each. Exon counts vary by group: Group S has a median of one exon per gene copy, while Groups D and G contain more exon-rich structures. This reproduces the structure-by-group pattern described by the paper, though final group assignment still depends on the unavailable MEME motif stage.
+
 ## Planned Checkpoints
 
-1. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
+1. Run MEME motif discovery on a Linux-compatible environment and compare it with author group labels.
 2. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
-3. Summarize remaining gene-ID and correlation discrepancies against the paper.
+3. Create a final reproduction-scope summary, including source-data and platform limitations.
 
