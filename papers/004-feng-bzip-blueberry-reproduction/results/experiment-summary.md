@@ -44,9 +44,11 @@ Independent source-expression heatmaps are complete for the verified gene subset
 
 The Pearson correlation tables were also reproduced from the bZIP paper's FPKM matrices. Salt correlations closely match all 153 reported pairs, with maximum absolute difference 0.027. Drought correlations match all but one pair closely: VcbZIP83-VcbZIP45 differs by 0.360. This isolated discrepancy is recorded rather than overwritten.
 
+The drought portion of Figure 8 was independently checked against the original drought expression matrix. Of 162 correlations shown in Table S9, 140 can be computed from matching source IDs and 129 of those agree with the paper within 0.001. The remaining differences are concentrated in rows with multiple candidate gene copies or bZIP IDs that are absent from the source matrix.
+
 ## Planned Checkpoints
 
-1. Reproduce correlations from the verified source-study matrices where gene IDs are available.
+1. Assess whether salt Figure 8 correlations can be reconstructed from public source read-count blocks.
 2. Run MEME motif discovery on a Linux-compatible environment and use it with the phylogeny for group assignment.
 3. Find a usable PlantCARE batch path or document the independent promoter-scan limitation.
 4. Summarize remaining gene-ID and correlation discrepancies against the paper.

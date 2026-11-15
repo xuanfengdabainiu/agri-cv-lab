@@ -147,6 +147,14 @@
 - Result: created a drought heatmap for 11 source-verified VcbZIP genes and an ABA heatmap for 6 source-verified VcbZIP genes. For all included genes, source FPKM values match the bZIP paper values exactly.
 - Output: `results/05_expression/drought-verified-source-mean-fpkm.csv`, `results/05_expression/aba-verified-source-mean-fpkm.csv`, and heatmaps in `results/05_expression/figures`.
 
+## 2026-11-15: drought VcbZIP-stress gene correlation verification
+
+- Goal: reproduce the drought VcbZIP-to-stress-responsive-gene Pearson correlations in Table S9 and Figure 8.
+- Command: `python scripts/05_expression/verify_drought_stress_gene_correlations.py --bzip-workbook <bZIP supplementary workbook> --source-workbook <drought supplementary workbook> --output results/05_expression/drought-stress-gene-correlation-verification.csv`.
+- Method: used three-replicate mean FPKM at P0/P6/P12/P24/P48. For Table S9 rows containing multiple slash-separated gene IDs, selected the source gene ID whose recomputed correlation was closest to the reported value.
+- Result: 140 of 162 reported correlations were computable from source matrices; 129 matched within 0.001. The other 22 use bZIP IDs missing from the source matrix. A small number of computable correlations differ more substantially, likely due to ambiguous multi-copy gene rows.
+- Output: `results/05_expression/drought-stress-gene-correlation-verification.csv` and `results/05_expression/figures/drought-stress-gene-correlation-verification.png`.
+
 ## 2026-11-15: VcbZIP correlation-table reproduction
 
 - Goal: reproduce the Pearson correlation coefficients in Tables S6 (salt) and S7 (drought).
