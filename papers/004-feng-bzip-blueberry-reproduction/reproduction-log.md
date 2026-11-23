@@ -196,10 +196,32 @@
 - Added explicit descriptions of supplementary Tables S1, S3, and S4 to the experiment summary and metrics table.
 - This clarifies that S1 provides the identified VcbZIP list, S3 provides salt-stress RNA-seq results, and S4 provides drought-stress RNA-seq results.
 
+## 2026-11-23: reproduction scope summary
+
+- Goal: close the project by turning every recorded result file into one claim-by-claim scope table, and by recording the three remaining gaps with the exact steps that would close them.
+- Method: added `scripts/06_wrapup/summarize_reproduction_scope.py`, which reads the recorded result CSVs and recomputes every reported number from those files, so the summary cannot drift away from the data.
+- Command: `D:\conda_envs\blueberry-bzip\python.exe scripts\06_wrapup\summarize_reproduction_scope.py --results-dir results --output-dir results\06_wrapup`.
+- Output: `results/06_wrapup/reproduction-scope-summary.md` and `results/06_wrapup/reproduction-scope-summary.csv`.
+- Result: 20 checked claims. 9 reproduced, 7 partially reproduced, 2 blocked by tooling, 2 not supported by the public source data.
+- Problem found and fixed during the run: `paper_vcbzip_name` stores four names twice in one cell (`VcbZIP16;VcbZIP16`, `VcbZIP84;VcbZIP84`, `VcbZIP90;VcbZIP90`, `VcbZIP97;VcbZIP97`). Counting unique values directly gave 106 names instead of 102. The script now splits these cells on `;`, which returns exactly 102.
+- Environment check: the bioconda `meme` package (5.5.9) publishes `linux-64` and `macOS-64` only, so the MEME stage needs WSL and cannot run natively on this Windows machine. The PlantCARE web service still has no reachable batch endpoint from this machine, so the independent promoter scan is limited to a manual upload.
+- Next step: finish the WSL 2 installation, then run MEME inside it and use `fimo` or the PlantCARE batch page on the 153 extracted promoters.
+
+## 2026-11-23: project close-out and documentation
+
+- Goal: make the closed state visible from every entry point so the project can be reported without re-reading all logs.
+- Updated `results/experiment-summary.md`: added a one-line conclusion, the final status, the full claim table, a "Remaining Gaps and How to Close Them" section, an explicit limitations list, and a conclusion. The stage-by-stage notes are kept unchanged.
+- Updated `README.md`: status moved from `setup` to `done`, phase statuses recorded, and the scope summary added to the result links.
+- Updated `results/metrics.md`: the stale "setup stage" note was replaced, the analysis-oriented column set is now explained, and the `scope-001` row was added.
+- Updated `scripts/README.md`: the index was missing 10 scripts that already existed, and the new `06_wrapup` stage is now listed with a run command.
+- Updated `results/README.md`: replaced the descriptive index with a complete file list per stage, including `06_wrapup`.
+- Updated `docs/experiment-index.md`: the 004 row now records `done` and its best result, and the previously unregistered `003` scaffold row was added.
+- No new analysis was run in this step; only documentation and the scope-table script were changed.
+
 ## Next Run
 
-- Inspect Supplementary Tables S1-S10.
-- Map each table to the paper's figures and claims.
-- Confirm the genome and annotation download links.
-- Check BioProject sample metadata and run accessions.
+- Finish the WSL 2 install on `D:\wsl\Ubuntu-24.04`, then create a `meme` conda environment inside it.
+- Run `mememe` on the confirmed candidate proteins and compare the recovered motifs against the author group labels in `results/01_supplementary/vcbzip-author-groups.csv`.
+- Scan the 153 promoter sequences in `D:\science-data\datasets\feng-bzip-2025\reference\vcbzip-promoters-2kb.fasta` with PlantCARE, either through the web batch page or with `fimo` and the PlantCARE matrices.
+- If the advisor wants a new independent project, the 003 CitDet citrus detection folder is an empty scaffold and can be filled from the shared template.
 

@@ -1,6 +1,6 @@
 # Metrics
 
-This project is in the setup stage. No reproduction metrics have been produced.
+This project measures gene counts, sequence-domain calls, and expression-table agreement, not object detection. It therefore uses the analysis-oriented column set below instead of the detection table used by the YOLO experiments. The run id, date, and notes columns match the repository convention.
 
 | Run | Date | Analysis | Input | Result | Notes |
 |---|---|---|---|---|---|
@@ -22,4 +22,5 @@ This project is in the setup stage. No reproduction metrics have been produced.
 | figure8-drought-001 | 2026-11-15 | VcbZIP-stress gene correlation verification | Table S9 and source drought FPKM matrix | 129/140 computable pairs match within 0.001 | 22 pairs cannot be computed because source VcbZIP IDs are missing |
 | figure8-salt-coverage-001 | 2026-11-15 | salt Figure 8 source coverage | source salt DEG read-count blocks | 4/69 stress genes have all four time points | full source-level Pearson reproduction is not supported by the public table |
 | group-structure-001 | 2026-11-15 | author group and exon structure summary | Table S1 groups + Draper GFF | Group A 29; Groups I/S 21 each | Group S median exon count is 1; groups differ in exon structure |
+| scope-001 | 2026-11-23 | final reproduction scope summary | all recorded result files | 9 reproduced / 7 partial / 2 tooling-blocked / 2 source-limited | closes the project; table regenerated from the result CSVs by `scripts/06_wrapup/summarize_reproduction_scope.py` |
 

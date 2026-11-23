@@ -15,7 +15,15 @@ Reproduce the computational analysis of Feng et al. (2025) on bZIP transcription
 
 ## Status
 
-`setup`
+`done` for the table-level reproduction scope.
+
+The final claim-by-claim scope table is [`results/06_wrapup/reproduction-scope-summary.md`](results/06_wrapup/reproduction-scope-summary.md). It is regenerated from the result files by `scripts/06_wrapup/summarize_reproduction_scope.py`, so the numbers in it cannot drift away from the recorded data.
+
+Summary of the close-out:
+
+- 20 published claims were checked against public data.
+- 9 reproduced, 7 partially reproduced, 2 blocked by tooling, 2 not supported by the public source data.
+- The two tooling-blocked items (MEME motif analysis, independent PlantCARE scan) both need a Linux environment; the exact steps are in [`results/experiment-summary.md`](results/experiment-summary.md).
 
 ## Quick Start
 
@@ -48,6 +56,7 @@ python scripts\01_supplementary\summarize_supplementary.py `
 | figure8-drought-001 | VcbZIP-stress gene correlations | Table S9 and source drought FPKM | 129/140 computable pairs match within 0.001 | some source IDs are missing or represent multiple copies |
 | figure8-salt-coverage-001 | salt Figure 8 source coverage | source salt DEG blocks | 4/69 stress genes have all time points | public source data cannot support full Pearson reproduction |
 | group-structure-001 | author group and exon structure summary | Table S1 groups + Draper GFF | Group A 29; Groups I/S 21 each | group-level exon patterns reproduced |
+| scope-001 | final reproduction scope summary | all recorded result files | 9 reproduced / 7 partial / 2 tooling-blocked / 2 source-limited | closes the project; table regenerated from the result CSVs |
 
 ## Data Sources
 
@@ -63,13 +72,19 @@ python scripts\01_supplementary\summarize_supplementary.py `
 
 Use the supplementary tables and publicly available expression data to reproduce the reported gene counts, stress response lists, heatmap inputs, and selected correlations.
 
+Status: complete. Gene counts, both DEG lists, the ABA and drought FPKM values, the correlation tables, and the drought Figure 8 panel are all reproduced. See `results/05_expression/`.
+
 ### Phase 2: genome-wide analysis
 
 Rebuild the bZIP identification and annotation workflow using the blueberry genome, Pfam HMMs, Arabidopsis reference sequences, phylogenetic analysis, motif analysis, gene structures, and promoter cis-elements.
 
+Status: complete except for two tooling-blocked steps. The homology screen, Pfam domain confirmation, UPGMA phylogeny, gene structures, and promoter extraction are done. MEME motif analysis and the independent PlantCARE scan need a Linux environment.
+
 ### Phase 3: raw RNA-seq reproduction
 
 Download the SRA reads, run quality control and quantification, perform differential expression analysis with DESeq2, and compare the results with the paper.
+
+Status: not supported by the public deposition. The SRA BioProjects expose one pooled run per time point, while the source tables keep three replicates. Phase 1 reproduces the published expression results at the table level instead.
 
 ## Local Storage
 
@@ -119,6 +134,8 @@ The raw salt and drought projects are large. The lightweight phase will be compl
 - [Group-level exon summary](results/01_supplementary/vcbzip-group-exon-summary.csv)
 - [Group counts](results/01_supplementary/figures/vcbzip-group-counts.png)
 - [Group exon distributions](results/01_supplementary/figures/vcbzip-group-exon-counts.png)
+- [Reproduction scope summary](results/06_wrapup/reproduction-scope-summary.md)
+- [Reproduction scope table](results/06_wrapup/reproduction-scope-summary.csv)
 - [Experiment summary](results/experiment-summary.md)
 
 ## Script Index
