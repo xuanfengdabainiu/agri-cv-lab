@@ -1,0 +1,6 @@
+name: blueberry-gs
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.4
+  - r-rrblup=4.6.3

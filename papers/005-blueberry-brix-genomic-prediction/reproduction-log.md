@@ -61,3 +61,77 @@ Next Step:
 - Obtain the paper PDF through Zotero.
 - Download only the four essential upstream files.
 - Create and verify the minimal R environment before running a data inspection smoke test.
+
+## 2026-11-23: minimal data and environment preparation
+
+Goal:
+
+- Prepare all inputs and code needed before the first Brix prediction run.
+- Avoid downloading the full 5.3 GB upstream repository.
+
+Environment:
+
+- OS: Windows
+- Conda: `D:\miniconda3`
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- CUDA/GPU: not required
+
+Commands:
+
+```powershell
+D:\miniconda3\Scripts\conda.exe create -y -p D:\conda_envs\blueberry-gs `
+  -c conda-forge r-base=4.4 r-rrblup
+
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\inspect_data.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv
+```
+
+Config Changes:
+
+- Added `configs/environment.yml`.
+- Downloaded the four minimal upstream files listed in `configs/data-sources.md`.
+- Added a read-only data inspection script.
+- Added a prepared Brix-only GBLUP script with 10 repeated 80/20 splits and seed 42.
+- Kept the fixed object-detection metrics header required by this repository; non-applicable fields remain `N/A`.
+- Zotero/PDF work was paused at the user's request; no Zotero item or PDF was added.
+
+Run Output:
+
+- Machine-readable inspection: `D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv`
+- Stable summary: `results/data-inspection.md`
+
+Results:
+
+- 2022 phenotype rows: 4,368
+- Multi-year phenotype rows: 9,806
+- Non-missing 2022 Brix values: 2,110
+- SNP markers: 1,822
+- Genotyped samples: 4,494
+- Samples with both Brix and SNP data: 1,935
+- Brix range: 8.5 to 21.7; mean 15.2075
+- `run_brix_gblup.R` passed an R syntax check.
+
+Problems:
+
+- Direct `conda-forge` access timed out during the first environment attempt.
+- R emitted locale warnings when `C.UTF-8` was inherited on Windows.
+
+Fixes:
+
+- Used the configured Tsinghua conda-forge mirror to complete installation.
+- Set `LC_ALL=C` in the documented run commands.
+
+Conclusion:
+
+- Minimal data, environment, validation, and baseline code are ready.
+- No formal prediction experiment has been run, so no predictive metric is reported yet.
+
+Next Step:
+
+- Run `run_brix_gblup.R` for the first 10-repeat seed-42 baseline.
+- Record predictive ability in this log and `results/metrics.md`.

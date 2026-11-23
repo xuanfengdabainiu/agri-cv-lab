@@ -16,9 +16,9 @@ The first reproduction scope is deliberately small: one Brix prediction pipeline
 
 ## Status
 
-`planned`
+`setup`
 
-The experiment structure and reproduction scope are ready. No paper data, author repository, or R environment has been downloaded for this project.
+The minimal data and R environment are ready. The data inspection passed; the prepared GBLUP baseline has not been run.
 
 ## Planned Reproduction
 
@@ -30,13 +30,24 @@ The experiment structure and reproduction scope are ready. No paper data, author
 6. Run the paper's 2021-to-2022 Brix prediction as a second experiment.
 7. Treat GWAS and other traits as optional later work.
 
-## Planned Commands
+## Quick Start
 
-Commands will be added after the minimal R environment and required input files are confirmed.
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_gblup.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42 `
+  10 42
+```
+
+See [`scripts/README.md`](scripts/README.md) for the inspection command and output descriptions.
 
 ## Main Results
 
-See [`results/metrics.md`](results/metrics.md). No experiment has been run yet.
+- Data inspection: [`results/data-inspection.md`](results/data-inspection.md)
+- Experiment metrics: [`results/metrics.md`](results/metrics.md)
+- No prediction model has been run yet.
 
 ## Repository Rules
 
