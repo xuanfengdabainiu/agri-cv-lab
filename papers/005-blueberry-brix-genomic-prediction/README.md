@@ -16,9 +16,9 @@ The first reproduction scope is deliberately small: one Brix prediction pipeline
 
 ## Status
 
-`setup`
+`reproducing`
 
-The minimal data and R environment are ready. The data inspection passed; the prepared GBLUP baseline has not been run.
+The minimal data and R environment are ready. The first 2022 Brix GBLUP baseline has been completed.
 
 ## Planned Reproduction
 
@@ -46,8 +46,9 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 ## Main Results
 
 - Data inspection: [`results/data-inspection.md`](results/data-inspection.md)
+- Brix GBLUP baseline: [`results/brix-gblup-seed42.md`](results/brix-gblup-seed42.md)
 - Experiment metrics: [`results/metrics.md`](results/metrics.md)
-- No prediction model has been run yet.
+- Mean predictive ability: **0.4024**, close to the paper's approximately **0.41** result for its 2022 training set.
 
 ## Repository Rules
 

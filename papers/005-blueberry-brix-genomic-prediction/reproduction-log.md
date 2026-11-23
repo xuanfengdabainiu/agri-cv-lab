@@ -135,3 +135,75 @@ Next Step:
 
 - Run `run_brix_gblup.R` for the first 10-repeat seed-42 baseline.
 - Record predictive ability in this log and `results/metrics.md`.
+
+## 2026-11-23: 2022 Brix GBLUP baseline
+
+Goal:
+
+- Run the first formal Brix genomic prediction baseline.
+- Compare the reproduced predictive ability with the paper's 2022-training result.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+
+Command:
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_gblup.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42 `
+  10 42
+```
+
+Configuration:
+
+- Trait: `Brix_2022`
+- Model: GBLUP using `rrBLUP::kin.blup`
+- Samples: 1,935
+- Markers: 1,822
+- Split: 80% train / 20% test
+- Repeats: 10
+- Seed: 42
+- Per repeat: 1,548 training samples and 387 test samples
+
+Run Output:
+
+- Metrics: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-metrics.csv`
+- Predictions: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-predictions.csv`
+- Stable summary: `results/brix-gblup-seed42.md`
+
+Results:
+
+- Mean predictive ability: 0.4024
+- Standard deviation: 0.0327
+- Minimum: 0.3671
+- Maximum: 0.4590
+- Completed repeats: 10/10
+- Prediction rows: 3,870
+- Missing predictive-ability values: 0
+- Paper comparison: close to the approximately 0.41 predictive ability reported for the 2022 training set.
+
+Problems:
+
+- `rrBLUP::A.mat` reported linear dependence among genotype rows.
+
+Fixes:
+
+- `rrBLUP` automatically fell back from EM imputation to mean imputation and completed normally.
+- The fallback is preserved and reported rather than hidden.
+
+Conclusion:
+
+- The first Brix GBLUP baseline reproduces the paper's 2022-training predictive ability closely.
+- This confirms that the downloaded processed data and the reduced pipeline are usable.
+
+Next Step:
+
+- Reproduce the paper's 2021-to-2022 Brix prediction.
+- Then test the combined three-year training setup, which the paper reports as stronger.
