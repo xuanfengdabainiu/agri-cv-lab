@@ -95,7 +95,7 @@ Default paths:
 - training runs: `D:\science-data\runs\<experiment-name>`
 - weights: `D:\science-data\weights`
 
-GitHub stores code, configs, notes, logs, and small result figures only.
+GitHub stores code, configs, notes, logs, and small result figures or tables. Full datasets, weights, and large run folders stay on the D drive.
 
 ## Git Check Before Commit
 

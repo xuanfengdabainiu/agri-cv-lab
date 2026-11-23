@@ -284,3 +284,42 @@ Next Step:
 
 - Reproduce the combined three-year Brix training setup with year as a fixed effect.
 - Compare within-year, cross-year, and combined-year predictive ability in one table.
+
+## 2026-11-23: result storage and metrics format correction
+
+Goal:
+
+- Make the experiment results directly reviewable from GitHub.
+- Replace the object-detection metrics columns with genomic-prediction metrics.
+
+Command:
+
+```text
+No model was run. Existing CSV outputs were copied from the D-drive run folders into results/tables.
+```
+
+Changes:
+
+- Replaced the detection-oriented `metrics.md` columns with model, year direction, samples, SNPs, repeats, seed, Pearson, Spearman, MSE, and paper reference.
+- Removed setup-only rows from `metrics.md`; setup history remains in this reproduction log.
+- Added all four repeat-level metric and prediction CSV files under `results/tables`.
+- Renamed the result-note section from `External Outputs` to `Output Files` and linked the committed CSV files.
+- Clarified in `docs/workflow.md` that small result tables can be committed.
+
+File Sizes:
+
+- 2022 within-year metrics: 379 bytes
+- 2022 within-year predictions: 165,576 bytes
+- 2021-to-2022 metrics: 1,276 bytes
+- 2021-to-2022 predictions: 97,097 bytes
+- Total: 264,328 bytes, approximately 258 KB
+
+Conclusion:
+
+- These files are small and belong in GitHub.
+- D-drive run folders remain the original machine outputs; GitHub now contains reviewable copies.
+- `results/metrics.md` now matches the actual task instead of displaying unused mAP fields.
+
+Next Step:
+
+- Use the same analysis-oriented metrics columns for the combined three-year experiment.

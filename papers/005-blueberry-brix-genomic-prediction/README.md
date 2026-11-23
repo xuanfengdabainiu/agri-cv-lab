@@ -49,6 +49,7 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 - Brix GBLUP baseline: [`results/brix-gblup-seed42.md`](results/brix-gblup-seed42.md)
 - 2021-to-2022 prediction: [`results/brix-2021-to-2022-seed42.md`](results/brix-2021-to-2022-seed42.md)
 - Experiment metrics: [`results/metrics.md`](results/metrics.md)
+- Repeat-level metrics and predictions: [`results/tables/`](results/tables/)
 - Mean predictive ability: **0.4024**, close to the paper's approximately **0.41** result for its 2022 training set.
 - ID-matched 2021-to-2022 predictive ability: **0.3327**, close to the paper's approximately **0.35** result.
 
@@ -56,5 +57,6 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 
 - Keep downloaded data under `D:\science-data\datasets`.
 - Keep generated runs under `D:\science-data\runs`.
+- Commit small CSV result tables so experiments can be reviewed from GitHub.
 - Do not commit the full upstream repository or large generated files.
 - Update `reproduction-log.md` and `results/metrics.md` for every run.

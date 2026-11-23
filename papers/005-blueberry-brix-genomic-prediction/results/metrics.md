@@ -1,8 +1,12 @@
 # Metrics
 
-| Run | Date | Model | Dataset Split | Epochs | Image Size | Precision | Recall | mAP50 | mAP50-95 | Notes |
-|---|---|---|---|---:|---:|---:|---:|---:|---:|---|
-| setup-001 | 2026-11-23 | GBLUP (planned) | Brix, split not run | N/A | N/A | N/A | N/A | N/A | N/A | Project skeleton and reduced reproduction scope created; no experiment run |
-| setup-002 | 2026-11-23 | Data inspection | 2022 Brix + processed SNP dosage | N/A | N/A | N/A | N/A | N/A | N/A | 1,935 matched Brix/SNP samples and 1,822 markers; input and environment ready; no model run |
-| brix-gblup-001 | 2026-11-23 | GBLUP | 2022 Brix, 80/20 x10, seed 42 | N/A | N/A | N/A | N/A | N/A | N/A | Predictive ability 0.4024 +/- 0.0327; paper 2022-training reference approximately 0.41 |
-| brix-gblup-002 | 2026-11-23 | GBLUP | 2021 train to 2022 test, ID-matched, 80/20 x10, seed 42 | N/A | N/A | N/A | N/A | N/A | N/A | Predictive ability 0.3327 +/- 0.0677; paper 2021-training reference approximately 0.35 |
+This is a genomic-prediction project, so object-detection fields such as mAP and image size do not apply. This project uses the non-detection exception documented in `docs/workflow.md`.
+
+`Pearson` is the correlation between measured and predicted Brix. Higher is better. `MSE` is mean squared prediction error. Lower is better.
+
+| Run | Date | Model | Training -> Evaluation | Samples | SNPs | Repeats | Seed | Pearson Mean | Pearson SD | Spearman Mean | MSE Mean | Paper Reference | Notes |
+|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| brix-gblup-001 | 2026-11-23 | GBLUP | 2022 -> 2022 | 1,935 | 1,822 | 10 | 42 | 0.4024 | 0.0327 | - | - | 0.41 | Within-year 80/20 splits; close reproduction |
+| brix-gblup-002 | 2026-11-23 | GBLUP | 2021 -> 2022 | 1,019 | 1,822 | 10 | 42 | 0.3327 | 0.0677 | 0.2876 | 4.2978 | 0.35 | Samples matched across years by plant ID |
+
+Detailed repeat-level metrics and predictions are committed under [`tables/`](tables/).

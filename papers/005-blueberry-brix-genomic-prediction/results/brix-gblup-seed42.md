@@ -43,12 +43,14 @@ Predictive ability is the correlation between measured and predicted Brix. Highe
 
 All 10 repeats completed. The prediction table contains 3,870 rows and no predictive-ability value is missing.
 
-## External Outputs
+## Output Files
 
-The full outputs remain outside Git:
+Small result tables are committed to GitHub:
 
-- `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-metrics.csv`
-- `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-predictions.csv`
+- [`tables/brix-gblup-seed42-metrics.csv`](tables/brix-gblup-seed42-metrics.csv)
+- [`tables/brix-gblup-seed42-predictions.csv`](tables/brix-gblup-seed42-predictions.csv)
+
+The original run directory remains at `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42`.
 
 SHA-256:
 
