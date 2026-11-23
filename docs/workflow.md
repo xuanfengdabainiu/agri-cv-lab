@@ -48,6 +48,22 @@ Quick rule:
 
 - If an experiment creates or changes a result file, it must also update `reproduction-log.md`.
 
+## Metrics Table Format
+
+Object detection experiments use this fixed header in `results/metrics.md`:
+
+```text
+Run | Date | Model | Dataset Split | Epochs | Image Size | Precision | Recall | mAP50 | mAP50-95 | Notes
+```
+
+Exception for non-detection experiments:
+
+- If a project measures something other than object detection, such as gene counts, sequence domains, or expression-table agreement, it may use an analysis-oriented header instead.
+- The exception must be stated at the top of that project's `results/metrics.md`, and the file must still keep the `Run`, `Date`, and `Notes` columns so rows stay traceable to `reproduction-log.md`.
+- The exception is per project. It does not carry over to other experiments.
+
+`papers/004-feng-bzip-blueberry-reproduction` is the current example: it measures gene counts, Pfam domain calls, and expression-table agreement, so it uses `Run | Date | Analysis | Input | Result | Notes`.
+
 ## YOLO Run Fields
 
 For YOLO experiments, record at least:

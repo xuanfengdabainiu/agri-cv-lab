@@ -218,6 +218,14 @@
 - Updated `docs/experiment-index.md`: the 004 row now records `done` and its best result, and the previously unregistered `003` scaffold row was added.
 - No new analysis was run in this step; only documentation and the scope-table script were changed.
 
+## 2026-11-23: metrics table format exception
+
+- Goal: settle the metrics table format for this project before the next paper starts.
+- Decision: this project keeps the analysis-oriented header `Run | Date | Analysis | Input | Result | Notes` instead of the detection header, because the measurements are gene counts, Pfam domain calls, and expression-table agreement, not object detection scores.
+- The exception is now written into `docs/workflow.md` under "Metrics Table Format" as a per-project rule, so it is a documented decision rather than an unexplained deviation.
+- The `Run`, `Date`, and `Notes` columns are unchanged, so every row still maps to a `reproduction-log.md` entry.
+- No numbers were changed.
+
 ## Next Run
 
 - Finish the WSL 2 install on `D:\wsl\Ubuntu-24.04`, then create a `meme` conda environment inside it.

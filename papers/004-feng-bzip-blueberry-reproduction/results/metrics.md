@@ -1,6 +1,6 @@
 # Metrics
 
-This project measures gene counts, sequence-domain calls, and expression-table agreement, not object detection. It therefore uses the analysis-oriented column set below instead of the detection table used by the YOLO experiments. The run id, date, and notes columns match the repository convention.
+This project measures gene counts, sequence-domain calls, and expression-table agreement, not object detection. It therefore uses the analysis-oriented column set below instead of the detection table used by the YOLO experiments. This is a documented per-project exception; see "Metrics Table Format" in `docs/workflow.md`. The run id, date, and notes columns still match the repository convention, so every row stays traceable to `reproduction-log.md`.
 
 | Run | Date | Analysis | Input | Result | Notes |
 |---|---|---|---|---|---|
