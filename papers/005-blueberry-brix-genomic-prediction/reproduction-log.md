@@ -207,3 +207,80 @@ Next Step:
 
 - Reproduce the paper's 2021-to-2022 Brix prediction.
 - Then test the combined three-year training setup, which the paper reports as stronger.
+
+## 2026-11-23: ID-matched 2021-to-2022 Brix prediction
+
+Goal:
+
+- Train from 2021 Brix and evaluate predictions against 2022 Brix.
+- Prevent cross-year sample mismatches by aligning the two years by plant ID.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+
+Command:
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_2021_to_2022.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42 `
+  10 42
+```
+
+Configuration:
+
+- Model: GBLUP using `rrBLUP::kin.blup`
+- Training phenotype: 2021 Brix
+- Evaluation phenotype: 2022 Brix
+- ID-matched samples: 1,019
+- Markers: 1,822
+- Split: 80% train / 20% held out
+- Repeats: 10
+- Seed: 42
+- Per repeat: 815 training samples and 204 test samples
+
+Run Output:
+
+- Metrics: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-metrics.csv`
+- Predictions: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-predictions.csv`
+- Stable summary: `results/brix-2021-to-2022-seed42.md`
+
+Results:
+
+- Mean Pearson predictive ability: 0.3327
+- Pearson standard deviation: 0.0677
+- Pearson range: 0.2486 to 0.4383
+- Mean Spearman correlation: 0.2876
+- Mean MSE: 4.2978
+- Completed repeats: 10/10
+- Prediction rows: 2,040
+- Missing predictive-ability values: 0
+- Paper comparison: close to the approximately 0.35 predictive ability reported for its 2021 training set.
+
+Problems:
+
+- The upstream script creates 2021 and 2022 tables separately but later compares them by row position.
+- Only 1,019 plants have Brix in both years and matching SNP data, so row-position comparison risks mismatching plants.
+- `rrBLUP::A.mat` again detected linear dependence among genotype rows.
+
+Fixes:
+
+- Matched both yearly phenotype tables to genotype columns by `germplasmName` before splitting.
+- Added an assertion that the aligned 2021 and 2022 ID order is identical.
+- Preserved and recorded `rrBLUP`'s automatic mean-imputation fallback.
+
+Conclusion:
+
+- The corrected, ID-matched result remains close to the paper's reported value.
+- Cross-year predictive ability is lower than the reproduced 2022 within-year result, showing the added difficulty of year-to-year variation.
+
+Next Step:
+
+- Reproduce the combined three-year Brix training setup with year as a fixed effect.
+- Compare within-year, cross-year, and combined-year predictive ability in one table.

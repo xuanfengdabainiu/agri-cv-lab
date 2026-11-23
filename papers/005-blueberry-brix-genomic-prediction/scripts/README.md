@@ -25,4 +25,19 @@ D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
   10 42
 ```
 
-The baseline command is prepared but has not been run.
+This baseline was completed on 2026-11-23. See `results/brix-gblup-seed42.md`.
+
+## 2021-to-2022 Brix prediction
+
+Uses Brix measured in 2021 for training and Brix measured in 2022 for evaluation. Samples are explicitly aligned by `germplasmName` before splitting.
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_2021_to_2022.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42 `
+  10 42
+```
+
+This experiment was completed on 2026-11-23. See `results/brix-2021-to-2022-seed42.md`.
