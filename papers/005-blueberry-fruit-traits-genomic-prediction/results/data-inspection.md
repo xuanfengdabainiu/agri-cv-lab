@@ -21,6 +21,6 @@ The three required CSV inputs load successfully and contain enough matched Brix 
 
 The machine-readable output is stored outside Git:
 
-`D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv`
+`D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\setup\data-inspection.csv`
 
 No prediction model was fitted in this check.

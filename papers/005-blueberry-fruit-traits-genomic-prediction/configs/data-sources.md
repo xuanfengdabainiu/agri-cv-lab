@@ -29,7 +29,7 @@ The four minimal files were downloaded on 2026-11-23. They are stored outside Gi
 ## Local Storage Plan
 
 ```text
-D:\science-data\datasets\blueberry-brix-genomic-prediction\
+D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction\
 |- source\
 |- phenotype\
 `- genotype\

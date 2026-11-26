@@ -24,8 +24,8 @@ No model or analysis command was run.
 Config Changes:
 
 - Created the standard experiment files.
-- Planned external data path: `D:\science-data\datasets\blueberry-brix-genomic-prediction`.
-- Planned run path: `D:\science-data\runs\blueberry-brix-genomic-prediction`.
+- Planned external data path: `D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction`.
+- Planned run path: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction`.
 - Limited the first reproduction to Brix prediction; full GWAS and other traits are outside the first stage.
 
 Results:
@@ -86,9 +86,9 @@ D:\miniconda3\Scripts\conda.exe create -y -p D:\conda_envs\blueberry-gs `
 
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\inspect_data.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\inspect_data.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\setup\data-inspection.csv
 ```
 
 Config Changes:
@@ -102,7 +102,7 @@ Config Changes:
 
 Run Output:
 
-- Machine-readable inspection: `D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv`
+- Machine-readable inspection: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\setup\data-inspection.csv`
 - Stable summary: `results/data-inspection.md`
 
 Results:
@@ -155,9 +155,9 @@ Command:
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_gblup.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_gblup.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42 `
   10 42
 ```
 
@@ -174,8 +174,8 @@ Configuration:
 
 Run Output:
 
-- Metrics: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-metrics.csv`
-- Predictions: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42\brix-gblup-predictions.csv`
+- Metrics: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42\brix-gblup-metrics.csv`
+- Predictions: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42\brix-gblup-predictions.csv`
 - Stable summary: `results/brix-gblup-seed42.md`
 
 Results:
@@ -227,9 +227,9 @@ Command:
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_2021_to_2022.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_2021_to_2022.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-2021-to-2022-seed42 `
   10 42
 ```
 
@@ -247,8 +247,8 @@ Configuration:
 
 Run Output:
 
-- Metrics: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-metrics.csv`
-- Predictions: `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-predictions.csv`
+- Metrics: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-metrics.csv`
+- Predictions: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-2021-to-2022-seed42\brix-2021-to-2022-predictions.csv`
 - Stable summary: `results/brix-2021-to-2022-seed42.md`
 
 Results:
@@ -345,9 +345,9 @@ Command:
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_fixed.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-fixed-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_3year_fixed.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-fixed-seed42 `
   10 42
 ```
 
@@ -435,9 +435,9 @@ Command:
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_average.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-average-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_3year_average.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-average-seed42 `
   10 42
 ```
 
@@ -495,3 +495,39 @@ Next Step:
 
 - Begin an improvement phase only after reviewing the final summary with the advisor.
 - Candidate improvement: compare GBLUP with ridge regression, Random Forest, and XGBoost on identical saved splits.
+
+## 2026-11-26: project rename and scope expansion
+
+Goal:
+
+- Rename paper 005 so the directory represents the paper's broader fruit-quality and ripening-trait scope.
+- Keep the completed Brix work as the first finished trait phase.
+
+Changes:
+
+- Renamed `papers/005-blueberry-brix-genomic-prediction` to `papers/005-blueberry-fruit-traits-genomic-prediction`.
+- Renamed the external dataset directory to `D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction`.
+- Renamed the external run directory to `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction`.
+- Updated all repository commands and local-path references to the new name.
+- Changed the README title to `Blueberry Fruit-Trait Genomic Prediction`.
+- Changed the project status from `done` to `reproducing`; the Brix phase remains explicitly `done`.
+- Expanded the next scope to acidity, pH, and Brix-to-acidity ratio.
+- Kept Brix-specific result filenames unchanged because they accurately describe completed runs.
+- Kept the `blueberry-gs` conda environment name because it is already trait-neutral.
+
+Command:
+
+```text
+No model was run. This step only moved directories and updated project documentation and runnable paths.
+```
+
+Conclusion:
+
+- The repository name now matches the paper-level scope.
+- Existing Brix commands remain runnable from the new repository and D-drive paths.
+- The Brix phase is complete; the broader paper reproduction continues.
+
+Next Step:
+
+- Reproduce titratable acidity with the same four training setups used for Brix.
+- Then reproduce pH and Brix-to-acidity ratio.

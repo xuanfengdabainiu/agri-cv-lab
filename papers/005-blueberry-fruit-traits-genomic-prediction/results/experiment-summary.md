@@ -1,8 +1,8 @@
 # Experiment Summary
 
-## Final Status
+## Brix Phase Status
 
-Status: `done` for the Brix genomic-prediction scope.
+Status: `done` for the Brix phase; project status is `reproducing` for the broader fruit-trait scope.
 
 Three of four Brix experiments closely reproduce the paper. The corrected three-year fixed-effect experiment reproduces heritability but not predictive ability; an audit of the author's public split shows direct 2022-target leakage for 196 test-labelled plant IDs.
 
@@ -22,8 +22,9 @@ Three of four Brix experiments closely reproduce the paper. The corrected three-
 - The three-year heritability result is stable: reproduced 0.4927 versus approximately 0.49 in the paper.
 - Averaging years gives a clean one-row-per-plant target and closely matches the author's 1000-repeat output.
 
-## Scope Boundary
+## Next Scope
 
-- The Brix prediction configurations selected for this project are complete.
-- Other paper traits, such as acidity, pH, fruit mass, bloom, and ripening dates, are outside this reproduction scope.
-- A future improvement phase can compare GBLUP with ridge regression, Random Forest, and XGBoost using identical splits.
+- The Brix prediction configurations are complete.
+- The next reproduction group is acidity, pH, and Brix-to-acidity ratio.
+- Fruit mass, plant height, bloom timing, and ripening timing follow after the fruit-quality group.
+- Model improvements begin after the selected paper traits are reproduced.

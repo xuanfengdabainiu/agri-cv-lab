@@ -68,7 +68,7 @@ Author reference:
 
 - [`reference/author-3year-average-1000perm-metrics.csv`](reference/author-3year-average-1000perm-metrics.csv)
 
-The original local run remains at `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-average-seed42`.
+The original local run remains at `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-average-seed42`.
 
 SHA-256:
 

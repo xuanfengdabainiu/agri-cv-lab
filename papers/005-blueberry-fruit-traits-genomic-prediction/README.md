@@ -1,49 +1,48 @@
-# Blueberry Brix Genomic Prediction
+# Blueberry Fruit-Trait Genomic Prediction
 
 ## Goal
 
-Reproduce the paper's main blueberry sweetness experiment: use SNP genotype data to predict fruit soluble solids (`Brix`).
+Reproduce the paper's genomic-prediction experiments for blueberry fruit quality and ripening traits using SNP genotype data.
 
-The first reproduction scope is deliberately small: one Brix prediction pipeline, fixed data split, repeatable metrics, and no full-paper GWAS run.
+The completed first phase covers soluble solids (`Brix`), a sweetness proxy. The next phase expands the same reproducible pipeline to acidity, pH, and the Brix-to-acidity ratio.
 
 ## Paper
 
 - Title: Genomic prediction enables selection for improved fruit ripening traits in northern highbush blueberry (Vaccinium corymbosum L.) breeding populations
 - DOI: https://doi.org/10.1093/g3journal/jkag271
 - Code and data: https://github.com/lilyhislop/BlueberryGenomicSelection_USDA-BI
-- Local data path (planned): `D:\science-data\datasets\blueberry-brix-genomic-prediction`
-- Local run path (planned): `D:\science-data\runs\blueberry-brix-genomic-prediction`
+- Local data path: `D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction`
+- Local run path: `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction`
 
 ## Status
 
-`done`
+`reproducing`
 
-The Brix genomic-prediction scope is complete: four training setups were reproduced and the three-year fixed-effect split was audited.
+The Brix phase is complete: four training setups were reproduced and the three-year fixed-effect split was audited. The broader fruit-trait project remains active.
 
-## Planned Reproduction
+## Progress
 
-1. Download only the required phenotype table, processed SNP dosage table, and author reproduction script.
-2. Verify sample IDs, Brix values, marker counts, and missing values.
-3. Adapt hard-coded paths without changing the prediction method.
-4. Run a fixed-seed 2022 Brix genomic prediction baseline.
-5. Repeat an 80/20 train-test split 10 times and report predictive ability.
-6. Run the paper's 2021-to-2022 Brix prediction as a second experiment.
-7. Treat GWAS and other traits as optional later work.
+1. Minimal phenotype, genotype, and author-code inputs are prepared.
+2. Four Brix prediction setups are complete with saved splits and outputs.
+3. The author's three-year fixed-effect split has been audited.
+4. Next traits: titratable acidity, pH, and Brix-to-acidity ratio.
+5. Later traits: fruit mass, plant height, bloom timing, and ripening timing.
+6. GWAS remains outside the current prediction-first scope.
 
 ## Quick Start
 
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_gblup.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_gblup.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42 `
   10 42
 ```
 
 See [`scripts/README.md`](scripts/README.md) for the inspection command and output descriptions.
 
-## Main Results
+## Brix Results
 
 - Data inspection: [`results/data-inspection.md`](results/data-inspection.md)
 - Brix GBLUP baseline: [`results/brix-gblup-seed42.md`](results/brix-gblup-seed42.md)
@@ -57,6 +56,10 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 - ID-matched 2021-to-2022 predictive ability: **0.3327**, close to the paper's approximately **0.35** result.
 - ID-safe three-year predictive ability: **0.4201**, below the paper's approximately **0.59**; the author split audit found direct 2022-target leakage.
 - Three-year averaged predictive ability: **0.4558**, closely matching the author's 1000-repeat **0.4555** and paper's rounded **0.46**.
+
+## Next Trait Phase
+
+The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for acidity, pH, and Brix-to-acidity ratio.
 
 ## Repository Rules
 

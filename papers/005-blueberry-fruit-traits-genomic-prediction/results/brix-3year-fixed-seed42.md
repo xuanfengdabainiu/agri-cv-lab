@@ -80,7 +80,7 @@ Author reference files:
 - [`reference/author-3year-10perm-20pct-metrics.csv`](reference/author-3year-10perm-20pct-metrics.csv)
 - [`reference/author-3year-design-perm1.csv`](reference/author-3year-design-perm1.csv)
 
-The original local run remains at `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-fixed-seed42`.
+The original local run remains at `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-fixed-seed42`.
 
 SHA-256:
 

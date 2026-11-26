@@ -2,20 +2,20 @@
 
 ## 1. One-Sentence Summary
 
-The paper uses blueberry SNP data to predict fruit ripening and quality traits, including Brix, which is a common proxy for sweetness.
+The paper uses blueberry SNP data to predict fruit quality, plant architecture, bloom timing, and ripening traits.
 
 ## 2. Problem Solved
 
-Measuring fruit sweetness requires mature fruit and field work. The paper tests whether DNA markers can predict Brix earlier in a breeding program.
+Measuring fruit quality and ripening traits requires mature plants, repeated field work, and post-harvest measurements. The paper tests whether DNA markers can predict these traits earlier in a breeding program.
 
 ## 3. Core Method / Workflow
 
 ```text
-SNP genotype data + measured Brix
+SNP genotype data + measured fruit or ripening trait
   -> genotype filtering and relationship matrix
   -> GBLUP genomic prediction
-  -> predicted Brix values
-  -> correlation between predicted and measured Brix
+  -> predicted trait values
+  -> correlation between predicted and measured values
 ```
 
 - SNP: a single DNA position that differs among plants.
@@ -26,7 +26,8 @@ SNP genotype data + measured Brix
 
 - Crop: northern highbush blueberry.
 - Genotype source: a 3K DArTag marker panel processed into SNP calls.
-- Target trait for this reproduction: Brix only.
+- Completed trait phase: Brix.
+- Next trait phase: titratable acidity, pH, and Brix-to-acidity ratio.
 - Main paper split: training data from 2021, 2022, or combined years; evaluation against 2022 observations.
 - Main metric: predictive ability, calculated as the correlation between observed and predicted values.
 - Paper reference range for Brix predictive ability: approximately 0.46 to 0.64, depending on the training set.
@@ -47,7 +48,7 @@ SNP genotype data + measured Brix
 
 ## 6. What I Can Change
 
-- Extract a small, clean Brix-only reproduction script.
+- Generalize the clean Brix scripts into a reusable per-trait prediction pipeline.
 - Fix the random seed and record every split.
 - Compare GBLUP with a simple machine-learning baseline later.
-- Add acidity or the Brix-to-acidity ratio after the Brix baseline is stable.
+- Reproduce acidity, pH, and Brix-to-acidity ratio with the same saved-split discipline.

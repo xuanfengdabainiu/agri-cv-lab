@@ -50,7 +50,7 @@ Small result tables are committed to GitHub:
 - [`tables/brix-gblup-seed42-metrics.csv`](tables/brix-gblup-seed42-metrics.csv)
 - [`tables/brix-gblup-seed42-predictions.csv`](tables/brix-gblup-seed42-predictions.csv)
 
-The original run directory remains at `D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42`.
+The original run directory remains at `D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42`.
 
 SHA-256:
 

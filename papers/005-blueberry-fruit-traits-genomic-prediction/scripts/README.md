@@ -7,9 +7,9 @@ Checks required columns, table sizes, Brix coverage, and sample overlap without 
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\inspect_data.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\setup\data-inspection.csv
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\inspect_data.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\setup\data-inspection.csv
 ```
 
 ## Brix GBLUP baseline
@@ -19,9 +19,9 @@ Runs the prepared baseline with 10 repeated 80/20 train-test splits and seed 42.
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_gblup.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-gblup-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_gblup.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-gblup-seed42 `
   10 42
 ```
 
@@ -34,9 +34,9 @@ Uses Brix measured in 2021 for training and Brix measured in 2022 for evaluation
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_2021_to_2022.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-2021-to-2022-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_2021_to_2022.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-2021-to-2022-seed42 `
   10 42
 ```
 
@@ -49,9 +49,9 @@ Uses all available 2020–2022 Brix records, hides selected 2022 records, and in
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_fixed.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-fixed-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_3year_fixed.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-fixed-seed42 `
   10 42
 ```
 
@@ -62,9 +62,9 @@ This experiment was completed on 2026-11-26. See `results/brix-3year-fixed-seed4
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\audit_author_3year_design.R `
-  papers\005-blueberry-brix-genomic-prediction\results\reference\author-3year-design-perm1.csv `
-  papers\005-blueberry-brix-genomic-prediction\results\tables\author-3year-design-audit.csv
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\audit_author_3year_design.R `
+  papers\005-blueberry-fruit-traits-genomic-prediction\results\reference\author-3year-design-perm1.csv `
+  papers\005-blueberry-fruit-traits-genomic-prediction\results\tables\author-3year-design-audit.csv
 ```
 
 This audit was completed on 2026-11-26.
@@ -76,9 +76,9 @@ Calculates one mean Brix value per plant from 2020–2022, then runs 10 repeated
 ```powershell
 $env:LC_ALL = "C"
 D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
-  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_average.R `
-  D:\science-data\datasets\blueberry-brix-genomic-prediction `
-  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-average-seed42 `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_brix_3year_average.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\brix-3year-average-seed42 `
   10 42
 ```
 
