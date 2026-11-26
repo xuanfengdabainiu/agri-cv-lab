@@ -7,7 +7,7 @@
 | 002 | Blueberry YOLOv8/YOLOv9 Reproduction | reproduction | BlueberryDCM | vicdxxx/BlueberryDetectionAndCounting | setup | full reproduction planned |
 | 003 | CitDet Citrus Detection | reproduction | - | - | planned | local folder scaffold only, not yet in Git |
 | 004 | Blueberry bZIP Genome-Wide Reproduction | reproduction | Draper V1.0 genome; public RNA-seq BioProjects | Feng et al. (2025) methods | done | 102 VcbZIP genes and both stress-response lists reproduced at table level; MEME and PlantCARE stages blocked on Linux tooling |
-| 005 | Blueberry Brix Genomic Prediction | reproduction | USDA-ARS PNW blueberry SNP and Brix data | Hislop et al. code; rrBLUP | reproducing | 2022 within-year 0.4024; ID-matched 2021-to-2022 0.3327, both close to paper |
+| 005 | Blueberry Brix Genomic Prediction | reproduction | USDA-ARS PNW blueberry SNP and Brix data | Hislop et al. code; rrBLUP | reproducing | single-year runs close; ID-safe three-year 0.4201 vs paper 0.59, split leakage documented |
 
 ## Status Values
 

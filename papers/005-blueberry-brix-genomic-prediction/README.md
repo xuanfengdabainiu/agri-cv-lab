@@ -48,10 +48,13 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 - Data inspection: [`results/data-inspection.md`](results/data-inspection.md)
 - Brix GBLUP baseline: [`results/brix-gblup-seed42.md`](results/brix-gblup-seed42.md)
 - 2021-to-2022 prediction: [`results/brix-2021-to-2022-seed42.md`](results/brix-2021-to-2022-seed42.md)
+- Three-year model and split audit: [`results/brix-3year-fixed-seed42.md`](results/brix-3year-fixed-seed42.md)
+- Current experiment summary: [`results/experiment-summary.md`](results/experiment-summary.md)
 - Experiment metrics: [`results/metrics.md`](results/metrics.md)
 - Repeat-level metrics and predictions: [`results/tables/`](results/tables/)
 - Mean predictive ability: **0.4024**, close to the paper's approximately **0.41** result for its 2022 training set.
 - ID-matched 2021-to-2022 predictive ability: **0.3327**, close to the paper's approximately **0.35** result.
+- ID-safe three-year predictive ability: **0.4201**, below the paper's approximately **0.59**; the author split audit found direct 2022-target leakage.
 
 ## Repository Rules
 

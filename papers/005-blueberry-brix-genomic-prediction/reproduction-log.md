@@ -323,3 +323,94 @@ Conclusion:
 Next Step:
 
 - Use the same analysis-oriented metrics columns for the combined three-year experiment.
+
+## 2026-11-26: three-year Brix model and author split audit
+
+Goal:
+
+- Reproduce the combined 2020–2022 Brix model with year as a fixed effect.
+- Evaluate against held-out 2022 records while preventing direct 2022-target leakage.
+- Investigate any difference from the paper's approximately 0.59 predictive ability.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+- Peak observed R working memory: approximately 2.9 GB
+
+Command:
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_fixed.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-fixed-seed42 `
+  10 42
+```
+
+Configuration:
+
+- Phenotype records: 4,849
+- Model genotypes: 2,960
+- 2022 evaluation plants: 1,935
+- Markers: 1,822
+- Fixed effect: year
+- Split: 20% of 2022 plant IDs held out per repeat
+- Repeats: 10
+- Seed: 42
+- Training records per repeat: 4,462
+- Test plants per repeat: 387
+- Earlier 2020/2021 records remain available for a held-out plant, matching the repeated-record setup.
+- Every selected plant's 2022 Brix is removed from training before fitting.
+
+Run Output:
+
+- Metrics: `results/tables/brix-3year-fixed-metrics.csv`
+- Predictions: `results/tables/brix-3year-fixed-predictions.csv`
+- Assignments: `results/tables/brix-3year-fixed-assignments.csv`
+- Stable summary: `results/brix-3year-fixed-seed42.md`
+
+Results:
+
+- Mean Pearson predictive ability: 0.4201
+- Pearson standard deviation: 0.0457
+- Pearson range: 0.3740 to 0.5353
+- Mean Spearman correlation: 0.4118
+- Mean MSE: 4.1328
+- Mean heritability: 0.4927
+- Completed repeats: 10/10
+- Missing predictive-ability values: 0
+- Paper reference: predictive ability approximately 0.59; heritability approximately 0.49
+- Heritability reproduced closely; predictive ability did not reproduce under the ID-safe split.
+
+Problems:
+
+- `A.mat` again detected linear dependence and automatically changed EM imputation to mean imputation.
+- The three-year run was substantially slower than the single-year runs because the kinship matrix expanded to 2,960 genotypes.
+- The author's public 10-repeat output averages 0.579 Pearson, while the ID-safe reproduction averages 0.4201.
+
+Author Split Audit:
+
+- Downloaded the public 10-repeat metrics and `Perm1` design matrix from the author repository.
+- Added `scripts/audit_author_3year_design.R` and generated `results/tables/author-3year-design-audit.csv`.
+- Author design rows: 4,849
+- Rows labelled test: 592 across 535 plant IDs
+- Test rows by year: 178 from 2020, 170 from 2021, 244 from 2022
+- Test plant IDs retaining another training record: 405
+- Test plant IDs retaining their 2022 Brix target in training: 196
+- The upstream correlation code also uses numeric row indexes across genotype-level predictions and record-level 2022 observations.
+
+Conclusion:
+
+- Computer configuration is sufficient; the run used about 2.9 GB R memory and no GPU.
+- The data and model reproduce the paper's heritability.
+- The paper's three-year predictive ability is not supported after ensuring every held-out 2022 target is absent from training.
+- The difference is documented as a split-implementation issue rather than adjusted away.
+
+Next Step:
+
+- Reproduce the paper's three-year averaged-phenotype setup.
+- Then close the Brix reproduction with a final comparison and limitations section.

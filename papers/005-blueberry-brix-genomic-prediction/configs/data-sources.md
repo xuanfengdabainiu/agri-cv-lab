@@ -36,3 +36,12 @@ D:\science-data\datasets\blueberry-brix-genomic-prediction\
 ```
 
 Downloaded data must remain outside Git.
+
+## Author Three-Year Diagnostic Outputs
+
+Two small public author outputs were added on 2026-11-26 to audit the three-year split. Review copies are committed under `results/reference`.
+
+| File | SHA-256 |
+|---|---|
+| `author-3year-10perm-20pct-metrics.csv` | `5B0B0D97E77F46DFC9CD8A4ECB73306D0B6E35D7006CDDC3F69E091190A927BC` |
+| `author-3year-design-perm1.csv` | `104BF950BE9A0427BB70CE3C9ECB8FB6BFB3B04CC3FD027B7366F544CC5A2C7E` |

@@ -32,6 +32,7 @@ SNP genotype data + measured Brix
 - Paper reference range for Brix predictive ability: approximately 0.46 to 0.64, depending on the training set.
 - Reproduced 2022-only baseline: mean predictive ability 0.4024 across 10 fixed-seed splits, close to the paper's approximately 0.41 value for the 2022 training set.
 - Reproduced 2021-to-2022 prediction after matching samples by ID: mean predictive ability 0.3327, close to the paper's approximately 0.35 value.
+- Corrected three-year model with year fixed effect: predictive ability 0.4201 versus the paper's approximately 0.59; heritability 0.4927 versus approximately 0.49.
 
 ## 5. Limitations
 
@@ -40,6 +41,7 @@ SNP genotype data + measured Brix
 - The main R script contains a hard-coded author path and many analyses beyond Brix.
 - The random seed is commented out, so the unmodified script does not guarantee identical train-test splits.
 - The upstream cross-year code compares separately built yearly tables by row position; explicit ID matching is required to prevent different plants from being compared.
+- The upstream three-year split samples phenotype rows across years. In the public first design matrix, 196 test-labelled plant IDs retain their 2022 target in training.
 - Results mainly apply to the studied breeding population.
 
 ## 6. What I Can Change
