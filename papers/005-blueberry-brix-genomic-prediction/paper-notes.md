@@ -33,6 +33,7 @@ SNP genotype data + measured Brix
 - Reproduced 2022-only baseline: mean predictive ability 0.4024 across 10 fixed-seed splits, close to the paper's approximately 0.41 value for the 2022 training set.
 - Reproduced 2021-to-2022 prediction after matching samples by ID: mean predictive ability 0.3327, close to the paper's approximately 0.35 value.
 - Corrected three-year model with year fixed effect: predictive ability 0.4201 versus the paper's approximately 0.59; heritability 0.4927 versus approximately 0.49.
+- Three-year averaged phenotype: predictive ability 0.4558 versus author public mean 0.4555 and paper rounded value 0.46; heritability 0.5073 versus approximately 0.51.
 
 ## 5. Limitations
 

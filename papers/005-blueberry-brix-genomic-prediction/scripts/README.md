@@ -68,3 +68,18 @@ D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
 ```
 
 This audit was completed on 2026-11-26.
+
+## Three-year averaged Brix
+
+Calculates one mean Brix value per plant from 2020–2022, then runs 10 repeated 80/20 GBLUP splits.
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_average.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-average-seed42 `
+  10 42
+```
+
+This experiment was completed on 2026-11-26. See `results/brix-3year-average-seed42.md`.

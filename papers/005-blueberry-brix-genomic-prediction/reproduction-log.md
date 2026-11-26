@@ -414,3 +414,84 @@ Next Step:
 
 - Reproduce the paper's three-year averaged-phenotype setup.
 - Then close the Brix reproduction with a final comparison and limitations section.
+
+## 2026-11-26: three-year averaged Brix and Brix-scope close-out
+
+Goal:
+
+- Reproduce the paper's three-year averaged Brix setup.
+- Compare against the author's public 1000-repeat output.
+- Close the selected Brix genomic-prediction scope.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+
+Command:
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-brix-genomic-prediction\scripts\run_brix_3year_average.R `
+  D:\science-data\datasets\blueberry-brix-genomic-prediction `
+  D:\science-data\runs\blueberry-brix-genomic-prediction\brix-3year-average-seed42 `
+  10 42
+```
+
+Configuration:
+
+- Source phenotype records: 4,849
+- One averaged Brix value per plant: 2,960
+- Markers: 1,822
+- Split: 80% train / 20% test
+- Repeats: 10
+- Seed: 42
+- Per repeat: 2,368 training plants and 592 test plants
+- Imputation: mean, matching the effective fallback used by `A.mat` in previous runs
+
+Run Output:
+
+- Metrics: `results/tables/brix-3year-average-metrics.csv`
+- Predictions: `results/tables/brix-3year-average-predictions.csv`
+- Assignments: `results/tables/brix-3year-average-assignments.csv`
+- Stable summary: `results/brix-3year-average-seed42.md`
+- Author reference: `results/reference/author-3year-average-1000perm-metrics.csv`
+
+Results:
+
+- Mean Pearson predictive ability: 0.4558
+- Pearson standard deviation: 0.0320
+- Pearson range: 0.3904 to 0.4935
+- Mean Spearman correlation: 0.4401
+- Mean MSE: 3.0580
+- Mean heritability: 0.5073
+- Completed repeats: 10/10
+- Prediction rows: 5,920
+- Assignment rows: 29,600
+- Missing predictive-ability values: 0
+- Author public 1000-repeat Pearson mean: 0.4555
+- Paper rounded references: predictive ability 0.46; heritability 0.51
+
+Problems:
+
+- The earlier three-year fixed-effect run spent several minutes attempting EM imputation before falling back to mean imputation.
+
+Fixes:
+
+- Used mean imputation directly because it is the effective method selected by `A.mat` for this linearly dependent marker matrix.
+- The complete averaged-phenotype run finished in approximately 38 seconds.
+
+Conclusion:
+
+- The three-year averaged Brix result closely reproduces both predictive ability and heritability.
+- Three of four selected Brix configurations reproduce the paper closely.
+- The remaining three-year fixed-effect mismatch is explained and documented by the public split audit.
+- The Brix genomic-prediction reproduction scope is complete.
+
+Next Step:
+
+- Begin an improvement phase only after reviewing the final summary with the advisor.
+- Candidate improvement: compare GBLUP with ridge regression, Random Forest, and XGBoost on identical saved splits.

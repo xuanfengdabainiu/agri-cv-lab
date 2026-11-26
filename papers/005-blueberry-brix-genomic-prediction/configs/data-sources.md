@@ -45,3 +45,4 @@ Two small public author outputs were added on 2026-11-26 to audit the three-year
 |---|---|
 | `author-3year-10perm-20pct-metrics.csv` | `5B0B0D97E77F46DFC9CD8A4ECB73306D0B6E35D7006CDDC3F69E091190A927BC` |
 | `author-3year-design-perm1.csv` | `104BF950BE9A0427BB70CE3C9ECB8FB6BFB3B04CC3FD027B7366F544CC5A2C7E` |
+| `author-3year-average-1000perm-metrics.csv` | `1DA34C26EA46F7E02C2F70E81C4C378CA6F0799E7D2288B78FF2B6C8A835B070` |
