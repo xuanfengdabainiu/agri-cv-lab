@@ -531,3 +531,70 @@ Next Step:
 
 - Reproduce titratable acidity with the same four training setups used for Brix.
 - Then reproduce pH and Brix-to-acidity ratio.
+
+## 2026-11-27: titratable-acidity four-mode reproduction
+
+Goal:
+
+- Reproduce acidity prediction in the same four modes used for Brix.
+- Generalize the implementation so pH and Brix-to-acidity ratio can reuse one script.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+
+Implementation:
+
+- Added `scripts/run_trait_gblup.R`.
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`.
+- Trait arguments: `Acidity Acidity_2022 acidity`.
+- All modes use 1,822 SNPs, 10 repeats, seed 42, 80/20 splits, mean imputation, and saved assignments.
+- Cross-year samples are matched by `germplasmName`.
+- The fixed-effect mode hides every selected plant's 2022 acidity before fitting.
+
+Commands:
+
+```powershell
+$env:LC_ALL = "C"
+$modes = @("within-2022", "cross-year", "3year-fixed", "3year-average")
+foreach ($mode in $modes) {
+  D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+    papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_trait_gblup.R `
+    D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+    D:\science-data\runs\blueberry-fruit-traits-genomic-prediction\acidity-$mode-seed42 `
+    Acidity Acidity_2022 acidity $mode 10 42
+}
+```
+
+Results:
+
+- 2022 -> 2022: Pearson 0.4613 +/- 0.0269; author 0.4710
+- 2021 -> 2022: Pearson 0.3749 +/- 0.0362; author 0.3554
+- Three-year fixed effect: Pearson 0.5044 +/- 0.0338; author 0.6449
+- Three-year average: Pearson 0.5462 +/- 0.0229; author 0.5624
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/acidity-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 4,766
+- Rows labelled test: 587 across 528 plant IDs
+- Test rows by year: 193 from 2020, 176 from 2021, 218 from 2022
+- Test IDs retaining another training record: 382
+- Test IDs retaining their 2022 acidity target in training: 201
+- Audit output: `results/tables/author-acidity-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year, cross-year, and three-year-average acidity setups closely reproduce the author outputs.
+- The ID-safe fixed-effect setup does not reproduce the inflated author value.
+- The acidity phase independently confirms the split problem found during Brix reproduction.
+- The reusable runner is ready for pH and Brix-to-acidity ratio.
+
+Next Step:
+
+- Reproduce pH in the four modes.
+- Then reproduce Brix-to-acidity ratio.

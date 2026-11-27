@@ -2,7 +2,7 @@
 
 ## Brix Phase Status
 
-Status: `done` for the Brix phase; project status is `reproducing` for the broader fruit-trait scope.
+Status: `done` for the Brix and titratable-acidity phases; project status is `reproducing` for the broader fruit-trait scope.
 
 Three of four Brix experiments closely reproduce the paper. The corrected three-year fixed-effect experiment reproduces heritability but not predictive ability; an audit of the author's public split shows direct 2022-target leakage for 196 test-labelled plant IDs.
 
@@ -13,6 +13,15 @@ Three of four Brix experiments closely reproduce the paper. The corrected three-
 | brix-gblup-003 | 2020–2022 -> 2022, year fixed | 0.4201 | 0.59 | -0.1699 | not reproduced under ID-safe split |
 | brix-gblup-004 | 2020–2022 mean -> mean | 0.4558 | 0.46 | -0.0042 | close |
 
+Three of four acidity experiments also closely reproduce the author outputs. The fixed-effect mismatch has the same split problem.
+
+| Run | Training -> Evaluation | Reproduced Pearson | Author Reference | Difference | Status |
+|---|---|---:|---:|---:|---|
+| acidity-gblup-001 | 2022 -> 2022 | 0.4613 | 0.4710 | -0.0097 | close |
+| acidity-gblup-002 | 2021 -> 2022 | 0.3749 | 0.3554 | +0.0194 | close |
+| acidity-gblup-003 | 2020–2022 -> 2022, year fixed | 0.5044 | 0.6449 | -0.1405 | not reproduced under ID-safe split |
+| acidity-gblup-004 | 2020–2022 mean -> mean | 0.5462 | 0.5624 | -0.0162 | close |
+
 ## Interpretation
 
 - The downloaded phenotype and SNP tables support stable GBLUP analysis.
@@ -21,10 +30,11 @@ Three of four Brix experiments closely reproduce the paper. The corrected three-
 - The paper's three-year predictive ability is sensitive to its record-level split and row-indexing implementation.
 - The three-year heritability result is stable: reproduced 0.4927 versus approximately 0.49 in the paper.
 - Averaging years gives a clean one-row-per-plant target and closely matches the author's 1000-repeat output.
+- The acidity phase independently confirms that the author's three-year fixed-effect split can inflate predictive ability.
 
 ## Next Scope
 
 - The Brix prediction configurations are complete.
-- The next reproduction group is acidity, pH, and Brix-to-acidity ratio.
-- Fruit mass, plant height, bloom timing, and ripening timing follow after the fruit-quality group.
+- The next reproduction group is pH and Brix-to-acidity ratio.
+- Fruit mass, plant height, bloom timing, and ripening timing follow after the core fruit-quality group.
 - Model improvements begin after the selected paper traits are reproduced.

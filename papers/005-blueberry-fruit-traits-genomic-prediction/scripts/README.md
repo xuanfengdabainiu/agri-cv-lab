@@ -83,3 +83,19 @@ D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
 ```
 
 This experiment was completed on 2026-11-26. See `results/brix-3year-average-seed42.md`.
+
+## Reusable fruit-trait GBLUP runner
+
+Runs one trait in one of four modes: `within-2022`, `cross-year`, `3year-fixed`, or `3year-average`.
+
+```powershell
+$env:LC_ALL = "C"
+D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
+  papers\005-blueberry-fruit-traits-genomic-prediction\scripts\run_trait_gblup.R `
+  D:\science-data\datasets\blueberry-fruit-traits-genomic-prediction `
+  <output-dir> <long-trait> <2022-trait> <trait-slug> <mode> 10 42
+```
+
+Example trait arguments for acidity: `Acidity Acidity_2022 acidity`.
+
+The four acidity modes were completed on 2026-11-27. See `results/acidity-reproduction.md`.
