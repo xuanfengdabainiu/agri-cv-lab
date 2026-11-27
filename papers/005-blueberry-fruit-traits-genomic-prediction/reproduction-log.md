@@ -598,3 +598,57 @@ Next Step:
 
 - Reproduce pH in the four modes.
 - Then reproduce Brix-to-acidity ratio.
+
+## 2026-11-27: pH four-mode reproduction
+
+Goal:
+
+- Reproduce pH prediction in the same four modes used for Brix and acidity.
+- Verify the reusable runner on a third fruit-quality trait.
+
+Environment:
+
+- Environment: `D:\conda_envs\blueberry-gs`
+- R: 4.4.3
+- rrBLUP: 4.6.3
+- GPU: not required
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `pH pH_2022 ph`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.4568 +/- 0.0559; author 0.4594
+- 2021 -> 2022: Pearson 0.3809 +/- 0.0464; author 0.3871
+- Three-year fixed effect: Pearson 0.4824 +/- 0.0441; author 0.6082
+- Three-year average: Pearson 0.5596 +/- 0.0343; author 0.5685
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/ph-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 4,818
+- Rows labelled test: 591 across 531 plant IDs
+- Test rows by year: 191 from 2020, 170 from 2021, 230 from 2022
+- Test IDs retaining another training record: 410
+- Test IDs retaining their 2022 pH target in training: 209
+- Audit output: `results/tables/author-ph-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year, cross-year, and three-year-average pH setups closely reproduce the author outputs.
+- The ID-safe fixed-effect setup again does not reproduce the inflated author value.
+- Brix, acidity, and pH independently confirm the same fixed-effect split issue.
+
+Next Step:
+
+- Reproduce Brix-to-acidity ratio in the four modes.
+- Then decide whether to close the core fruit-quality group or continue to fruit mass.

@@ -99,3 +99,5 @@ D:\miniconda3\Scripts\conda.exe run -p D:\conda_envs\blueberry-gs Rscript `
 Example trait arguments for acidity: `Acidity Acidity_2022 acidity`.
 
 The four acidity modes were completed on 2026-11-27. See `results/acidity-reproduction.md`.
+
+The four pH modes were completed on 2026-11-27 with trait arguments `pH pH_2022 ph`. See `results/ph-reproduction.md`.
