@@ -101,3 +101,5 @@ Example trait arguments for acidity: `Acidity Acidity_2022 acidity`.
 The four acidity modes were completed on 2026-11-27. See `results/acidity-reproduction.md`.
 
 The four pH modes were completed on 2026-11-27 with trait arguments `pH pH_2022 ph`. See `results/ph-reproduction.md`.
+
+The four ratio modes were completed on 2026-11-27 with trait arguments `Ratio Ratio_2022 ratio`. See `results/ratio-reproduction.md`.

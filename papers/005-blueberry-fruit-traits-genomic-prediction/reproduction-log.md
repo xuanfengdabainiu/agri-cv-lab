@@ -652,3 +652,51 @@ Next Step:
 
 - Reproduce Brix-to-acidity ratio in the four modes.
 - Then decide whether to close the core fruit-quality group or continue to fruit mass.
+
+## 2026-11-27: Brix-to-acidity ratio four-mode reproduction
+
+Goal:
+
+- Reproduce the available ratio prediction setups.
+- Run within-year and cross-year modes as local supplemental analyses because author 1000-repeat references are unavailable.
+- Complete the core fruit-quality trait group.
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `Ratio Ratio_2022 ratio`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.4634 +/- 0.0366; no author 1000-repeat reference
+- 2021 -> 2022: Pearson 0.3713 +/- 0.0577; no author 1000-repeat reference
+- Three-year fixed effect: Pearson 0.4993 +/- 0.0353; author 0.5992
+- Three-year average: Pearson 0.5725 +/- 0.0318; author 0.4960 with SD 0.1013
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/ratio-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 4,813
+- Rows labelled test: 591 across 525 plant IDs
+- Test rows by year: 185 from 2020, 180 from 2021, 226 from 2022
+- Test IDs retaining another training record: 378
+- Test IDs retaining their 2022 ratio target in training: 191
+- Audit output: `results/tables/author-ratio-3year-design-audit.csv`
+
+Conclusion:
+
+- The fixed-effect result again does not reproduce under the ID-safe split.
+- The averaged result differs from the author point estimate but lies within one author-reported standard deviation.
+- The core fruit-quality group is complete: Brix, acidity, pH, and Brix-to-acidity ratio.
+
+Next Step:
+
+- Reproduce fruit mass.
+- Then continue to plant height, bloom timing, and ripening timing.

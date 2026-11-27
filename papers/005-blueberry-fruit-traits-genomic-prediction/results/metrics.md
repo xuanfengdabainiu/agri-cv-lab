@@ -18,5 +18,9 @@ This is a genomic-prediction project, so object-detection fields such as mAP and
 | ph-gblup-002 | 2026-11-27 | GBLUP | 2021 -> 2022 | 1,004 | 1,822 | 10 | 42 | 0.3809 | 0.0464 | 0.3867 | 0.2274 | 0.3871 | ID-matched samples; close reproduction |
 | ph-gblup-003 | 2026-11-27 | GBLUP + year fixed effect | 2020–2022 -> 2022 | 2,955 | 1,822 | 10 | 42 | 0.4824 | 0.0441 | 0.4859 | 0.1438 | 0.6082 | 1,911 evaluation plants; author split leakage confirmed |
 | ph-gblup-004 | 2026-11-27 | GBLUP | 2020–2022 mean -> mean | 2,955 | 1,822 | 10 | 42 | 0.5596 | 0.0343 | 0.5650 | 0.1422 | 0.5685 | Close reproduction |
+| ratio-gblup-001 | 2026-11-27 | GBLUP | 2022 -> 2022 | 1,907 | 1,822 | 10 | 42 | 0.4634 | 0.0366 | 0.4760 | 218.6009 | - | Local supplemental result; author 1000-repeat reference unavailable |
+| ratio-gblup-002 | 2026-11-27 | GBLUP | 2021 -> 2022 | 999 | 1,822 | 10 | 42 | 0.3713 | 0.0577 | 0.3821 | 245.1579 | - | ID-matched local supplemental result |
+| ratio-gblup-003 | 2026-11-27 | GBLUP + year fixed effect | 2020–2022 -> 2022 | 2,954 | 1,822 | 10 | 42 | 0.4993 | 0.0353 | 0.5020 | 211.8349 | 0.5992 | Author split leakage confirmed |
+| ratio-gblup-004 | 2026-11-27 | GBLUP | 2020–2022 mean -> mean | 2,954 | 1,822 | 10 | 42 | 0.5725 | 0.0318 | 0.5741 | 158.7508 | 0.4960 | Author SD 0.1013; point estimate differs but lies within one SD |
 
 Detailed repeat-level metrics and predictions are committed under [`tables/`](tables/).

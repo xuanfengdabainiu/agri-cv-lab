@@ -66,3 +66,13 @@ Two small public author outputs were added on 2026-11-26 to audit the three-year
 | `author-ph-3year-fixed-1000perm-metrics.csv` | `DCE0B6E0A1A138EB881BC276FB5F1FB4A8FB5DE5B061D4F59F86C0CD1E591924` |
 | `author-ph-3year-average-1000perm-metrics.csv` | `D5FB0E86FE6524D04605E4689A360A6F410E1C8D41BD07EE4CD156D5590BF747` |
 | `author-ph-3year-design-perm1.csv` | `E51CD5F35DD251E41F35D9398CBCE103754EE05A1B173F8A703BAF116FCE31B6` |
+
+## Author Ratio Reference Outputs
+
+The author repository does not contain 1000-repeat within-2022 or cross-year Ratio outputs.
+
+| File | SHA-256 |
+|---|---|
+| `author-ratio-3year-fixed-1000perm-metrics.csv` | `74D02C93ADAE73412011D47DA9DEF5E6ABCB58B4F62D349D6CB1D751CB93B36C` |
+| `author-ratio-3year-average-1000perm-metrics.csv` | `F0324E84DDB2F74B8451EFB9791840DF06AA0BBED1417068673013575E7214A4` |
+| `author-ratio-3year-design-perm1.csv` | `CB5A91504FE6F31325EBE3DAD50AEFF68D042C9960E3504C4686858E75726F8E` |

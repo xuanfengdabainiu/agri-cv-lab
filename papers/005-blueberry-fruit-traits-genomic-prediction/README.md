@@ -4,7 +4,7 @@
 
 Reproduce the paper's genomic-prediction experiments for blueberry fruit quality and ripening traits using SNP genotype data.
 
-The completed phases cover soluble solids (`Brix`), titratable acidity, and pH. The next phase applies the same reproducible pipeline to the Brix-to-acidity ratio.
+The completed core fruit-quality group covers soluble solids (`Brix`), titratable acidity, pH, and Brix-to-acidity ratio. The next phase moves to fruit mass.
 
 ## Paper
 
@@ -18,7 +18,7 @@ The completed phases cover soluble solids (`Brix`), titratable acidity, and pH. 
 
 `reproducing`
 
-The Brix, titratable-acidity, and pH phases are complete: each has four training setups, saved outputs, and a fixed-effect split audit. The broader fruit-trait project remains active.
+The Brix, titratable-acidity, pH, and ratio phases are complete with saved outputs and fixed-effect split audits. The broader fruit-trait project remains active.
 
 ## Progress
 
@@ -26,10 +26,11 @@ The Brix, titratable-acidity, and pH phases are complete: each has four training
 2. Four Brix prediction setups are complete with saved splits and outputs.
 3. Titratable acidity is complete with four prediction setups.
 4. pH is complete with four prediction setups.
-5. The author's three-year fixed-effect split has been audited for Brix, acidity, and pH.
-6. Next trait: Brix-to-acidity ratio.
-7. Later traits: fruit mass, plant height, bloom timing, and ripening timing.
-8. GWAS remains outside the current prediction-first scope.
+5. Brix-to-acidity ratio is complete with four prediction setups.
+6. The author's three-year fixed-effect split has been audited for all four core fruit-quality traits.
+7. Next trait: fruit mass.
+8. Later traits: plant height, bloom timing, and ripening timing.
+9. GWAS remains outside the current prediction-first scope.
 
 ## Quick Start
 
@@ -61,7 +62,7 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 
 ## Next Trait Phase
 
-The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for Brix-to-acidity ratio.
+The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for fruit mass.
 
 ## Acidity Results
 
@@ -78,6 +79,14 @@ The next reproduction phase will reuse the same data checks, fixed seeds, ID-saf
 - 2021 -> 2022 Pearson: **0.3809** vs author **0.3871**
 - ID-safe three-year fixed Pearson: **0.4824** vs author **0.6082**
 - Three-year average Pearson: **0.5596** vs author **0.5685**
+
+## Brix-to-Acidity Ratio Results
+
+- Phase report: [`results/ratio-reproduction.md`](results/ratio-reproduction.md)
+- 2022 -> 2022 Pearson: **0.4634**; author 1000-repeat reference unavailable
+- 2021 -> 2022 Pearson: **0.3713**; author 1000-repeat reference unavailable
+- ID-safe three-year fixed Pearson: **0.4993** vs author **0.5992**
+- Three-year average Pearson: **0.5725** vs author **0.4960**; author SD **0.1013**
 
 ## Repository Rules
 
