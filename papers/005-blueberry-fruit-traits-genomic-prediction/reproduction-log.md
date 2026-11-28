@@ -841,3 +841,49 @@ Next Step:
 
 - Reproduce bloom 5%, bloom 95%, and bloom-duration traits.
 - Then continue to ripening timing.
+
+## 2026-11-28: bloom-5% timing four-mode reproduction
+
+Goal:
+
+- Reproduce bloom onset, defined as the date when approximately 5% of flowers are open.
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `bloom5per bloom5per_2022 bloom5`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Available phenotype years: 2021 and 2022 only
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.4963 +/- 0.0364; author 0.4889
+- 2021 -> 2022: Pearson 0.3178 +/- 0.0765; author 0.3708
+- Available-years fixed effect: Pearson 0.4862 +/- 0.0428; author 0.6674
+- Available-years average: Pearson 0.4821 +/- 0.0334; author 0.4734
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/bloom5-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 3,574
+- Rows labelled test: 543 across 518 plant IDs
+- Test rows by year: 0 from 2020, 257 from 2021, 286 from 2022
+- Test IDs retaining another training record: 240
+- Test IDs retaining their 2022 bloom-5% target in training: 112
+- Audit output: `results/tables/author-bloom5-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year and averaged bloom-5% setups closely reproduce the author references.
+- Cross-year and fixed-effect results are lower under ID-safe matching and splitting.
+
+Next Step:
+
+- Reproduce bloom 95% and bloom duration.
+- Then continue to ripening timing.

@@ -67,6 +67,15 @@ Bloom-50% timing reproduces three author references closely; the ID-matched cros
 | bloom50-gblup-003 | available years -> 2022, year fixed | 0.5730 | 0.5793 | -0.0063 | close despite leaky author split |
 | bloom50-gblup-004 | available-years mean -> mean | 0.4981 | 0.4789 | +0.0192 | close |
 
+Bloom-5% timing reproduces the within-year and averaged references closely; cross-year and fixed-effect results are lower.
+
+| Run | Training -> Evaluation | Reproduced Pearson | Author Reference | Difference | Status |
+|---|---|---:|---:|---:|---|
+| bloom5-gblup-001 | 2022 -> 2022 | 0.4963 | 0.4889 | +0.0075 | close |
+| bloom5-gblup-002 | 2021 -> 2022 | 0.3178 | 0.3708 | -0.0530 | not close |
+| bloom5-gblup-003 | available years -> 2022, year fixed | 0.4862 | 0.6674 | -0.1812 | not reproduced under ID-safe split |
+| bloom5-gblup-004 | available-years mean -> mean | 0.4821 | 0.4734 | +0.0087 | close |
+
 ## Interpretation
 
 - The downloaded phenotype and SNP tables support stable GBLUP analysis.
@@ -81,10 +90,11 @@ Bloom-50% timing reproduces three author references closely; the ID-matched cros
 - Fruit mass provides a fifth confirmation of the fixed-effect split problem while closely reproducing the clean within-year and averaged setups.
 - Plant height provides a sixth confirmation of the fixed-effect split problem.
 - Bloom-50% provides a seventh confirmation that author test labels can retain 2022 targets, even though its corrected metric remains close.
+- Bloom-5% provides an eighth confirmation of the same split problem.
 
 ## Next Scope
 
 - The Brix prediction configurations are complete.
 - The core fruit-quality group is complete.
-- Bloom 5%, bloom 95%, and bloom duration remain, followed by ripening timing.
+- Bloom 95% and bloom duration remain, followed by ripening timing.
 - Model improvements begin after the selected paper traits are reproduced.

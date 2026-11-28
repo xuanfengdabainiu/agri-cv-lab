@@ -109,3 +109,5 @@ The four fruit-mass modes were completed on 2026-11-27 with trait arguments `Fru
 The four height modes were completed on 2026-11-28 with trait arguments `height height_2022 height`. See `results/height-reproduction.md`.
 
 The four bloom-50% modes were completed on 2026-11-28 with trait arguments `bloom50per bloom50per_2022 bloom50`. See `results/bloom50-reproduction.md`.
+
+The four bloom-5% modes were completed on 2026-11-28 with trait arguments `bloom5per bloom5per_2022 bloom5`. See `results/bloom5-reproduction.md`.
