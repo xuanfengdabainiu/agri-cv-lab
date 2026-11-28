@@ -76,3 +76,14 @@ The author repository does not contain 1000-repeat within-2022 or cross-year Rat
 | `author-ratio-3year-fixed-1000perm-metrics.csv` | `74D02C93ADAE73412011D47DA9DEF5E6ABCB58B4F62D349D6CB1D751CB93B36C` |
 | `author-ratio-3year-average-1000perm-metrics.csv` | `F0324E84DDB2F74B8451EFB9791840DF06AA0BBED1417068673013575E7214A4` |
 | `author-ratio-3year-design-perm1.csv` | `CB5A91504FE6F31325EBE3DAD50AEFF68D042C9960E3504C4686858E75726F8E` |
+
+## Author Fruit-Mass Reference Outputs
+
+The author repository does not contain a 1000-repeat cross-year fruit-mass output.
+
+| File | SHA-256 |
+|---|---|
+| `author-fruit-mass-within-2022-1000perm-metrics.csv` | `F7CF077C0EA7859B56BF9A89BA79E5687BD6FB892EAB6B01C34747D4A7F8AED2` |
+| `author-fruit-mass-3year-fixed-1000perm-metrics.csv` | `540D34CE2123843A9E3193EF66D4F29A35FD25DFFC57DA548E1AB59137874912` |
+| `author-fruit-mass-3year-average-1000perm-metrics.csv` | `1F8BAE5377A4A40812EEB75D02E0237A5F9FE725EA1FF972FDAA06FBFFD4CA3D` |
+| `author-fruit-mass-3year-design-perm1.csv` | `6E7A5DD6102F076D06FA686800D546406028B83DF6AA85B641DD5EB1F679B5CD` |

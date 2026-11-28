@@ -28,7 +28,8 @@ SNP genotype data + measured fruit or ripening trait
 - Genotype source: a 3K DArTag marker panel processed into SNP calls.
 - Completed trait phase: Brix.
 - Completed trait phases: Brix, titratable acidity, pH, and Brix-to-acidity ratio.
-- Next trait phase: fruit mass.
+- Completed trait phases include fruit mass.
+- Next trait phase: plant height.
 - Main paper split: training data from 2021, 2022, or combined years; evaluation against 2022 observations.
 - Main metric: predictive ability, calculated as the correlation between observed and predicted values.
 - Paper reference range for Brix predictive ability: approximately 0.46 to 0.64, depending on the training set.
@@ -39,6 +40,7 @@ SNP genotype data + measured fruit or ripening trait
 - Acidity phase: 2022-only 0.4613, cross-year 0.3749, ID-safe three-year fixed 0.5044, and three-year average 0.5462.
 - pH phase: 2022-only 0.4568, cross-year 0.3809, ID-safe three-year fixed 0.4824, and three-year average 0.5596.
 - Ratio phase: 2022-only 0.4634, cross-year 0.3713, ID-safe three-year fixed 0.4993, and three-year average 0.5725.
+- Fruit-mass phase: 2022-only 0.5973, cross-year 0.5612, ID-safe three-year fixed 0.6317, and three-year average 0.6666.
 
 ## 5. Limitations
 
@@ -51,6 +53,7 @@ SNP genotype data + measured fruit or ripening trait
 - The acidity design audit finds the same issue: 201 test-labelled plant IDs retain their 2022 acidity target in training.
 - The pH design audit finds the same issue: 209 test-labelled plant IDs retain their 2022 pH target in training.
 - The ratio design audit finds the same issue: 191 test-labelled plant IDs retain their 2022 ratio target in training.
+- The fruit-mass design audit finds the same issue: 197 test-labelled plant IDs retain their 2022 fruit-mass target in training.
 - Results mainly apply to the studied breeding population.
 
 ## 6. What I Can Change
@@ -58,4 +61,4 @@ SNP genotype data + measured fruit or ripening trait
 - Generalize the clean Brix scripts into a reusable per-trait prediction pipeline.
 - Fix the random seed and record every split.
 - Compare GBLUP with a simple machine-learning baseline later.
-- Reproduce fruit mass with the same saved-split discipline.
+- Reproduce plant height with the same saved-split discipline.

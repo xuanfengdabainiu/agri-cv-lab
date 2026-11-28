@@ -2,7 +2,7 @@
 
 ## Brix Phase Status
 
-Status: `done` for the core fruit-quality group: Brix, titratable acidity, pH, and Brix-to-acidity ratio. Project status remains `reproducing` for the broader fruit and ripening-trait scope.
+Status: `done` for the core fruit-quality group and fruit mass. Project status remains `reproducing` for plant height, bloom timing, and ripening timing.
 
 Three of four Brix experiments closely reproduce the paper. The corrected three-year fixed-effect experiment reproduces heritability but not predictive ability; an audit of the author's public split shows direct 2022-target leakage for 196 test-labelled plant IDs.
 
@@ -40,6 +40,15 @@ The ratio phase has two author-referenced modes and two local supplemental modes
 | ratio-gblup-003 | 2020–2022 -> 2022, year fixed | 0.4993 | 0.5992 | -0.0999 | not reproduced under ID-safe split |
 | ratio-gblup-004 | 2020–2022 mean -> mean | 0.5725 | 0.4960 | +0.0765 | within broad author variability |
 
+Fruit mass reproduces the two available non-leaky author references closely. The cross-year mode is a local supplemental result.
+
+| Run | Training -> Evaluation | Reproduced Pearson | Author Reference | Difference | Status |
+|---|---|---:|---:|---:|---|
+| fruit-mass-gblup-001 | 2022 -> 2022 | 0.5973 | 0.5930 | +0.0044 | close |
+| fruit-mass-gblup-002 | 2021 -> 2022 | 0.5612 | - | - | local supplemental |
+| fruit-mass-gblup-003 | 2020–2022 -> 2022, year fixed | 0.6317 | 0.7193 | -0.0876 | not reproduced under ID-safe split |
+| fruit-mass-gblup-004 | 2020–2022 mean -> mean | 0.6666 | 0.6624 | +0.0041 | close |
+
 ## Interpretation
 
 - The downloaded phenotype and SNP tables support stable GBLUP analysis.
@@ -51,10 +60,11 @@ The ratio phase has two author-referenced modes and two local supplemental modes
 - The acidity phase independently confirms that the author's three-year fixed-effect split can inflate predictive ability.
 - The pH phase provides a third independent confirmation of the same fixed-effect split issue.
 - The ratio phase provides a fourth confirmation of fixed-effect target leakage.
+- Fruit mass provides a fifth confirmation of the fixed-effect split problem while closely reproducing the clean within-year and averaged setups.
 
 ## Next Scope
 
 - The Brix prediction configurations are complete.
 - The core fruit-quality group is complete.
-- Fruit mass is the next paper trait, followed by plant height, bloom timing, and ripening timing.
+- Plant height is the next paper trait, followed by bloom timing and ripening timing.
 - Model improvements begin after the selected paper traits are reproduced.

@@ -4,7 +4,7 @@
 
 Reproduce the paper's genomic-prediction experiments for blueberry fruit quality and ripening traits using SNP genotype data.
 
-The completed core fruit-quality group covers soluble solids (`Brix`), titratable acidity, pH, and Brix-to-acidity ratio. The next phase moves to fruit mass.
+The completed phases cover the core fruit-quality group and fruit mass. The next phase moves to plant height.
 
 ## Paper
 
@@ -18,7 +18,7 @@ The completed core fruit-quality group covers soluble solids (`Brix`), titratabl
 
 `reproducing`
 
-The Brix, titratable-acidity, pH, and ratio phases are complete with saved outputs and fixed-effect split audits. The broader fruit-trait project remains active.
+The Brix, titratable-acidity, pH, ratio, and fruit-mass phases are complete with saved outputs and fixed-effect split audits. The broader project remains active.
 
 ## Progress
 
@@ -28,8 +28,8 @@ The Brix, titratable-acidity, pH, and ratio phases are complete with saved outpu
 4. pH is complete with four prediction setups.
 5. Brix-to-acidity ratio is complete with four prediction setups.
 6. The author's three-year fixed-effect split has been audited for all four core fruit-quality traits.
-7. Next trait: fruit mass.
-8. Later traits: plant height, bloom timing, and ripening timing.
+7. Fruit mass is complete with four prediction setups.
+8. Next traits: plant height, bloom timing, and ripening timing.
 9. GWAS remains outside the current prediction-first scope.
 
 ## Quick Start
@@ -62,7 +62,7 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 
 ## Next Trait Phase
 
-The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for fruit mass.
+The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for plant height.
 
 ## Acidity Results
 
@@ -87,6 +87,14 @@ The next reproduction phase will reuse the same data checks, fixed seeds, ID-saf
 - 2021 -> 2022 Pearson: **0.3713**; author 1000-repeat reference unavailable
 - ID-safe three-year fixed Pearson: **0.4993** vs author **0.5992**
 - Three-year average Pearson: **0.5725** vs author **0.4960**; author SD **0.1013**
+
+## Fruit Mass Results
+
+- Phase report: [`results/fruit-mass-reproduction.md`](results/fruit-mass-reproduction.md)
+- 2022 -> 2022 Pearson: **0.5973** vs author **0.5930**
+- 2021 -> 2022 Pearson: **0.5612**; author 1000-repeat reference unavailable
+- ID-safe three-year fixed Pearson: **0.6317** vs author **0.7193**
+- Three-year average Pearson: **0.6666** vs author **0.6624**
 
 ## Repository Rules
 

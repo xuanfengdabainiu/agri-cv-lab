@@ -1,0 +1,10 @@
+"Metric","Value"
+"total_rows",4790
+"unique_genotypes",2945
+"test_rows",589
+"test_unique_genotypes",522
+"test_rows_2020",192
+"test_rows_2021",193
+"test_rows_2022",204
+"test_ids_with_other_training_record",379
+"test_ids_with_2022_value_still_in_training",197

@@ -700,3 +700,50 @@ Next Step:
 
 - Reproduce fruit mass.
 - Then continue to plant height, bloom timing, and ripening timing.
+
+## 2026-11-28: fruit-mass completion and archival
+
+Goal:
+
+- Complete the result checking, author comparison, split audit, documentation, and archival for the fruit-mass runs generated on 2026-11-27.
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `FruitMass FruitMass_2022 fruit-mass`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.5973 +/- 0.0416; author 0.5930
+- 2021 -> 2022: Pearson 0.5612 +/- 0.0434; no author 1000-repeat reference
+- Three-year fixed effect: Pearson 0.6317 +/- 0.0406; author 0.7193
+- Three-year average: Pearson 0.6666 +/- 0.0143; author 0.6624
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/fruit-mass-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 4,790
+- Rows labelled test: 589 across 522 plant IDs
+- Test rows by year: 192 from 2020, 193 from 2021, 204 from 2022
+- Test IDs retaining another training record: 379
+- Test IDs retaining their 2022 fruit-mass target in training: 197
+- Audit output: `results/tables/author-fruit-mass-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year and three-year-average fruit-mass setups closely reproduce the author outputs.
+- Cross-year fruit mass is a local supplemental result because no 1000-repeat author output is available.
+- The ID-safe fixed-effect setup does not reproduce the inflated author value.
+- Yesterday's unarchived fruit-mass runs are now fully checked and documented.
+
+Next Step:
+
+- Reproduce plant height.
+- Then continue to bloom and ripening timing traits.
