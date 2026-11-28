@@ -105,3 +105,5 @@ The four pH modes were completed on 2026-11-27 with trait arguments `pH pH_2022 
 The four ratio modes were completed on 2026-11-27 with trait arguments `Ratio Ratio_2022 ratio`. See `results/ratio-reproduction.md`.
 
 The four fruit-mass modes were completed on 2026-11-27 with trait arguments `FruitMass FruitMass_2022 fruit-mass`. See `results/fruit-mass-reproduction.md`.
+
+The four height modes were completed on 2026-11-28 with trait arguments `height height_2022 height`. See `results/height-reproduction.md`.

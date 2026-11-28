@@ -26,5 +26,9 @@ This is a genomic-prediction project, so object-detection fields such as mAP and
 | fruit-mass-gblup-002 | 2026-11-27 | GBLUP | 2021 -> 2022 | 969 | 1,822 | 10 | 42 | 0.5612 | 0.0434 | 0.4795 | 90.8891 | - | ID-matched local supplemental result |
 | fruit-mass-gblup-003 | 2026-11-27 | GBLUP + year fixed effect | 2020–2022 -> 2022 | 2,945 | 1,822 | 10 | 42 | 0.6317 | 0.0406 | 0.5919 | 79.3455 | 0.7193 | Author split leakage confirmed |
 | fruit-mass-gblup-004 | 2026-11-27 | GBLUP | 2020–2022 mean -> mean | 2,945 | 1,822 | 10 | 42 | 0.6666 | 0.0143 | 0.6220 | 66.1570 | 0.6624 | Close reproduction |
+| height-gblup-001 | 2026-11-28 | GBLUP | 2022 -> 2022 | 3,830 | 1,822 | 10 | 42 | 0.5897 | 0.0185 | 0.5839 | 332.9831 | 0.5668 | Close reproduction |
+| height-gblup-002 | 2026-11-28 | GBLUP | 2021 -> 2022 | 3,604 | 1,822 | 10 | 42 | 0.4780 | 0.0305 | 0.4754 | 582.6515 | 0.4754 | ID-matched; close reproduction |
+| height-gblup-003 | 2026-11-28 | GBLUP + year fixed effect | available years -> 2022 | 3,838 | 1,822 | 10 | 42 | 0.6294 | 0.0166 | 0.6226 | 365.6808 | 0.6860 | Only 2021–2022 available; author split leakage confirmed |
+| height-gblup-004 | 2026-11-28 | GBLUP | available-years mean -> mean | 3,838 | 1,822 | 10 | 42 | 0.5906 | 0.0104 | 0.5848 | 258.8781 | 0.5845 | Close reproduction |
 
 Detailed repeat-level metrics and predictions are committed under [`tables/`](tables/).

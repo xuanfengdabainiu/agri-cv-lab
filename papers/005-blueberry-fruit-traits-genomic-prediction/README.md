@@ -4,7 +4,7 @@
 
 Reproduce the paper's genomic-prediction experiments for blueberry fruit quality and ripening traits using SNP genotype data.
 
-The completed phases cover the core fruit-quality group and fruit mass. The next phase moves to plant height.
+The completed phases cover the core fruit-quality group, fruit mass, and plant height. The next phase moves to bloom timing.
 
 ## Paper
 
@@ -18,7 +18,7 @@ The completed phases cover the core fruit-quality group and fruit mass. The next
 
 `reproducing`
 
-The Brix, titratable-acidity, pH, ratio, and fruit-mass phases are complete with saved outputs and fixed-effect split audits. The broader project remains active.
+The Brix, titratable-acidity, pH, ratio, fruit-mass, and height phases are complete with saved outputs and fixed-effect split audits. The broader project remains active.
 
 ## Progress
 
@@ -29,8 +29,9 @@ The Brix, titratable-acidity, pH, ratio, and fruit-mass phases are complete with
 5. Brix-to-acidity ratio is complete with four prediction setups.
 6. The author's three-year fixed-effect split has been audited for all four core fruit-quality traits.
 7. Fruit mass is complete with four prediction setups.
-8. Next traits: plant height, bloom timing, and ripening timing.
-9. GWAS remains outside the current prediction-first scope.
+8. Plant height is complete with four prediction setups.
+9. Next traits: bloom timing and ripening timing.
+10. GWAS remains outside the current prediction-first scope.
 
 ## Quick Start
 
@@ -62,7 +63,7 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 
 ## Next Trait Phase
 
-The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for plant height.
+The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for bloom timing.
 
 ## Acidity Results
 
@@ -95,6 +96,14 @@ The next reproduction phase will reuse the same data checks, fixed seeds, ID-saf
 - 2021 -> 2022 Pearson: **0.5612**; author 1000-repeat reference unavailable
 - ID-safe three-year fixed Pearson: **0.6317** vs author **0.7193**
 - Three-year average Pearson: **0.6666** vs author **0.6624**
+
+## Plant Height Results
+
+- Phase report: [`results/height-reproduction.md`](results/height-reproduction.md)
+- 2022 -> 2022 Pearson: **0.5897** vs author **0.5668**
+- 2021 -> 2022 Pearson: **0.4780** vs author **0.4754**
+- ID-safe fixed-effect Pearson: **0.6294** vs author 10-repeat **0.6860**
+- Available-years average Pearson: **0.5906** vs author **0.5845**
 
 ## Repository Rules
 

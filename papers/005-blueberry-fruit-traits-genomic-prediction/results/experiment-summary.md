@@ -2,7 +2,7 @@
 
 ## Brix Phase Status
 
-Status: `done` for the core fruit-quality group and fruit mass. Project status remains `reproducing` for plant height, bloom timing, and ripening timing.
+Status: `done` for the core fruit-quality group, fruit mass, and plant height. Project status remains `reproducing` for bloom and ripening timing.
 
 Three of four Brix experiments closely reproduce the paper. The corrected three-year fixed-effect experiment reproduces heritability but not predictive ability; an audit of the author's public split shows direct 2022-target leakage for 196 test-labelled plant IDs.
 
@@ -49,6 +49,15 @@ Fruit mass reproduces the two available non-leaky author references closely. The
 | fruit-mass-gblup-003 | 2020–2022 -> 2022, year fixed | 0.6317 | 0.7193 | -0.0876 | not reproduced under ID-safe split |
 | fruit-mass-gblup-004 | 2020–2022 mean -> mean | 0.6666 | 0.6624 | +0.0041 | close |
 
+Plant height closely reproduces the clean author references. Only 2021 and 2022 height measurements are available.
+
+| Run | Training -> Evaluation | Reproduced Pearson | Author Reference | Difference | Status |
+|---|---|---:|---:|---:|---|
+| height-gblup-001 | 2022 -> 2022 | 0.5897 | 0.5668 | +0.0229 | close |
+| height-gblup-002 | 2021 -> 2022 | 0.4780 | 0.4754 | +0.0026 | close |
+| height-gblup-003 | available years -> 2022, year fixed | 0.6294 | 0.6860 | -0.0566 | lower under ID-safe split |
+| height-gblup-004 | available-years mean -> mean | 0.5906 | 0.5845 | +0.0061 | close |
+
 ## Interpretation
 
 - The downloaded phenotype and SNP tables support stable GBLUP analysis.
@@ -61,10 +70,11 @@ Fruit mass reproduces the two available non-leaky author references closely. The
 - The pH phase provides a third independent confirmation of the same fixed-effect split issue.
 - The ratio phase provides a fourth confirmation of fixed-effect target leakage.
 - Fruit mass provides a fifth confirmation of the fixed-effect split problem while closely reproducing the clean within-year and averaged setups.
+- Plant height provides a sixth confirmation of the fixed-effect split problem.
 
 ## Next Scope
 
 - The Brix prediction configurations are complete.
 - The core fruit-quality group is complete.
-- Plant height is the next paper trait, followed by bloom timing and ripening timing.
+- Bloom timing is the next paper trait, followed by ripening timing.
 - Model improvements begin after the selected paper traits are reproduced.

@@ -747,3 +747,50 @@ Next Step:
 
 - Reproduce plant height.
 - Then continue to bloom and ripening timing traits.
+
+## 2026-11-28: plant-height four-mode reproduction
+
+Goal:
+
+- Reproduce plant-height genomic prediction and document the available-year limitation.
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `height height_2022 height`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Available phenotype years: 2021 and 2022 only
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.5897 +/- 0.0185; author 0.5668
+- 2021 -> 2022: Pearson 0.4780 +/- 0.0305; author 0.4754
+- Available-years fixed effect: Pearson 0.6294 +/- 0.0166; author 10-repeat mean 0.6860
+- Available-years average: Pearson 0.5906 +/- 0.0104; author 0.5845
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/height-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 7,442
+- Rows labelled test: 768 across 697 plant IDs
+- Test rows by year: 0 from 2020, 379 from 2021, 389 from 2022
+- Test IDs retaining another training record: 585
+- Test IDs retaining their 2022 height target in training: 307
+- Audit output: `results/tables/author-height-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year, cross-year, and averaged height setups closely reproduce the author references.
+- The fixed-effect result is lower under the ID-safe split.
+- Height provides a sixth independent confirmation of the record-level split issue.
+
+Next Step:
+
+- Reproduce bloom timing traits.
+- Then reproduce ripening timing traits.

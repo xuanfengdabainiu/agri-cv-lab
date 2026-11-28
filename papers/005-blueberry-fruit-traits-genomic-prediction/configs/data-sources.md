@@ -87,3 +87,13 @@ The author repository does not contain a 1000-repeat cross-year fruit-mass outpu
 | `author-fruit-mass-3year-fixed-1000perm-metrics.csv` | `540D34CE2123843A9E3193EF66D4F29A35FD25DFFC57DA548E1AB59137874912` |
 | `author-fruit-mass-3year-average-1000perm-metrics.csv` | `1F8BAE5377A4A40812EEB75D02E0237A5F9FE725EA1FF972FDAA06FBFFD4CA3D` |
 | `author-fruit-mass-3year-design-perm1.csv` | `6E7A5DD6102F076D06FA686800D546406028B83DF6AA85B641DD5EB1F679B5CD` |
+
+## Author Height Reference Outputs
+
+| File | SHA-256 |
+|---|---|
+| `author-height-within-2022-1000perm-metrics.csv` | `8E1A3B4863F7E3B4A5E5C5021679C2CA28B0B637884004E6D624FDDF0F4FF56B` |
+| `author-height-cross-year-1000perm-metrics.csv` | `3C36AF9BEE953E503C78C8620B38A15360B6E2147DAE9145632E62DE90B52E3B` |
+| `author-height-3year-fixed-10perm-metrics.csv` | `B6AAB66676A7FD40662543FB425F429D1FE6DEEB04168657D1B6C376A5924C58` |
+| `author-height-3year-average-1000perm-metrics.csv` | `6662B7D3A1921CFF9E806B548BB754818B90A54C1ADA282EE75D80266CE319C4` |
+| `author-height-3year-design-perm1.csv` | `37C18C0D396CEFCAF31B8C7D1E11BE440E5E54D4C7A14CA763160179708D9116` |
