@@ -794,3 +794,50 @@ Next Step:
 
 - Reproduce bloom timing traits.
 - Then reproduce ripening timing traits.
+
+## 2026-11-28: bloom-50% timing four-mode reproduction
+
+Goal:
+
+- Reproduce the central bloom-timing trait, defined as the date when approximately 50% of flowers are open.
+
+Configuration:
+
+- Script: `scripts/run_trait_gblup.R`
+- Trait arguments: `bloom50per bloom50per_2022 bloom50`
+- Modes: `within-2022`, `cross-year`, `3year-fixed`, and `3year-average`
+- Available phenotype years: 2021 and 2022 only
+- Markers: 1,822
+- Repeats: 10
+- Seed: 42
+- Split: 80% train / 20% test
+- Imputation: mean
+
+Results:
+
+- 2022 -> 2022: Pearson 0.5720 +/- 0.0293; author 0.5825
+- 2021 -> 2022: Pearson 0.5351 +/- 0.0512; author 0.4589
+- Available-years fixed effect: Pearson 0.5730 +/- 0.0280; author 0.5793
+- Available-years average: Pearson 0.4981 +/- 0.0213; author 0.4789
+- All 40 runs completed without missing predictive-ability values.
+- Stable summary: `results/bloom50-reproduction.md`
+
+Author Split Audit:
+
+- Author design rows: 4,300
+- Rows labelled test: 629 across 591 plant IDs
+- Test rows by year: 0 from 2020, 382 from 2021, 247 from 2022
+- Test IDs retaining another training record: 266
+- Test IDs retaining their 2022 bloom-50% target in training: 133
+- Audit output: `results/tables/author-bloom50-3year-design-audit.csv`
+
+Conclusion:
+
+- The within-year, fixed-effect, and averaged bloom-50% setups closely reproduce the author references.
+- The ID-matched cross-year result is higher than the author reference.
+- The author fixed-effect split still contains direct target leakage, although the corrected result remains close for this trait.
+
+Next Step:
+
+- Reproduce bloom 5%, bloom 95%, and bloom-duration traits.
+- Then continue to ripening timing.

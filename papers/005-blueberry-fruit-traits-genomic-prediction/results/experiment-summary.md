@@ -2,7 +2,7 @@
 
 ## Brix Phase Status
 
-Status: `done` for the core fruit-quality group, fruit mass, and plant height. Project status remains `reproducing` for bloom and ripening timing.
+Status: `done` for the core fruit-quality group, fruit mass, plant height, and bloom-50% timing. Project status remains `reproducing` for the remaining bloom and ripening traits.
 
 Three of four Brix experiments closely reproduce the paper. The corrected three-year fixed-effect experiment reproduces heritability but not predictive ability; an audit of the author's public split shows direct 2022-target leakage for 196 test-labelled plant IDs.
 
@@ -58,6 +58,15 @@ Plant height closely reproduces the clean author references. Only 2021 and 2022 
 | height-gblup-003 | available years -> 2022, year fixed | 0.6294 | 0.6860 | -0.0566 | lower under ID-safe split |
 | height-gblup-004 | available-years mean -> mean | 0.5906 | 0.5845 | +0.0061 | close |
 
+Bloom-50% timing reproduces three author references closely; the ID-matched cross-year result is higher.
+
+| Run | Training -> Evaluation | Reproduced Pearson | Author Reference | Difference | Status |
+|---|---|---:|---:|---:|---|
+| bloom50-gblup-001 | 2022 -> 2022 | 0.5720 | 0.5825 | -0.0105 | close |
+| bloom50-gblup-002 | 2021 -> 2022 | 0.5351 | 0.4589 | +0.0763 | not close |
+| bloom50-gblup-003 | available years -> 2022, year fixed | 0.5730 | 0.5793 | -0.0063 | close despite leaky author split |
+| bloom50-gblup-004 | available-years mean -> mean | 0.4981 | 0.4789 | +0.0192 | close |
+
 ## Interpretation
 
 - The downloaded phenotype and SNP tables support stable GBLUP analysis.
@@ -71,10 +80,11 @@ Plant height closely reproduces the clean author references. Only 2021 and 2022 
 - The ratio phase provides a fourth confirmation of fixed-effect target leakage.
 - Fruit mass provides a fifth confirmation of the fixed-effect split problem while closely reproducing the clean within-year and averaged setups.
 - Plant height provides a sixth confirmation of the fixed-effect split problem.
+- Bloom-50% provides a seventh confirmation that author test labels can retain 2022 targets, even though its corrected metric remains close.
 
 ## Next Scope
 
 - The Brix prediction configurations are complete.
 - The core fruit-quality group is complete.
-- Bloom timing is the next paper trait, followed by ripening timing.
+- Bloom 5%, bloom 95%, and bloom duration remain, followed by ripening timing.
 - Model improvements begin after the selected paper traits are reproduced.

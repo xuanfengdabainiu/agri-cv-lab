@@ -4,7 +4,7 @@
 
 Reproduce the paper's genomic-prediction experiments for blueberry fruit quality and ripening traits using SNP genotype data.
 
-The completed phases cover the core fruit-quality group, fruit mass, and plant height. The next phase moves to bloom timing.
+The completed phases cover the core fruit-quality group, fruit mass, plant height, and bloom-50% timing. The next phase continues with the remaining bloom traits.
 
 ## Paper
 
@@ -18,7 +18,7 @@ The completed phases cover the core fruit-quality group, fruit mass, and plant h
 
 `reproducing`
 
-The Brix, titratable-acidity, pH, ratio, fruit-mass, and height phases are complete with saved outputs and fixed-effect split audits. The broader project remains active.
+The Brix, titratable-acidity, pH, ratio, fruit-mass, height, and bloom-50% phases are complete with saved outputs and split audits. The broader project remains active.
 
 ## Progress
 
@@ -30,8 +30,9 @@ The Brix, titratable-acidity, pH, ratio, fruit-mass, and height phases are compl
 6. The author's three-year fixed-effect split has been audited for all four core fruit-quality traits.
 7. Fruit mass is complete with four prediction setups.
 8. Plant height is complete with four prediction setups.
-9. Next traits: bloom timing and ripening timing.
-10. GWAS remains outside the current prediction-first scope.
+9. Bloom 50% timing is complete with four prediction setups.
+10. Next traits: bloom 5%, bloom 95%, bloom duration, and ripening timing.
+11. GWAS remains outside the current prediction-first scope.
 
 ## Quick Start
 
@@ -63,7 +64,7 @@ See [`scripts/README.md`](scripts/README.md) for the inspection command and outp
 
 ## Next Trait Phase
 
-The next reproduction phase will reuse the same data checks, fixed seeds, ID-safe splits, metrics, logging, and result-table storage for bloom timing.
+The next reproduction phase will continue with bloom 5%, bloom 95%, and bloom duration.
 
 ## Acidity Results
 
@@ -104,6 +105,14 @@ The next reproduction phase will reuse the same data checks, fixed seeds, ID-saf
 - 2021 -> 2022 Pearson: **0.4780** vs author **0.4754**
 - ID-safe fixed-effect Pearson: **0.6294** vs author 10-repeat **0.6860**
 - Available-years average Pearson: **0.5906** vs author **0.5845**
+
+## Bloom 50% Results
+
+- Phase report: [`results/bloom50-reproduction.md`](results/bloom50-reproduction.md)
+- 2022 -> 2022 Pearson: **0.5720** vs author **0.5825**
+- 2021 -> 2022 Pearson: **0.5351** vs author **0.4589**
+- ID-safe fixed-effect Pearson: **0.5730** vs author **0.5793**
+- Available-years average Pearson: **0.4981** vs author **0.4789**
 
 ## Repository Rules
 

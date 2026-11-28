@@ -30,5 +30,9 @@ This is a genomic-prediction project, so object-detection fields such as mAP and
 | height-gblup-002 | 2026-11-28 | GBLUP | 2021 -> 2022 | 3,604 | 1,822 | 10 | 42 | 0.4780 | 0.0305 | 0.4754 | 582.6515 | 0.4754 | ID-matched; close reproduction |
 | height-gblup-003 | 2026-11-28 | GBLUP + year fixed effect | available years -> 2022 | 3,838 | 1,822 | 10 | 42 | 0.6294 | 0.0166 | 0.6226 | 365.6808 | 0.6860 | Only 2021–2022 available; author split leakage confirmed |
 | height-gblup-004 | 2026-11-28 | GBLUP | available-years mean -> mean | 3,838 | 1,822 | 10 | 42 | 0.5906 | 0.0104 | 0.5848 | 258.8781 | 0.5845 | Close reproduction |
+| bloom50-gblup-001 | 2026-11-28 | GBLUP | 2022 -> 2022 | 1,731 | 1,822 | 10 | 42 | 0.5720 | 0.0293 | 0.5739 | 41.7525 | 0.5825 | Close reproduction |
+| bloom50-gblup-002 | 2026-11-28 | GBLUP | 2021 -> 2022 | 1,155 | 1,822 | 10 | 42 | 0.5351 | 0.0512 | 0.5072 | 63.0722 | 0.4589 | ID-matched; not close |
+| bloom50-gblup-003 | 2026-11-28 | GBLUP + year fixed effect | available years -> 2022 | 3,145 | 1,822 | 10 | 42 | 0.5730 | 0.0280 | 0.5564 | 50.1075 | 0.5793 | Close; author split leakage still present |
+| bloom50-gblup-004 | 2026-11-28 | GBLUP | available-years mean -> mean | 3,145 | 1,822 | 10 | 42 | 0.4981 | 0.0213 | 0.4588 | 22.0561 | 0.4789 | Close reproduction |
 
 Detailed repeat-level metrics and predictions are committed under [`tables/`](tables/).

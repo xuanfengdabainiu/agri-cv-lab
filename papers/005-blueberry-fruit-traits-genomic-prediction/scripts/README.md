@@ -107,3 +107,5 @@ The four ratio modes were completed on 2026-11-27 with trait arguments `Ratio Ra
 The four fruit-mass modes were completed on 2026-11-27 with trait arguments `FruitMass FruitMass_2022 fruit-mass`. See `results/fruit-mass-reproduction.md`.
 
 The four height modes were completed on 2026-11-28 with trait arguments `height height_2022 height`. See `results/height-reproduction.md`.
+
+The four bloom-50% modes were completed on 2026-11-28 with trait arguments `bloom50per bloom50per_2022 bloom50`. See `results/bloom50-reproduction.md`.
